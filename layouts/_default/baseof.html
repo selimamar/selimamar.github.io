@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="{{ site.Language.Locale }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{ $description := .Description | default site.Params.description }}
+    <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Params.name }}{{ end }}</title>
+    <meta name="description" content="{{ $description }}">
+    <meta name="author" content="{{ site.Params.name }}">
+    <meta name="theme-color" content="#f7f4ed">
+    {{ $hasProductionURL := not (strings.Contains site.BaseURL ".example/") }}
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Params.name }}{{ end }}">
+    <meta property="og:description" content="{{ $description }}">
+    {{ if $hasProductionURL }}<meta property="og:url" content="{{ .Permalink }}">{{ end }}
+    {{ if and $hasProductionURL (fileExists "static/og.png") }}
+      <meta property="og:image" content="{{ "og.png" | absURL }}">
+      <meta property="og:image:alt" content="Selim Amar — Mathematics at Stanford University">
+    {{ end }}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Params.name }}{{ end }}">
+    <meta name="twitter:description" content="{{ $description }}">
+    {{ if and $hasProductionURL (fileExists "static/og.png") }}<meta name="twitter:image" content="{{ "og.png" | absURL }}">{{ end }}
+    {{ if $hasProductionURL }}<link rel="canonical" href="{{ .Permalink }}">{{ end }}
+    {{ $style := resources.Get "css/main.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+    {{ partial "math.html" . }}
+  </head>
+  <body class="{{ if .IsHome }}home{{ else }}inner-page{{ end }}">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    {{ partial "header.html" . }}
+    <main id="main-content">
+      {{ block "main" . }}{{ end }}
+    </main>
+    {{ partial "footer.html" . }}
+    <script>
+      const toggle = document.querySelector('[data-nav-toggle]');
+      const menu = document.querySelector('[data-nav-menu]');
+      if (toggle && menu) {
+        toggle.addEventListener('click', () => {
+          const open = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!open));
+          menu.toggleAttribute('data-open', !open);
+        });
+      }
+    </script>
+  </body>
+</html>

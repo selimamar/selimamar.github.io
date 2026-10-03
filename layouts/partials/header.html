@@ -1,0 +1,18 @@
+<header class="site-header">
+  <div class="header-inner shell">
+    <a class="wordmark" href="{{ site.Home.RelPermalink }}" aria-label="Selim Amar, home">Selim Amar</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle>
+      <span>Menu</span>
+      <span class="nav-toggle-lines" aria-hidden="true"></span>
+    </button>
+    <nav class="site-nav" aria-label="Main navigation">
+      <ul id="site-menu" data-nav-menu>
+        {{ range site.Menus.main }}
+          {{ $active := or (and $.IsHome (eq .Name "Home")) (and (not $.IsHome) (eq $.RelPermalink .URL)) }}
+          <li><a href="{{ .URL }}"{{ if $active }} class="active" aria-current="page"{{ end }}>{{ .Name }}</a></li>
+        {{ end }}
+      </ul>
+    </nav>
+  </div>
+</header>
+
