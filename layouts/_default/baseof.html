@@ -7,7 +7,7 @@
     <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Params.name }}{{ end }}</title>
     <meta name="description" content="{{ $description }}">
     <meta name="author" content="{{ site.Params.name }}">
-    <meta name="theme-color" content="#f7f4ed">
+    <meta name="theme-color" content="#eceef0">
     {{ $hasProductionURL := not (strings.Contains site.BaseURL ".example/") }}
     <meta property="og:type" content="website">
     <meta property="og:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Params.name }}{{ end }}">

@@ -1,4 +1,4 @@
-baseURL = "https://selim-amar.example/"
+baseURL = "https://amar268.github.io/"
 locale = "en-US"
 title = "Selim Amar — Mathematics"
 enableRobotsTXT = true
@@ -17,7 +17,7 @@ disableKinds = ["taxonomy", "term"]
     "Microlocal Analysis",
     "Partial Differential Equations",
     "Spectral Theory",
-    "Dynamical Systems"
+    "Inverse Problems"
   ]
 
 [[menus.main]]

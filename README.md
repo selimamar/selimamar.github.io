@@ -51,7 +51,7 @@ Mathematics can be written with `\(...\)` for inline expressions and `\[...\]` f
 
 ## Replace the portrait
 
-Replace `static/images/portrait.jpg` with a real landscape portrait. A 5:4 image at 1600 × 1280 pixels or larger is ideal; no template change is required.
+Replace `static/images/selim-amar.jpg` with a landscape portrait. The homepage shows the photo in a 4:3 frame at the top right on wider screens, preserving the left edge where the subject appears in the current photo. Update the image dimensions and alt text in `layouts/index.html` when replacing it.
 
 ## Replace the CV
 
