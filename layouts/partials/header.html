@@ -1,0 +1,32 @@
+<header class="site-header">
+  <div class="header-inner shell">
+    <a class="wordmark" href="{{ site.Home.RelPermalink }}" aria-label="Selim Amar, home">Selim Amar</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle>
+      <span>Menu</span>
+      <span class="nav-toggle-lines" aria-hidden="true"></span>
+    </button>
+    <nav class="site-nav" aria-label="Main navigation">
+      <ul id="site-menu" data-nav-menu>
+        {{ range site.Menus.main }}
+          {{ $active := or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) (eq $.Params.activeMenu .Name) }}
+          {{ if .HasChildren }}
+            <li class="nav-projects">
+              <details class="nav-dropdown" data-nav-dropdown>
+                <summary{{ if $active }} class="active"{{ end }}>{{ .Name }}<span class="nav-chevron" aria-hidden="true"></span></summary>
+                <ul class="nav-submenu">
+                  <li><a href="{{ .URL }}"{{ if eq $.RelPermalink .URL }} class="active" aria-current="page"{{ end }}>All projects</a></li>
+                  {{ range .Children }}
+                    <li><a href="{{ .URL }}"{{ if $.IsMenuCurrent "main" . }} class="active" aria-current="page"{{ end }}>{{ .Name }}</a></li>
+                  {{ end }}
+                </ul>
+              </details>
+            </li>
+          {{ else }}
+            <li><a href="{{ .URL }}"{{ if $active }} class="active" aria-current="page"{{ end }}>{{ .Name }}</a></li>
+          {{ end }}
+        {{ end }}
+      </ul>
+    </nav>
+  </div>
+</header>
+

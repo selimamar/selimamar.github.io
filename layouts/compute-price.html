@@ -1,0 +1,55 @@
+{{ define "page-head" }}
+  {{ $style := resources.Get "css/compute-price.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+{{ end }}
+
+{{ define "main" }}
+<article class="compute-app shell" data-compute-app data-catalog-url="./data/price-catalog.json">
+  <header class="compute-intro">
+    <div class="compute-topline">
+      <p class="eyebrow">Public cloud · USD per hour</p>
+      <a id="methodology-link" class="methodology-link" href="./output/pdf/compute-price-methodology.pdf" target="_blank" rel="noopener" aria-label="Methodology, one-page PDF, opens in a new tab">Methodology <span>PDF ↗</span></a>
+    </div>
+    <h1>The price of compute<span class="compute-accent">.</span></h1>
+    <p class="intro-copy">CPU and GPU reference prices, refreshed daily.</p>
+    <p id="snapshot-status" class="snapshot-status" role="status">Loading the latest price snapshot…</p>
+    <div id="data-notice" class="notice" hidden></div>
+  </header>
+
+  <section id="prices" class="model-section" aria-labelledby="model-heading">
+    <div class="section-heading">
+      <h2 id="model-heading">CPU compute</h2>
+      <div class="tabs" aria-label="Page view">
+        <button type="button" data-model="cpu" class="active" aria-pressed="true">CPU</button>
+        <button type="button" data-model="gpu" aria-pressed="false">GPU</button>
+        <button type="button" id="data-tab" aria-pressed="false">Data</button>
+      </div>
+    </div>
+    <div id="model-content"><p class="loading-copy">Loading the price equation and fit plot…</p></div>
+    <div id="data-content" hidden>
+      <div class="fit-data-controls">
+        <label>Sample <select id="fit-model"><option value="cpu">CPU</option><option value="gpu">GPU</option></select></label>
+        <label>Provider <select id="fit-provider"><option value="all">All providers</option></select></label>
+        <label>Order <select id="fit-sort"><option value="price-asc">Lowest price</option><option value="price-desc">Highest price</option><option value="name">Machine name</option></select></label>
+        <label class="fit-data-search">Find a machine <input id="fit-search" type="search" placeholder="e.g. g2-standard" /></label>
+      </div>
+      <div class="fit-data-toolbar"><p id="fit-data-context">Loading the fitting sample…</p><button type="button" id="download-fit-csv" class="text-button" disabled>Download this sample ↓</button></div>
+      <p id="fit-data-note" class="fit-data-note"></p>
+      <div class="fit-data-scroll" tabindex="0" role="region" aria-label="Machines used in the fit and their hourly prices; scroll horizontally for all columns">
+        <table class="fit-data-table"><thead id="fit-data-head"></thead><tbody id="fit-data-body"></tbody></table>
+      </div>
+      <div class="fit-data-footer"><p id="fit-data-count"></p><button type="button" id="show-more" class="text-button" hidden>Show 25 more ↓</button></div>
+    </div>
+  </section>
+
+  <noscript><p class="notice">Enable JavaScript to explore the reference prices and plots. The <a href="./output/pdf/compute-price-methodology.pdf">methodology PDF</a> and <a href="./data/price-catalog.json">source prices</a> are also available directly.</p></noscript>
+  <footer class="compute-downloads">
+    <p>Public prices. An open calculation.</p>
+    <div class="footer-links"><button type="button" id="download-csv" class="text-button" disabled>Full catalog CSV ↓</button><a id="download-model" href="./data/experiments.json" download>Saved models ↓</a></div>
+  </footer>
+</article>
+{{ end }}
+
+{{ define "page-scripts" }}
+  <script type="module" src="{{ "compute-price/app.js" | relURL }}"></script>
+{{ end }}

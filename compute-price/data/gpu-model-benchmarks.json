@@ -1,0 +1,511 @@
+{
+  "methodology": {
+    "benchmark": "Geekbench 7",
+    "versionMajor": 7,
+    "api": "OpenCL",
+    "status": "model-proxy",
+    "sourceUrl": "https://browser.geekbench.com/opencl-benchmarks",
+    "retrievedAt": "2026-09-29T04:11:51Z",
+    "selection": "Official Geekbench 7 OpenCL chart GPU-model scores, calculated by Primate Labs from at least five unique uploaded results per model. Preserve exact model variants; virtual partitions, PCIe/SXM differences, memory variants and workstation/server editions are not interchangeable. No score is multiplied by GPU count.",
+    "usage": "A GPU-model reference score is a proxy for a single allocated matching GPU. It is not a measurement of that cloud VM. Match exact hardware variants using provider specifications; leave unverified variants unavailable. Only single-GPU allocations can use this reference without a separately measured aggregate GPU benchmark.",
+    "limitations": "Scores combine different systems, operating systems, drivers and host CPUs. Cloud performance can differ. Geekbench OpenCL measures general GPU compute workloads rather than LLM throughput. This dataset is a separately versioned series and must not be mixed with Geekbench 6 GPU results. Chart values can change as uploads accumulate.",
+    "minimumUniqueResultsPerModel": 5
+  },
+  "records": [
+    {
+      "gpu": "NVIDIA T4",
+      "chartModel": "Tesla T4",
+      "score": 61216,
+      "versionMajor": 7,
+      "api": "OpenCL",
+      "sourceUrl": "https://browser.geekbench.com/opencl-benchmarks",
+      "sourceType": "Official aggregated GPU-model reference",
+      "proxy": true,
+      "minimumUniqueResults": 5,
+      "retrievedAt": "2026-09-29T04:11:51Z"
+    },
+    {
+      "gpu": "NVIDIA V100-SXM2-16GB",
+      "chartModel": "Tesla V100-SXM2-16GB",
+      "score": 151070,
+      "versionMajor": 7,
+      "api": "OpenCL",
+      "sourceUrl": "https://browser.geekbench.com/opencl-benchmarks",
+      "sourceType": "Official aggregated GPU-model reference",
+      "proxy": true,
+      "minimumUniqueResults": 5,
+      "retrievedAt": "2026-09-29T04:11:51Z"
+    },
+    {
+      "gpu": "NVIDIA V100S-PCIE-32GB",
+      "chartModel": "Tesla V100S-PCIE-32GB",
+      "score": 194415,
+      "versionMajor": 7,
+      "api": "OpenCL",
+      "sourceUrl": "https://browser.geekbench.com/opencl-benchmarks",
+      "sourceType": "Official aggregated GPU-model reference",
+      "proxy": true,
+      "minimumUniqueResults": 5,
+      "retrievedAt": "2026-09-29T04:11:51Z"
+    },
+    {
+      "gpu": "NVIDIA A10",
+      "chartModel": "NVIDIA A10",
+      "score": 159199,
+      "versionMajor": 7,
+      "api": "OpenCL",
+      "sourceUrl": "https://browser.geekbench.com/opencl-benchmarks",
+      "sourceType": "Official aggregated GPU-model reference",
+      "proxy": true,
+      "minimumUniqueResults": 5,
+      "retrievedAt": "2026-09-29T04:11:51Z"
+    },
+    {
+      "gpu": "NVIDIA A30",
+      "chartModel": "NVIDIA A30",
+      "score": 122511,
+      "versionMajor": 7,
+      "api": "OpenCL",
+      "sourceUrl": "https://browser.geekbench.com/opencl-benchmarks",
+      "sourceType": "Official aggregated GPU-model reference",
+      "proxy": true,
+      "minimumUniqueResults": 5,
+      "retrievedAt": "2026-09-29T04:11:51Z"
+    },
+    {
+      "gpu": "NVIDIA A40",
+      "chartModel": "A40",
+      "score": 149033,
+      "versionMajor": 7,
+      "api": "OpenCL",
+      "sourceUrl": "https://browser.geekbench.com/opencl-benchmarks",
+      "sourceType": "Official aggregated GPU-model reference",
+      "proxy": true,
+      "minimumUniqueResults": 5,
+      "retrievedAt": "2026-09-29T04:11:51Z"
+    },
+    {
+      "gpu": "NVIDIA A100-PCIE-80GB",
+      "chartModel": "NVIDIA A100-PCIE-80GB",
+      "score": 207124,
+      "versionMajor": 7,
+      "api": "OpenCL",
+      "sourceUrl": "https://browser.geekbench.com/opencl-benchmarks",
+      "sourceType": "Official aggregated GPU-model reference",
+      "proxy": true,
+      "minimumUniqueResults": 5,
+      "retrievedAt": "2026-09-29T04:11:51Z"
+    },
+    {
+      "gpu": "NVIDIA H100 80GB HBM3",
+      "chartModel": "NVIDIA H100 80GB HBM3",
+      "score": 341973,
+      "versionMajor": 7,
+      "api": "OpenCL",
+      "sourceUrl": "https://browser.geekbench.com/opencl-benchmarks",
+      "sourceType": "Official aggregated GPU-model reference",
+      "proxy": true,
+      "minimumUniqueResults": 5,
+      "retrievedAt": "2026-09-29T04:11:51Z"
+    },
+    {
+      "gpu": "NVIDIA H200",
+      "chartModel": "NVIDIA H200",
+      "score": 335206,
+      "versionMajor": 7,
+      "api": "OpenCL",
+      "sourceUrl": "https://browser.geekbench.com/opencl-benchmarks",
+      "sourceType": "Official aggregated GPU-model reference",
+      "proxy": true,
+      "minimumUniqueResults": 5,
+      "retrievedAt": "2026-09-29T04:11:51Z"
+    },
+    {
+      "gpu": "NVIDIA B200",
+      "chartModel": "NVIDIA B200",
+      "score": 345482,
+      "versionMajor": 7,
+      "api": "OpenCL",
+      "sourceUrl": "https://browser.geekbench.com/opencl-benchmarks",
+      "sourceType": "Official aggregated GPU-model reference",
+      "proxy": true,
+      "minimumUniqueResults": 5,
+      "retrievedAt": "2026-09-29T04:11:51Z"
+    },
+    {
+      "gpu": "NVIDIA B300 SXM6 AC",
+      "chartModel": "NVIDIA B300 SXM6 AC",
+      "score": 369831,
+      "versionMajor": 7,
+      "api": "OpenCL",
+      "sourceUrl": "https://browser.geekbench.com/opencl-benchmarks",
+      "sourceType": "Official aggregated GPU-model reference",
+      "proxy": true,
+      "minimumUniqueResults": 5,
+      "retrievedAt": "2026-09-29T04:11:51Z"
+    },
+    {
+      "gpu": "NVIDIA L40",
+      "chartModel": "NVIDIA L40",
+      "score": 330926,
+      "versionMajor": 7,
+      "api": "OpenCL",
+      "sourceUrl": "https://browser.geekbench.com/opencl-benchmarks",
+      "sourceType": "Official aggregated GPU-model reference",
+      "proxy": true,
+      "minimumUniqueResults": 5,
+      "retrievedAt": "2026-09-29T04:11:51Z"
+    },
+    {
+      "gpu": "NVIDIA L20",
+      "chartModel": "NVIDIA L20",
+      "score": 274276,
+      "versionMajor": 7,
+      "api": "OpenCL",
+      "sourceUrl": "https://browser.geekbench.com/opencl-benchmarks",
+      "sourceType": "Official aggregated GPU-model reference",
+      "proxy": true,
+      "minimumUniqueResults": 5,
+      "retrievedAt": "2026-09-29T04:11:51Z"
+    },
+    {
+      "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+      "chartModel": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+      "score": 295333,
+      "versionMajor": 7,
+      "api": "OpenCL",
+      "sourceUrl": "https://browser.geekbench.com/opencl-benchmarks",
+      "sourceType": "Official aggregated GPU-model reference",
+      "proxy": true,
+      "minimumUniqueResults": 5,
+      "retrievedAt": "2026-09-29T04:11:51Z"
+    },
+    {
+      "gpu": "AMD Instinct MI300X",
+      "chartModel": "AMD Instinct MI300X",
+      "score": 317994,
+      "versionMajor": 7,
+      "api": "OpenCL",
+      "sourceUrl": "https://browser.geekbench.com/opencl-benchmarks",
+      "sourceType": "Official aggregated GPU-model reference",
+      "proxy": true,
+      "minimumUniqueResults": 5,
+      "retrievedAt": "2026-09-29T04:11:51Z"
+    },
+    {
+      "gpu": "AMD Radeon PRO V620",
+      "chartModel": "AMD Radeon PRO V620",
+      "score": 128580,
+      "versionMajor": 7,
+      "api": "OpenCL",
+      "sourceUrl": "https://browser.geekbench.com/opencl-benchmarks",
+      "sourceType": "Official aggregated GPU-model reference",
+      "proxy": true,
+      "minimumUniqueResults": 5,
+      "retrievedAt": "2026-09-29T04:11:51Z"
+    },
+    {
+      "gpu": "AMD Radeon PRO V710",
+      "chartModel": "AMD Radeon PRO V710",
+      "score": 116460,
+      "versionMajor": 7,
+      "api": "OpenCL",
+      "sourceUrl": "https://browser.geekbench.com/opencl-benchmarks",
+      "sourceType": "Official aggregated GPU-model reference",
+      "proxy": true,
+      "minimumUniqueResults": 5,
+      "retrievedAt": "2026-09-29T04:11:51Z"
+    },
+    {
+      "gpu": "NVIDIA P4",
+      "chartModel": "Tesla P4",
+      "score": 35561,
+      "versionMajor": 7,
+      "api": "OpenCL",
+      "sourceUrl": "https://browser.geekbench.com/opencl-benchmarks",
+      "sourceType": "Official aggregated GPU-model reference",
+      "proxy": true,
+      "minimumUniqueResults": 5,
+      "retrievedAt": "2026-09-29T04:51:56.332875Z"
+    }
+  ],
+  "unavailable": [
+    {
+      "gpu": "NVIDIA A10G",
+      "reason": "No exact A10G row was found. A10 and A10M are different chart models and are not substituted."
+    },
+    {
+      "gpu": "NVIDIA L4",
+      "reason": "Only virtual L4-2Q, L4-6Q and L4-8Q variants were found; none represents a verified full L4 allocation."
+    },
+    {
+      "gpu": "NVIDIA L40S",
+      "reason": "Only virtual L40S-4Q, L40S-12Q, L40S-24Q and L40S-48Q variants were found. No exact full-device row was verified."
+    },
+    {
+      "gpu": "NVIDIA A100-SXM4-80GB",
+      "reason": "The chart row is an explicit MIG 7g.80gb profile and is not silently substituted for an unpartitioned SXM4 accelerator."
+    },
+    {
+      "gpu": "NVIDIA M60",
+      "reason": "No exact M60 chart row was verified."
+    },
+    {
+      "gpu": "NVIDIA K80",
+      "reason": "No exact K80 chart row was verified."
+    },
+    {
+      "gpu": "NVIDIA T4g",
+      "reason": "No exact T4g chart row was verified; it is not silently equated with T4."
+    },
+    {
+      "gpu": "AMD Radeon Pro V520",
+      "reason": "Chart only has V520 MxGPU without verified allocation details; no full-device substitute."
+    },
+    {
+      "gpu": "NVIDIA RTX PRO 4500 Blackwell Server Edition",
+      "reason": "Chart plain RTX PRO 4500 Blackwell row does not establish the Server Edition variant."
+    }
+  ],
+  "cloudMappings": [
+    {
+      "provider": "aws",
+      "name": "g4dn.xlarge",
+      "catalogGpu": "NVIDIA T4",
+      "gpu": "NVIDIA T4",
+      "gpuCount": 1,
+      "sourceUrl": "https://docs.aws.amazon.com/ec2/latest/instancetypes/ac.html",
+      "mappingBasis": "AWS identifies one NVIDIA T4 GPU; Tesla T4 is the chart device label."
+    },
+    {
+      "provider": "aws",
+      "name": "g4dn.2xlarge",
+      "catalogGpu": "NVIDIA T4",
+      "gpu": "NVIDIA T4",
+      "gpuCount": 1,
+      "sourceUrl": "https://docs.aws.amazon.com/ec2/latest/instancetypes/ac.html",
+      "mappingBasis": "AWS identifies one NVIDIA T4 GPU; Tesla T4 is the chart device label."
+    },
+    {
+      "provider": "aws",
+      "name": "g4dn.4xlarge",
+      "catalogGpu": "NVIDIA T4",
+      "gpu": "NVIDIA T4",
+      "gpuCount": 1,
+      "sourceUrl": "https://docs.aws.amazon.com/ec2/latest/instancetypes/ac.html",
+      "mappingBasis": "AWS identifies one NVIDIA T4 GPU; Tesla T4 is the chart device label."
+    },
+    {
+      "provider": "aws",
+      "name": "g4dn.8xlarge",
+      "catalogGpu": "NVIDIA T4",
+      "gpu": "NVIDIA T4",
+      "gpuCount": 1,
+      "sourceUrl": "https://docs.aws.amazon.com/ec2/latest/instancetypes/ac.html",
+      "mappingBasis": "AWS identifies one NVIDIA T4 GPU; Tesla T4 is the chart device label."
+    },
+    {
+      "provider": "aws",
+      "name": "g4dn.16xlarge",
+      "catalogGpu": "NVIDIA T4",
+      "gpu": "NVIDIA T4",
+      "gpuCount": 1,
+      "sourceUrl": "https://docs.aws.amazon.com/ec2/latest/instancetypes/ac.html",
+      "mappingBasis": "AWS identifies one NVIDIA T4 GPU; Tesla T4 is the chart device label."
+    },
+    {
+      "provider": "aws",
+      "name": "g7e.2xlarge",
+      "catalogGpu": "NVIDIA RTX PRO Server 6000",
+      "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+      "gpuCount": 1,
+      "sourceUrl": "https://aws.amazon.com/ec2/instance-types/g7e/",
+      "observedHardwareUrl": "https://github.com/SpareCores/sc-inspector-data/blob/main/data/aws/g7e.2xlarge/nvidia_smi/stdout",
+      "mappingBasis": "AWS identifies RTX PRO 6000 Blackwell Server Edition, corroborated by the test author hardware report."
+    },
+    {
+      "provider": "aws",
+      "name": "g7e.4xlarge",
+      "catalogGpu": "NVIDIA RTX PRO Server 6000",
+      "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+      "gpuCount": 1,
+      "sourceUrl": "https://aws.amazon.com/ec2/instance-types/g7e/",
+      "observedHardwareUrl": "https://github.com/SpareCores/sc-inspector-data/blob/main/data/aws/g7e.2xlarge/nvidia_smi/stdout",
+      "mappingBasis": "AWS identifies RTX PRO 6000 Blackwell Server Edition, corroborated by the test author hardware report."
+    },
+    {
+      "provider": "aws",
+      "name": "g7e.8xlarge",
+      "catalogGpu": "NVIDIA RTX PRO Server 6000",
+      "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+      "gpuCount": 1,
+      "sourceUrl": "https://aws.amazon.com/ec2/instance-types/g7e/",
+      "observedHardwareUrl": "https://github.com/SpareCores/sc-inspector-data/blob/main/data/aws/g7e.2xlarge/nvidia_smi/stdout",
+      "mappingBasis": "AWS identifies RTX PRO 6000 Blackwell Server Edition, corroborated by the test author hardware report."
+    },
+    {
+      "provider": "aws",
+      "name": "p5.4xlarge",
+      "catalogGpu": "NVIDIA H100",
+      "gpu": "NVIDIA H100 80GB HBM3",
+      "gpuCount": 1,
+      "sourceUrl": "https://aws.amazon.com/ec2/instance-types/p5/",
+      "mappingBasis": "AWS specifies one H100 with 80 GB HBM3, matching the exact chart label."
+    },
+    {
+      "provider": "aws",
+      "name": "p3.2xlarge",
+      "catalogGpu": "NVIDIA V100",
+      "gpu": "NVIDIA V100-SXM2-16GB",
+      "gpuCount": 1,
+      "sourceUrl": "https://docs.aws.amazon.com/ec2/latest/instancetypes/pg.html",
+      "observedHardwareUrl": "https://github.com/SpareCores/sc-inspector-data/blob/main/data/aws/p3.2xlarge/nvidia_smi/stdout",
+      "mappingBasis": "AWS specifies one 16 GiB V100; the primary test author nvidia-smi report identifies Tesla V100-SXM2-16GB and one attached GPU."
+    },
+    {
+      "provider": "azure",
+      "name": "Standard_NC24ads_A100_v4",
+      "catalogGpu": "NVIDIA A100",
+      "gpu": "NVIDIA A100-PCIE-80GB",
+      "gpuCount": 1,
+      "sourceUrl": "https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/nca100v4-series",
+      "mappingBasis": "Microsoft identifies this shape as one NVIDIA A100 PCIe GPU with 80 GB memory, 24 vCPUs and 220 GiB system RAM, matching the chart hardware variant."
+    },
+    {
+      "provider": "azure",
+      "name": "Standard_NC4as_T4_v3",
+      "catalogGpu": "NVidia T4",
+      "gpu": "NVIDIA T4",
+      "gpuCount": 1,
+      "sourceUrl": "https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/ncast4v3-series",
+      "mappingBasis": "Microsoft lists one NVIDIA Tesla T4 GPU for this exact shape."
+    },
+    {
+      "provider": "azure",
+      "name": "Standard_NC8as_T4_v3",
+      "catalogGpu": "NVidia T4",
+      "gpu": "NVIDIA T4",
+      "gpuCount": 1,
+      "sourceUrl": "https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/ncast4v3-series",
+      "mappingBasis": "Microsoft lists one NVIDIA Tesla T4 GPU for this exact shape."
+    },
+    {
+      "provider": "azure",
+      "name": "Standard_NC16as_T4_v3",
+      "catalogGpu": "NVidia T4",
+      "gpu": "NVIDIA T4",
+      "gpuCount": 1,
+      "sourceUrl": "https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/ncast4v3-series",
+      "mappingBasis": "Microsoft lists one NVIDIA Tesla T4 GPU for this exact shape."
+    },
+    {
+      "provider": "gcp",
+      "name": "g4-standard-48",
+      "catalogGpu": "NVIDIA RTX PRO 6000",
+      "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+      "gpuCount": 1,
+      "sourceUrl": "https://docs.cloud.google.com/compute/docs/gpus#g4-gpus",
+      "mappingBasis": "Google specifies one full NVIDIA RTX PRO 6000 Blackwell Server Edition GPU and 96 GB GPU memory for g4-standard-48. Fractional G4 shapes are not mapped."
+    },
+    {
+      "provider": "gcp",
+      "name": "n1-highcpu-2 + 1\u00d7 V100",
+      "catalogGpu": "NVIDIA V100",
+      "gpu": "NVIDIA V100-SXM2-16GB",
+      "gpuCount": 1,
+      "sourceUrl": "https://docs.cloud.google.com/compute/docs/gpus#n1-v100-gpus",
+      "observedHardwareUrl": "https://docs.cloud.google.com/kubernetes-engine/docs/how-to/timesharing-gpus#deploy_workloads_that_use_gpu_time-sharing",
+      "mappingBasis": "Google specifies one 16 GB V100 for eligible N1 shapes with at most 12 vCPUs and 78 GB system memory, with NVLink Ring at 300 GB/s. Its official GKE GPU guide identifies the device as Tesla V100-SXM2-16GB in nvidia-smi output. This mapping covers a full attached device, without GPU time sharing or virtual workstation licensing."
+    },
+    {
+      "provider": "gcp",
+      "name": "n1-highcpu-4 + 1\u00d7 V100",
+      "catalogGpu": "NVIDIA V100",
+      "gpu": "NVIDIA V100-SXM2-16GB",
+      "gpuCount": 1,
+      "sourceUrl": "https://docs.cloud.google.com/compute/docs/gpus#n1-v100-gpus",
+      "observedHardwareUrl": "https://docs.cloud.google.com/kubernetes-engine/docs/how-to/timesharing-gpus#deploy_workloads_that_use_gpu_time-sharing",
+      "mappingBasis": "Google specifies one 16 GB V100 for eligible N1 shapes with at most 12 vCPUs and 78 GB system memory, with NVLink Ring at 300 GB/s. Its official GKE GPU guide identifies the device as Tesla V100-SXM2-16GB in nvidia-smi output. This mapping covers a full attached device, without GPU time sharing or virtual workstation licensing."
+    },
+    {
+      "provider": "gcp",
+      "name": "n1-highcpu-8 + 1\u00d7 V100",
+      "catalogGpu": "NVIDIA V100",
+      "gpu": "NVIDIA V100-SXM2-16GB",
+      "gpuCount": 1,
+      "sourceUrl": "https://docs.cloud.google.com/compute/docs/gpus#n1-v100-gpus",
+      "observedHardwareUrl": "https://docs.cloud.google.com/kubernetes-engine/docs/how-to/timesharing-gpus#deploy_workloads_that_use_gpu_time-sharing",
+      "mappingBasis": "Google specifies one 16 GB V100 for eligible N1 shapes with at most 12 vCPUs and 78 GB system memory, with NVLink Ring at 300 GB/s. Its official GKE GPU guide identifies the device as Tesla V100-SXM2-16GB in nvidia-smi output. This mapping covers a full attached device, without GPU time sharing or virtual workstation licensing."
+    },
+    {
+      "provider": "gcp",
+      "name": "n1-highmem-2 + 1\u00d7 V100",
+      "catalogGpu": "NVIDIA V100",
+      "gpu": "NVIDIA V100-SXM2-16GB",
+      "gpuCount": 1,
+      "sourceUrl": "https://docs.cloud.google.com/compute/docs/gpus#n1-v100-gpus",
+      "observedHardwareUrl": "https://docs.cloud.google.com/kubernetes-engine/docs/how-to/timesharing-gpus#deploy_workloads_that_use_gpu_time-sharing",
+      "mappingBasis": "Google specifies one 16 GB V100 for eligible N1 shapes with at most 12 vCPUs and 78 GB system memory, with NVLink Ring at 300 GB/s. Its official GKE GPU guide identifies the device as Tesla V100-SXM2-16GB in nvidia-smi output. This mapping covers a full attached device, without GPU time sharing or virtual workstation licensing."
+    },
+    {
+      "provider": "gcp",
+      "name": "n1-highmem-4 + 1\u00d7 V100",
+      "catalogGpu": "NVIDIA V100",
+      "gpu": "NVIDIA V100-SXM2-16GB",
+      "gpuCount": 1,
+      "sourceUrl": "https://docs.cloud.google.com/compute/docs/gpus#n1-v100-gpus",
+      "observedHardwareUrl": "https://docs.cloud.google.com/kubernetes-engine/docs/how-to/timesharing-gpus#deploy_workloads_that_use_gpu_time-sharing",
+      "mappingBasis": "Google specifies one 16 GB V100 for eligible N1 shapes with at most 12 vCPUs and 78 GB system memory, with NVLink Ring at 300 GB/s. Its official GKE GPU guide identifies the device as Tesla V100-SXM2-16GB in nvidia-smi output. This mapping covers a full attached device, without GPU time sharing or virtual workstation licensing."
+    },
+    {
+      "provider": "gcp",
+      "name": "n1-highmem-8 + 1\u00d7 V100",
+      "catalogGpu": "NVIDIA V100",
+      "gpu": "NVIDIA V100-SXM2-16GB",
+      "gpuCount": 1,
+      "sourceUrl": "https://docs.cloud.google.com/compute/docs/gpus#n1-v100-gpus",
+      "observedHardwareUrl": "https://docs.cloud.google.com/kubernetes-engine/docs/how-to/timesharing-gpus#deploy_workloads_that_use_gpu_time-sharing",
+      "mappingBasis": "Google specifies one 16 GB V100 for eligible N1 shapes with at most 12 vCPUs and 78 GB system memory, with NVLink Ring at 300 GB/s. Its official GKE GPU guide identifies the device as Tesla V100-SXM2-16GB in nvidia-smi output. This mapping covers a full attached device, without GPU time sharing or virtual workstation licensing."
+    },
+    {
+      "provider": "gcp",
+      "name": "n1-standard-1 + 1\u00d7 V100",
+      "catalogGpu": "NVIDIA V100",
+      "gpu": "NVIDIA V100-SXM2-16GB",
+      "gpuCount": 1,
+      "sourceUrl": "https://docs.cloud.google.com/compute/docs/gpus#n1-v100-gpus",
+      "observedHardwareUrl": "https://docs.cloud.google.com/kubernetes-engine/docs/how-to/timesharing-gpus#deploy_workloads_that_use_gpu_time-sharing",
+      "mappingBasis": "Google specifies one 16 GB V100 for eligible N1 shapes with at most 12 vCPUs and 78 GB system memory, with NVLink Ring at 300 GB/s. Its official GKE GPU guide identifies the device as Tesla V100-SXM2-16GB in nvidia-smi output. This mapping covers a full attached device, without GPU time sharing or virtual workstation licensing."
+    },
+    {
+      "provider": "gcp",
+      "name": "n1-standard-2 + 1\u00d7 V100",
+      "catalogGpu": "NVIDIA V100",
+      "gpu": "NVIDIA V100-SXM2-16GB",
+      "gpuCount": 1,
+      "sourceUrl": "https://docs.cloud.google.com/compute/docs/gpus#n1-v100-gpus",
+      "observedHardwareUrl": "https://docs.cloud.google.com/kubernetes-engine/docs/how-to/timesharing-gpus#deploy_workloads_that_use_gpu_time-sharing",
+      "mappingBasis": "Google specifies one 16 GB V100 for eligible N1 shapes with at most 12 vCPUs and 78 GB system memory, with NVLink Ring at 300 GB/s. Its official GKE GPU guide identifies the device as Tesla V100-SXM2-16GB in nvidia-smi output. This mapping covers a full attached device, without GPU time sharing or virtual workstation licensing."
+    },
+    {
+      "provider": "gcp",
+      "name": "n1-standard-4 + 1\u00d7 V100",
+      "catalogGpu": "NVIDIA V100",
+      "gpu": "NVIDIA V100-SXM2-16GB",
+      "gpuCount": 1,
+      "sourceUrl": "https://docs.cloud.google.com/compute/docs/gpus#n1-v100-gpus",
+      "observedHardwareUrl": "https://docs.cloud.google.com/kubernetes-engine/docs/how-to/timesharing-gpus#deploy_workloads_that_use_gpu_time-sharing",
+      "mappingBasis": "Google specifies one 16 GB V100 for eligible N1 shapes with at most 12 vCPUs and 78 GB system memory, with NVLink Ring at 300 GB/s. Its official GKE GPU guide identifies the device as Tesla V100-SXM2-16GB in nvidia-smi output. This mapping covers a full attached device, without GPU time sharing or virtual workstation licensing."
+    },
+    {
+      "provider": "gcp",
+      "name": "n1-standard-8 + 1\u00d7 V100",
+      "catalogGpu": "NVIDIA V100",
+      "gpu": "NVIDIA V100-SXM2-16GB",
+      "gpuCount": 1,
+      "sourceUrl": "https://docs.cloud.google.com/compute/docs/gpus#n1-v100-gpus",
+      "observedHardwareUrl": "https://docs.cloud.google.com/kubernetes-engine/docs/how-to/timesharing-gpus#deploy_workloads_that_use_gpu_time-sharing",
+      "mappingBasis": "Google specifies one 16 GB V100 for eligible N1 shapes with at most 12 vCPUs and 78 GB system memory, with NVLink Ring at 300 GB/s. Its official GKE GPU guide identifies the device as Tesla V100-SXM2-16GB in nvidia-smi output. This mapping covers a full attached device, without GPU time sharing or virtual workstation licensing."
+    }
+  ]
+}

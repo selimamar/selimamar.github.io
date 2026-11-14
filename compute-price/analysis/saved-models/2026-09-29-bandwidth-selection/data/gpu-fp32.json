@@ -1,0 +1,518 @@
+{
+  "schemaVersion": 1,
+  "version": "1.0.0",
+  "retrievedAt": "2026-09-29T05:44:17Z",
+  "metric": "FP32 dense vector peak",
+  "unit": "TFLOPS",
+  "definition": "One TFLOPS is 10^12 32-bit floating-point arithmetic operations per second. This dataset uses standard CUDA/vector arithmetic, excluding TF32, FP16/BF16, tensor/matrix substitutes and sparse multipliers.",
+  "aggregation": "Sum of per-device theoretical capacity for a known positive integer count of identical full GPUs. This is aggregate installed arithmetic capacity, not a claim of linear application or Geekbench scaling.",
+  "sourcePolicy": "Prefer a provider-specific published FP32 figure. Otherwise join an exact provider hardware model/variant to a primary manufacturer peak specification and explicitly label it as a hardware-model proxy.",
+  "limitations": [
+    "Theoretical peak is not measured VM or application performance. Cloud clocks and power limits may differ from the manufacturer peak.",
+    "Fractional, virtualized, unknown, heterogeneous, or conflicting accelerator mappings are excluded. A known integer GPU count is required.",
+    "GPU model specifications are reviewed separately from daily prices; their retrievedAt date is not advanced by a price refresh.",
+    "FP32 throughput is a GPU predictor. It is not imputed for CPUs from vCPU counts.",
+    "Multiple VM configurations using the same GPU model do not represent independent performance measurements."
+  ],
+  "excluded": [
+    {
+      "reason": "Fractional GPU capacity is not assumed to scale proportionally with GPU memory allocation."
+    },
+    {
+      "providers": [
+        "aws"
+      ],
+      "gpuNames": [
+        "NVIDIA T4g",
+        "NVIDIA M60",
+        "NVIDIA K80",
+        "AMD Radeon Pro V520",
+        "NVIDIA RTX PRO 4500",
+        "NVIDIA B200",
+        "NVIDIA B300",
+        "NVIDIA H200"
+      ],
+      "reason": "Exact cloud variant or per-device FP32 unit was not verified in this source review."
+    },
+    {
+      "providers": [
+        "oracle"
+      ],
+      "gpuNames": [
+        "NVIDIA V100",
+        "NVIDIA H200",
+        "NVIDIA B200",
+        "NVIDIA RTX PRO 6000 Blackwell"
+      ],
+      "reason": "Exact variant was not verified in this source review; no generic variant is substituted."
+    },
+    {
+      "providers": [
+        "alibaba"
+      ],
+      "families": [
+        "ecs.gn5",
+        "ecs.gn6e",
+        "ecs.gn9gc"
+      ],
+      "reason": "Unresolved variant, or a model-name conflict between the public price feed and current family documentation."
+    }
+  ],
+  "records": [
+    {
+      "id": "gcp-l4",
+      "hardwareVariant": "NVIDIA L4 on Google G2",
+      "perGpuTflops": 30.3,
+      "metric": "FP32 dense vector peak",
+      "unit": "TFLOPS",
+      "sourceType": "provider-published-hardware-peak",
+      "sourceUrls": [
+        "https://docs.cloud.google.com/compute/docs/gpus"
+      ],
+      "retrievedAt": "2026-09-29T05:44:17Z",
+      "matches": [
+        {
+          "providers": [
+            "gcp"
+          ],
+          "gpuNames": [
+            "NVIDIA L4"
+          ],
+          "familyPattern": "^g2$"
+        }
+      ],
+      "notes": "Provider-published standard CUDA-core FP32 specification for the listed cloud GPU; not a measured workload benchmark."
+    },
+    {
+      "id": "gcp-t4",
+      "hardwareVariant": "NVIDIA T4 on Google N1",
+      "perGpuTflops": 8.1,
+      "metric": "FP32 dense vector peak",
+      "unit": "TFLOPS",
+      "sourceType": "provider-published-hardware-peak",
+      "sourceUrls": [
+        "https://docs.cloud.google.com/compute/docs/gpus"
+      ],
+      "retrievedAt": "2026-09-29T05:44:17Z",
+      "matches": [
+        {
+          "providers": [
+            "gcp"
+          ],
+          "gpuNames": [
+            "NVIDIA T4"
+          ],
+          "familyPattern": "^n1-t4$"
+        }
+      ],
+      "notes": "Provider-published standard CUDA-core FP32 specification for the listed cloud GPU; not a measured workload benchmark."
+    },
+    {
+      "id": "gcp-p4",
+      "hardwareVariant": "NVIDIA P4 on Google N1",
+      "perGpuTflops": 5.5,
+      "metric": "FP32 dense vector peak",
+      "unit": "TFLOPS",
+      "sourceType": "provider-published-hardware-peak",
+      "sourceUrls": [
+        "https://docs.cloud.google.com/compute/docs/gpus"
+      ],
+      "retrievedAt": "2026-09-29T05:44:17Z",
+      "matches": [
+        {
+          "providers": [
+            "gcp"
+          ],
+          "gpuNames": [
+            "NVIDIA P4"
+          ],
+          "familyPattern": "^n1-p4$"
+        }
+      ],
+      "notes": "Provider-published standard CUDA-core FP32 specification for the listed cloud GPU; not a measured workload benchmark."
+    },
+    {
+      "id": "gcp-v100",
+      "hardwareVariant": "NVIDIA V100 on Google N1",
+      "perGpuTflops": 15.6,
+      "metric": "FP32 dense vector peak",
+      "unit": "TFLOPS",
+      "sourceType": "provider-published-hardware-peak",
+      "sourceUrls": [
+        "https://docs.cloud.google.com/compute/docs/gpus"
+      ],
+      "retrievedAt": "2026-09-29T05:44:17Z",
+      "matches": [
+        {
+          "providers": [
+            "gcp"
+          ],
+          "gpuNames": [
+            "NVIDIA V100"
+          ],
+          "familyPattern": "^n1-v100$"
+        }
+      ],
+      "notes": "Google currently publishes 15.6 TFLOPS for its N1 V100, retained instead of substituting the manufacturer SXM2 rating of 15.7."
+    },
+    {
+      "id": "gcp-rtx-pro-6000",
+      "hardwareVariant": "NVIDIA RTX PRO 6000 Blackwell Server Edition on Google G4",
+      "perGpuTflops": 117,
+      "metric": "FP32 dense vector peak",
+      "unit": "TFLOPS",
+      "sourceType": "provider-published-hardware-peak",
+      "sourceUrls": [
+        "https://docs.cloud.google.com/compute/docs/gpus"
+      ],
+      "retrievedAt": "2026-09-29T05:44:17Z",
+      "matches": [
+        {
+          "providers": [
+            "gcp"
+          ],
+          "gpuNames": [
+            "NVIDIA RTX PRO 6000 Blackwell Server Edition"
+          ],
+          "familyPattern": "^g4$"
+        }
+      ],
+      "notes": "Provider-published standard CUDA-core FP32 specification for the listed cloud GPU; not a measured workload benchmark."
+    },
+    {
+      "id": "nvidia-t4",
+      "hardwareVariant": "NVIDIA T4",
+      "perGpuTflops": 8.1,
+      "metric": "FP32 dense vector peak",
+      "unit": "TFLOPS",
+      "sourceType": "manufacturer-hardware-peak",
+      "sourceUrls": [
+        "https://www.nvidia.com/en-us/data-center/tesla-t4/"
+      ],
+      "retrievedAt": "2026-09-29T05:44:17Z",
+      "matches": [
+        {
+          "providers": [
+            "aws",
+            "azure",
+            "alibaba"
+          ],
+          "gpuNames": [
+            "NVIDIA T4"
+          ]
+        }
+      ],
+      "notes": "Published theoretical peak for this hardware model; cloud clocks, power limits, software, and achieved workload throughput are not measured."
+    },
+    {
+      "id": "nvidia-l4",
+      "hardwareVariant": "NVIDIA L4",
+      "perGpuTflops": 30.3,
+      "metric": "FP32 dense vector peak",
+      "unit": "TFLOPS",
+      "sourceType": "manufacturer-hardware-peak",
+      "sourceUrls": [
+        "https://www.nvidia.com/en-us/data-center/l4/"
+      ],
+      "retrievedAt": "2026-09-29T05:44:17Z",
+      "matches": [
+        {
+          "providers": [
+            "aws",
+            "ibm"
+          ],
+          "gpuNames": [
+            "NVIDIA L4"
+          ]
+        }
+      ],
+      "notes": "Published theoretical peak for this hardware model; cloud clocks, power limits, software, and achieved workload throughput are not measured."
+    },
+    {
+      "id": "nvidia-a10",
+      "hardwareVariant": "NVIDIA A10",
+      "perGpuTflops": 31.2,
+      "metric": "FP32 dense vector peak",
+      "unit": "TFLOPS",
+      "sourceType": "manufacturer-hardware-peak",
+      "sourceUrls": [
+        "https://www.nvidia.com/en-us/data-center/products/a10-gpu/"
+      ],
+      "retrievedAt": "2026-09-29T05:44:17Z",
+      "matches": [
+        {
+          "providers": [
+            "azure",
+            "alibaba",
+            "oracle"
+          ],
+          "gpuNames": [
+            "NVIDIA A10",
+            "A10"
+          ]
+        }
+      ],
+      "notes": "Published theoretical peak for this hardware model; cloud clocks, power limits, software, and achieved workload throughput are not measured."
+    },
+    {
+      "id": "aws-a10g",
+      "hardwareVariant": "NVIDIA A10G for AWS",
+      "perGpuTflops": 35,
+      "metric": "FP32 dense vector peak",
+      "unit": "TFLOPS",
+      "sourceType": "manufacturer-hardware-peak",
+      "sourceUrls": [
+        "https://d1.awsstatic.com/product-marketing/ec2/NVIDIA_AWS_A10G_DataSheet_FINAL_02_17_2022.pdf"
+      ],
+      "retrievedAt": "2026-09-29T05:44:17Z",
+      "matches": [
+        {
+          "providers": [
+            "aws"
+          ],
+          "gpuNames": [
+            "NVIDIA A10G"
+          ],
+          "namePattern": "^g5\\."
+        }
+      ],
+      "notes": "AWS/NVIDIA A10G-specific February 2022 datasheet page 1. A10G is not substituted with the 31.2 TFLOPS generic A10."
+    },
+    {
+      "id": "nvidia-l40s",
+      "hardwareVariant": "NVIDIA L40S",
+      "perGpuTflops": 91.6,
+      "metric": "FP32 dense vector peak",
+      "unit": "TFLOPS",
+      "sourceType": "manufacturer-hardware-peak",
+      "sourceUrls": [
+        "https://www.nvidia.com/en-us/data-center/l40s/"
+      ],
+      "retrievedAt": "2026-09-29T05:44:17Z",
+      "matches": [
+        {
+          "providers": [
+            "aws",
+            "oracle",
+            "ibm"
+          ],
+          "gpuNames": [
+            "NVIDIA L40S"
+          ]
+        }
+      ],
+      "notes": "Published theoretical peak for this hardware model; cloud clocks, power limits, software, and achieved workload throughput are not measured."
+    },
+    {
+      "id": "nvidia-a100",
+      "hardwareVariant": "NVIDIA A100 40GB / 80GB, PCIe / SXM",
+      "perGpuTflops": 19.5,
+      "metric": "FP32 dense vector peak",
+      "unit": "TFLOPS",
+      "sourceType": "manufacturer-hardware-peak",
+      "sourceUrls": [
+        "https://www.nvidia.com/en-us/data-center/a100/",
+        "https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/a100/pdf/nvidia-a100-datasheet.pdf"
+      ],
+      "retrievedAt": "2026-09-29T05:44:17Z",
+      "matches": [
+        {
+          "providers": [
+            "aws",
+            "azure",
+            "oracle"
+          ],
+          "gpuNames": [
+            "NVIDIA A100",
+            "NVIDIA A100 40GB",
+            "NVIDIA A100 80GB"
+          ]
+        }
+      ],
+      "notes": "NVIDIA publishes the same 19.5 dense FP32 TFLOPS for both 40GB and 80GB A100, in PCIe and SXM form factors; this shared figure does not infer a missing variant."
+    },
+    {
+      "id": "aws-v100",
+      "hardwareVariant": "NVIDIA V100 in AWS P3",
+      "perGpuTflops": 15.7,
+      "metric": "FP32 dense vector peak",
+      "unit": "TFLOPS",
+      "sourceType": "provider-published-hardware-peak",
+      "sourceUrls": [
+        "https://aws.amazon.com/about-aws/whats-new/2017/10/introducing-amazon-ec2-p3-instances/"
+      ],
+      "retrievedAt": "2026-09-29T05:44:17Z",
+      "matches": [
+        {
+          "providers": [
+            "aws"
+          ],
+          "gpuNames": [
+            "NVIDIA V100"
+          ],
+          "namePattern": "^p3(?:dn)?\\."
+        }
+      ],
+      "notes": "Provider-published standard CUDA-core FP32 specification for the listed cloud GPU; not a measured workload benchmark."
+    },
+    {
+      "id": "aws-rtx-pro-6000",
+      "hardwareVariant": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+      "perGpuTflops": 120,
+      "metric": "FP32 dense vector peak",
+      "unit": "TFLOPS",
+      "sourceType": "manufacturer-hardware-peak",
+      "sourceUrls": [
+        "https://www.nvidia.com/en-us/data-center/rtx-pro-6000-blackwell-server-edition/"
+      ],
+      "retrievedAt": "2026-09-29T05:44:17Z",
+      "matches": [
+        {
+          "providers": [
+            "aws"
+          ],
+          "gpuNames": [
+            "NVIDIA RTX PRO Server 6000"
+          ],
+          "namePattern": "^g7e\\."
+        }
+      ],
+      "notes": "AWS identifies the exact Server Edition; manufacturer peak is a hardware proxy. Google publishes a separate 117 TFLOPS cloud specification, so Google uses its own mapping.",
+      "mappingSourceUrls": [
+        "https://aws.amazon.com/ec2/instance-types/g7e/"
+      ]
+    },
+    {
+      "id": "alibaba-l20",
+      "hardwareVariant": "NVIDIA L20 in Alibaba gn8is",
+      "perGpuTflops": 59.3,
+      "metric": "FP32 dense vector peak",
+      "unit": "TFLOPS",
+      "sourceType": "provider-published-hardware-peak",
+      "sourceUrls": [
+        "https://www.alibabacloud.com/help/en/ecs/user-guide/gpu-accelerated-compute-optimized-and-vgpu-accelerated-instance-families-1"
+      ],
+      "retrievedAt": "2026-09-29T05:44:17Z",
+      "matches": [
+        {
+          "providers": [
+            "alibaba"
+          ],
+          "gpuNames": [
+            "NVIDIA L20"
+          ],
+          "familyPattern": "^ecs\\.(?:ebm)?gn8is$"
+        }
+      ],
+      "notes": "Provider-published standard CUDA-core FP32 specification for the listed cloud GPU; not a measured workload benchmark."
+    },
+    {
+      "id": "alibaba-v100-sxm2",
+      "hardwareVariant": "NVIDIA V100 SXM2 16GB in Alibaba gn6v",
+      "perGpuTflops": 15.7,
+      "metric": "FP32 dense vector peak",
+      "unit": "TFLOPS",
+      "sourceType": "manufacturer-hardware-peak",
+      "sourceUrls": [
+        "https://images.nvidia.com/content/technologies/volta/pdf/tesla-volta-v100-datasheet-letter-fnl-web.pdf"
+      ],
+      "retrievedAt": "2026-09-29T05:44:17Z",
+      "matches": [
+        {
+          "providers": [
+            "alibaba"
+          ],
+          "gpuNames": [
+            "NVIDIA V100"
+          ],
+          "familyPattern": "^ecs\\.gn6v$"
+        }
+      ],
+      "notes": "Alibaba original ECS specification identifies gn6v as V100 SXM2 (16 GB), allowing the variant-specific NVIDIA SXM2 peak. gn6e is not inferred from this mapping.",
+      "mappingSourceUrls": [
+        "https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/download/pdf/DNECS19100341_zh-CN_intl_190829223800_public_afbb5b17153356cffed06e17b7ec4542.pdf"
+      ]
+    },
+    {
+      "id": "oracle-mi300x",
+      "hardwareVariant": "AMD Instinct MI300X",
+      "perGpuTflops": 163.4,
+      "metric": "FP32 dense vector peak",
+      "unit": "TFLOPS",
+      "sourceType": "manufacturer-hardware-peak",
+      "sourceUrls": [
+        "https://www.amd.com/en/products/accelerators/instinct/mi300/mi300x.html"
+      ],
+      "retrievedAt": "2026-09-29T05:44:17Z",
+      "matches": [
+        {
+          "providers": [
+            "oracle"
+          ],
+          "gpuNames": [
+            "AMD MI300X"
+          ],
+          "namePattern": "^BM\\.GPU\\.MI300X\\.8$"
+        }
+      ],
+      "notes": "AMD publishes 163.4 TFLOPS for standard FP32 vector throughput separately from its TF32 and sparse matrix metrics.",
+      "mappingSourceUrls": [
+        "https://docs.oracle.com/en-us/iaas/Content/Compute/References/computeshapes.htm"
+      ]
+    },
+    {
+      "id": "oracle-h100-sxm",
+      "hardwareVariant": "NVIDIA H100 SXM5 80GB",
+      "perGpuTflops": 67,
+      "metric": "FP32 dense vector peak",
+      "unit": "TFLOPS",
+      "sourceType": "manufacturer-hardware-peak",
+      "sourceUrls": [
+        "https://www.nvidia.com/en-us/data-center/h100/"
+      ],
+      "retrievedAt": "2026-09-29T05:44:17Z",
+      "matches": [
+        {
+          "providers": [
+            "oracle"
+          ],
+          "gpuNames": [
+            "NVIDIA H100 80GB"
+          ],
+          "namePattern": "^BM\\.GPU\\.H100\\.8$"
+        }
+      ],
+      "notes": "Published theoretical peak for this hardware model; cloud clocks, power limits, software, and achieved workload throughput are not measured.",
+      "mappingSourceUrls": [
+        "https://blogs.oracle.com/cloud-infrastructure/scaling-ai-oci-nvidia-breakthroughs-mlperf-v41"
+      ]
+    },
+    {
+      "id": "aws-h100-sxm",
+      "hardwareVariant": "NVIDIA H100 SXM5 80GB",
+      "perGpuTflops": 67,
+      "metric": "FP32 dense vector peak",
+      "unit": "TFLOPS",
+      "sourceType": "manufacturer-hardware-peak",
+      "sourceUrls": [
+        "https://www.nvidia.com/en-us/data-center/h100/"
+      ],
+      "retrievedAt": "2026-09-29T05:44:17Z",
+      "matches": [
+        {
+          "providers": [
+            "aws"
+          ],
+          "gpuNames": [
+            "NVIDIA H100"
+          ],
+          "namePattern": "^p5\\.48xlarge$"
+        }
+      ],
+      "notes": "Provider identifies p5.48xlarge as H100 SXM5. Smaller P5 profiles are excluded until their exact accelerator variant is independently verified.",
+      "mappingSourceUrls": [
+        "https://aws.amazon.com/ko/blogs/tech/aws-compute-distributed-training-guide-model-scale-hardware/"
+      ]
+    }
+  ]
+}

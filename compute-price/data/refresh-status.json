@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "status": "updated",
+  "attemptedAt": "2026-11-13T19:55:51.860Z",
+  "completedAt": "2026-11-13T19:56:36.361Z",
+  "priceUpdatedAt": "2026-11-13T19:55:52.084Z",
+  "catalogCount": 4062,
+  "cpuCount": 2025,
+  "gpuCount": 82,
+  "freshProviders": [
+    "aws",
+    "azure",
+    "gcp",
+    "alibaba",
+    "oracle",
+    "ibm"
+  ],
+  "failedProviders": []
+}

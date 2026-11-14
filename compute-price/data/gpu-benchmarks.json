@@ -1,0 +1,77 @@
+{
+  "methodology": {
+    "benchmark": "Geekbench 6",
+    "versionMajor": 6,
+    "version": "6.3.0",
+    "api": "OpenCL",
+    "status": "limited-coverage",
+    "formula": "GPU price = full instance USD/hour / (Geekbench 6 OpenCL score / 1000)",
+    "unit": "USD per hour per 1,000 Geekbench 6 OpenCL points",
+    "selection": "Public Geekbench 6.3.0 OpenCL Linux results naming the exact AWS VM shape, with matching vCPU count, plausible available RAM and the allocated GPU. Only instances with exactly one allocated GPU qualify. Scores are measurements, not GPU-model proxies or extrapolations.",
+    "coverage": "Two verified AWS T4 shapes. No exact-shape Geekbench 7 OpenCL result was verified in this search. Missing scores remain missing. This sparse sample cannot support a large multivariable model of cloud GPU prices.",
+    "limitations": "One historical community submission per shape, with undisclosed benchmark region. Different drivers, distributions and host conditions affect scores. Geekbench OpenCL is a general GPU-compute benchmark, not an LLM throughput or training metric. CPU and GPU scores are distinct scales. Do not mix these results with Geekbench 7 GPU-model chart scores.",
+    "specSourceUrl": "https://docs.aws.amazon.com/ec2/latest/instancetypes/ac.html",
+    "retrievedAt": "2026-09-29T04:08:30Z"
+  },
+  "records": [
+    {
+      "provider": "aws",
+      "name": "g4dn.xlarge",
+      "geekbenchGpu": {
+        "score": 86151,
+        "version": "6.3.0",
+        "api": "OpenCL",
+        "url": "https://browser.geekbench.com/v6/compute/3436896",
+        "os": "Linux",
+        "edition": "for Linux AVX2",
+        "system": "Ubuntu 22.04.4 LTS",
+        "model": "Amazon EC2 g4dn.xlarge",
+        "runAt": "2025-01-06",
+        "dateBasis": "Geekbench Browser upload date",
+        "vcpus": 4,
+        "ramGiB": 16,
+        "reportedMemoryGB": 15.42,
+        "gpu": "NVIDIA T4",
+        "reportedGpu": "Tesla T4",
+        "gpuCount": 1,
+        "reportedDeviceMemoryGB": 14.7,
+        "sampleCount": 1,
+        "region": null,
+        "retrievedAt": "2026-09-29T04:08:30Z"
+      }
+    },
+    {
+      "provider": "aws",
+      "name": "g4dn.2xlarge",
+      "geekbenchGpu": {
+        "score": 83098,
+        "version": "6.3.0",
+        "api": "OpenCL",
+        "url": "https://browser.geekbench.com/v6/compute/2043102",
+        "evidenceUrl": "https://browser.geekbench.com/v6/compute/remove_baseline/2043102",
+        "os": "Linux",
+        "edition": "for Linux AVX2",
+        "system": "Ubuntu 22.04.4 LTS",
+        "model": "Amazon EC2 g4dn.2xlarge",
+        "runAt": "2024-04-12",
+        "dateBasis": "Geekbench Browser upload date",
+        "vcpus": 8,
+        "ramGiB": 32,
+        "reportedMemoryGB": 30.89,
+        "gpu": "NVIDIA T4",
+        "reportedGpu": "Tesla T4",
+        "gpuCount": 1,
+        "reportedDeviceMemoryGB": 14.7,
+        "sampleCount": 1,
+        "region": null,
+        "retrievedAt": "2026-09-29T04:08:30Z"
+      }
+    }
+  ],
+  "excludedCandidates": [
+    { "provider": "aws", "name": "g5.xlarge", "url": "https://browser.geekbench.com/v6/compute/395222", "version": "6.0.3", "api": "OpenCL", "score": 184221, "reason": "Older 6.0 series; compatibility with the chosen 6.3 GPU series was not verified." },
+    { "provider": "aws", "name": "g5.2xlarge", "url": "https://browser.geekbench.com/v6/compute/228925", "version": "6.0.1", "reason": "Older 6.0 series; not included in the 6.3 series." },
+    { "provider": "aws", "name": "g6.2xlarge", "url": "https://browser.geekbench.com/v6/compute/4758087", "version": "6.5.0", "api": "OpenCL", "score": 153070, "reason": "Windows benchmark, incompatible with this Linux-only reference series." },
+    { "provider": "gcp", "name": "Google Colab T4", "url": "https://browser.geekbench.com/v6/compute/3009006", "version": "6.3.0", "api": "OpenCL", "score": 83755, "reason": "Colab runtime; not a verified match to a publicly priced exact Compute Engine VM shape." }
+  ]
+}

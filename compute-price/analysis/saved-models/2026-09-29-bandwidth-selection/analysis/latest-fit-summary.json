@@ -1,0 +1,384 @@
+{
+  "catalogCount": 3151,
+  "eligibleCount": 2042,
+  "cpu": {
+    "n": 2005,
+    "method": "cpu-ols",
+    "parameters": [
+      {
+        "key": "A",
+        "symbol": "A",
+        "value": 0.2593038669254812,
+        "interval": [
+          0.2455915359765631,
+          0.27346873718243553
+        ]
+      },
+      {
+        "key": "ramGiB",
+        "symbol": "α",
+        "value": 0.7165608169049282,
+        "interval": [
+          0.6881784795410381,
+          0.745311779031893
+        ]
+      },
+      {
+        "key": "cpuScore",
+        "symbol": "β",
+        "value": 0.45007652541167603,
+        "interval": [
+          0.40087044485688517,
+          0.5005188806663442
+        ]
+      }
+    ],
+    "quality": "Approximate predictive fit",
+    "validation": {
+      "mape": 0.274371776445213,
+      "logR2": 0.9504464236520661,
+      "tested": 2005,
+      "method": "Leave one entire provider × machine family out; every size in that family is withheld together."
+    }
+  },
+  "gpu": {
+    "n": 37,
+    "method": "cpu-plus-gpu",
+    "parameters": [
+      {
+        "key": "A",
+        "symbol": "A",
+        "label": "CPU baseline USD/hour",
+        "value": 0.2593038669254812,
+        "interval": [
+          0.24412832072734691,
+          0.2738668978472684
+        ]
+      },
+      {
+        "key": "ramGiB",
+        "symbol": "α",
+        "label": "RAM",
+        "value": 0.7165608169049282,
+        "interval": [
+          0.6877523898059328,
+          0.746404022940136
+        ]
+      },
+      {
+        "key": "cpuScore",
+        "symbol": "β",
+        "label": "CPU performance",
+        "value": 0.45007652541167603,
+        "interval": [
+          0.39344268076121974,
+          0.5017398008076812
+        ]
+      },
+      {
+        "key": "B",
+        "symbol": "B",
+        "label": "GPU increment USD/hour",
+        "value": 1.2370341917977945,
+        "interval": [
+          0.6056120115109809,
+          7.213290472029375
+        ]
+      },
+      {
+        "key": "vramGiB",
+        "symbol": "γ",
+        "label": "VRAM",
+        "value": -1.0192208215343606,
+        "interval": [
+          -3.887460403770122,
+          -0.7144478892217148
+        ]
+      },
+      {
+        "key": "gpuScore",
+        "symbol": "δ",
+        "label": "GPU performance",
+        "value": 1.7705744898353275,
+        "interval": [
+          1.673450150988568,
+          5.296278948546948
+        ]
+      }
+    ],
+    "quality": "Poor generalization",
+    "validation": {
+      "mape": 0.36000141354819015,
+      "logR2": 0.35963192303682356,
+      "tested": 37,
+      "method": "Nested provider × machine-family holdouts: choose the model form and ridge penalty on inner training-family folds, then predict the untouched outer family. CPU-baseline training excludes both inner and outer withheld families.",
+      "methodComparisons": [
+        {
+          "id": "joint-ols",
+          "label": "Joint multiplicative model",
+          "kind": "joint",
+          "lambda": 0,
+          "nonnegative": false,
+          "groups": 5,
+          "completedGroups": 5,
+          "skippedGroups": [],
+          "testedCount": 37,
+          "coverage": 1,
+          "mape": 0.3586555895504066,
+          "familyMape": 0.3647226139456684,
+          "medianApe": 0.34838406267766975,
+          "within20": 0.24324324324324326,
+          "logR2": 0.3801587640594267,
+          "priceR2": 0.4492051152675143,
+          "rmsle": 0.5817574237291802
+        },
+        {
+          "id": "joint-ridge-0.001-free",
+          "label": "Ridge · λ 0.001",
+          "kind": "joint",
+          "lambda": 0.001,
+          "nonnegative": false,
+          "groups": 5,
+          "completedGroups": 5,
+          "skippedGroups": [],
+          "testedCount": 37,
+          "coverage": 1,
+          "mape": 0.3591952219133113,
+          "familyMape": 0.36193006485399765,
+          "medianApe": 0.3459302032590752,
+          "within20": 0.2702702702702703,
+          "logR2": 0.38030891248025356,
+          "priceR2": 0.44916387906074784,
+          "rmsle": 0.5816869579034984
+        },
+        {
+          "id": "joint-ridge-0.001-positive",
+          "label": "Nonnegative ridge · λ 0.001",
+          "kind": "joint",
+          "lambda": 0.001,
+          "nonnegative": true,
+          "groups": 5,
+          "completedGroups": 5,
+          "skippedGroups": [],
+          "testedCount": 37,
+          "coverage": 1,
+          "mape": 0.40140373503441945,
+          "familyMape": 0.37334284366118153,
+          "medianApe": 0.3971632077433983,
+          "within20": 0.2702702702702703,
+          "logR2": 0.16251762896966082,
+          "priceR2": 0.1951513132828936,
+          "rmsle": 0.676222377685188
+        },
+        {
+          "id": "joint-ridge-0.01-free",
+          "label": "Ridge · λ 0.01",
+          "kind": "joint",
+          "lambda": 0.01,
+          "nonnegative": false,
+          "groups": 5,
+          "completedGroups": 5,
+          "skippedGroups": [],
+          "testedCount": 37,
+          "coverage": 1,
+          "mape": 0.35973527984484854,
+          "familyMape": 0.3381378268056733,
+          "medianApe": 0.374957278312828,
+          "within20": 0.2702702702702703,
+          "logR2": 0.37909051950932626,
+          "priceR2": 0.454441891039406,
+          "rmsle": 0.5822585130675451
+        },
+        {
+          "id": "joint-ridge-0.01-positive",
+          "label": "Nonnegative ridge · λ 0.01",
+          "kind": "joint",
+          "lambda": 0.01,
+          "nonnegative": true,
+          "groups": 5,
+          "completedGroups": 5,
+          "skippedGroups": [],
+          "testedCount": 37,
+          "coverage": 1,
+          "mape": 0.39863275451001934,
+          "familyMape": 0.3673367722620004,
+          "medianApe": 0.3926996754942885,
+          "within20": 0.24324324324324326,
+          "logR2": 0.1780025528490745,
+          "priceR2": 0.22061697618069898,
+          "rmsle": 0.669941584142449
+        },
+        {
+          "id": "joint-ridge-0.1-free",
+          "label": "Ridge · λ 0.1",
+          "kind": "joint",
+          "lambda": 0.1,
+          "nonnegative": false,
+          "groups": 5,
+          "completedGroups": 5,
+          "skippedGroups": [],
+          "testedCount": 37,
+          "coverage": 1,
+          "mape": 0.3494875094424492,
+          "familyMape": 0.23420052609527442,
+          "medianApe": 0.2648047189390308,
+          "within20": 0.2702702702702703,
+          "logR2": 0.35839382850623425,
+          "priceR2": 0.4851881721948219,
+          "rmsle": 0.5918831382233277
+        },
+        {
+          "id": "joint-ridge-0.1-positive",
+          "label": "Nonnegative ridge · λ 0.1",
+          "kind": "joint",
+          "lambda": 0.1,
+          "nonnegative": true,
+          "groups": 5,
+          "completedGroups": 5,
+          "skippedGroups": [],
+          "testedCount": 37,
+          "coverage": 1,
+          "mape": 0.38582323019569814,
+          "familyMape": 0.34800579079734734,
+          "medianApe": 0.3584854762792101,
+          "within20": 0.21621621621621623,
+          "logR2": 0.2948180643513124,
+          "priceR2": 0.334120918612278,
+          "rmsle": 0.6205150091637704
+        },
+        {
+          "id": "joint-ridge-1-free",
+          "label": "Ridge · λ 1",
+          "kind": "joint",
+          "lambda": 1,
+          "nonnegative": false,
+          "groups": 5,
+          "completedGroups": 5,
+          "skippedGroups": [],
+          "testedCount": 37,
+          "coverage": 1,
+          "mape": 0.3850530261917361,
+          "familyMape": 0.3432556235057734,
+          "medianApe": 0.40793031541137015,
+          "within20": 0.32432432432432434,
+          "logR2": 0.45635903116907695,
+          "priceR2": 0.45486676887849076,
+          "rmsle": 0.5448259569637455
+        },
+        {
+          "id": "joint-ridge-1-positive",
+          "label": "Nonnegative ridge · λ 1",
+          "kind": "joint",
+          "lambda": 1,
+          "nonnegative": true,
+          "groups": 5,
+          "completedGroups": 5,
+          "skippedGroups": [],
+          "testedCount": 37,
+          "coverage": 1,
+          "mape": 0.3850530261917361,
+          "familyMape": 0.3432556235057734,
+          "medianApe": 0.40793031541137015,
+          "within20": 0.32432432432432434,
+          "logR2": 0.45635903116907695,
+          "priceR2": 0.45486676887849076,
+          "rmsle": 0.5448259569637455
+        },
+        {
+          "id": "joint-ridge-10-free",
+          "label": "Ridge · λ 10",
+          "kind": "joint",
+          "lambda": 10,
+          "nonnegative": false,
+          "groups": 5,
+          "completedGroups": 5,
+          "skippedGroups": [],
+          "testedCount": 37,
+          "coverage": 1,
+          "mape": 0.893528489732198,
+          "familyMape": 0.669066419183377,
+          "medianApe": 0.6522214443284354,
+          "within20": 0.08108108108108109,
+          "logR2": -0.02851143247202348,
+          "priceR2": 0.0008003168467189958,
+          "rmsle": 0.7493871868928698
+        },
+        {
+          "id": "joint-ridge-10-positive",
+          "label": "Nonnegative ridge · λ 10",
+          "kind": "joint",
+          "lambda": 10,
+          "nonnegative": true,
+          "groups": 5,
+          "completedGroups": 5,
+          "skippedGroups": [],
+          "testedCount": 37,
+          "coverage": 1,
+          "mape": 0.893528489732198,
+          "familyMape": 0.669066419183377,
+          "medianApe": 0.6522214443284354,
+          "within20": 0.08108108108108109,
+          "logR2": -0.02851143247202348,
+          "priceR2": 0.0008003168467189958,
+          "rmsle": 0.7493871868928698
+        },
+        {
+          "id": "cpu-plus-gpu",
+          "label": "CPU baseline + GPU increment",
+          "kind": "cpu-plus-gpu",
+          "lambda": 0,
+          "nonnegative": false,
+          "groups": 5,
+          "completedGroups": 5,
+          "skippedGroups": [],
+          "testedCount": 37,
+          "coverage": 1,
+          "mape": 0.21104779235129523,
+          "familyMape": 0.16976885697032973,
+          "medianApe": 0.2112714804768372,
+          "within20": 0.43243243243243246,
+          "logR2": 0.8484346310595838,
+          "priceR2": 0.8193669194728616,
+          "rmsle": 0.28767471530302874
+        }
+      ],
+      "foldSelections": [
+        {
+          "family": "aws:g4dn",
+          "trainingRows": 32,
+          "testRows": 5,
+          "methodId": "joint-ridge-0.01-free",
+          "innerFamilyLogMse": 0.09752724288179337
+        },
+        {
+          "family": "aws:g7e",
+          "trainingRows": 34,
+          "testRows": 3,
+          "methodId": "cpu-plus-gpu",
+          "innerFamilyLogMse": 0.031112790632050337
+        },
+        {
+          "family": "aws:p3",
+          "trainingRows": 36,
+          "testRows": 1,
+          "methodId": "joint-ridge-0.001-free",
+          "innerFamilyLogMse": 0.19594890794859093
+        },
+        {
+          "family": "azure:NCads_A100_v4",
+          "trainingRows": 36,
+          "testRows": 1,
+          "methodId": "cpu-plus-gpu",
+          "innerFamilyLogMse": 0.1860893428970827
+        },
+        {
+          "family": "gcp:n1",
+          "trainingRows": 10,
+          "testRows": 27,
+          "methodId": "joint-ridge-0.01-free",
+          "innerFamilyLogMse": 0.19588531353768293
+        }
+      ]
+    }
+  }
+}

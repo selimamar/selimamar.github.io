@@ -1,0 +1,71 @@
+baseURL = "https://selimamar.github.io/"
+locale = "en-US"
+title = "Selim Amar — Mathematics"
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  description = "Personal academic website of Selim Amar, PhD student in Mathematics at Stanford University."
+  name = "Selim Amar"
+  role = "PhD Student in Mathematics"
+  institution = "Stanford University"
+  location = "Stanford, California, USA"
+  email = "selama@stanford.edu"
+  arxiv = "https://arxiv.org/search/?query=Amar%2C+Selim&searchtype=author"
+  scholar = ""
+  researchInterests = [
+    "Microlocal Analysis",
+    "Partial Differential Equations",
+    "Spectral Theory",
+    "Inverse Problems"
+  ]
+
+[[menus.main]]
+  name = "Home"
+  pageRef = "/"
+  weight = 10
+[[menus.main]]
+  name = "Research"
+  pageRef = "/research"
+  weight = 20
+[[menus.main]]
+  identifier = "projects"
+  name = "Random Projects"
+  pageRef = "/random-projects"
+  weight = 40
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['\(', '\)']]
+    [markup.goldmark.renderer]
+      unsafe = false
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
+
+# Publish the compute application under its Hugo page, without exposing the
+# source archive, build tools, local metadata, or Worker deployment files.
+[[module.mounts]]
+  source = "static"
+  target = "static"
+[[module.mounts]]
+  source = "compute-price"
+  target = "static/compute-price"
+  files = [
+    "app.js", "lib/**",
+    "data/price-catalog.json", "data/benchmarks.json",
+    "data/cpu-benchmarks-expanded.json", "data/gpu-cpu-benchmarks.json",
+    "data/sparecores-benchmarks.json", "data/gpu-model-benchmarks.json",
+    "data/gpu-fp32.json", "data/gpu-bandwidth.json",
+    "data/experiments.json", "data/gpu-resource-experiments.json",
+    "data/reference-machine.json", "data/reference-history.json",
+    "data/historical-benchmark-mapping.json", "data/residual-diagnostics.json",
+    "data/refresh-status.json",
+    "output/pdf/compute-price-methodology.pdf"
+  ]

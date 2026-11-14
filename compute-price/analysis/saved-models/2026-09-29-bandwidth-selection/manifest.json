@@ -1,0 +1,309 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-09-29T06:40:33.818144+00:00",
+  "sourceProject": "compute-price",
+  "purpose": "Preserve all previous model variants, results, inputs, reports and source before displaying only the linear bandwidth GPU model.",
+  "selectedGpuModelId": "gpu-bandwidth-linear",
+  "gpuModelVersion": "1.1.0",
+  "gpuReportGeneratedAt": "2026-09-29T06:35:37.742Z",
+  "gpuResourceVariantIds": [
+    "gpu-resource-additive",
+    "gpu-resource-multiplicative",
+    "gpu-bandwidth-linear",
+    "gpu-vram-linear",
+    "gpu-bandwidth-power",
+    "gpu-vram-power"
+  ],
+  "fileCount": 48,
+  "totalBytes": 35090514,
+  "files": [
+    {
+      "sourcePath": "README.md",
+      "archivePath": "source-README.md",
+      "sizeBytes": 14132,
+      "sha256": "b867c79a9010c3d848b947f13776a9a59e0749399275ebdf8ed7a4ebdbc639a3"
+    },
+    {
+      "sourcePath": "analysis/experiments-report.md",
+      "archivePath": "analysis/experiments-report.md",
+      "sizeBytes": 17663,
+      "sha256": "4a153fa833ac239132b7775fe6ca8896c7201d3e78827ebc69956d172a6f00e0"
+    },
+    {
+      "sourcePath": "analysis/gpu-model-log-plots.pdf",
+      "archivePath": "analysis/gpu-model-log-plots.pdf",
+      "sizeBytes": 37085,
+      "sha256": "4bd14c8ca3f333893502d5ade3ccc417ca6a055bf32ae28781ea007c5117d659"
+    },
+    {
+      "sourcePath": "analysis/gpu-model-log-plots.png",
+      "archivePath": "analysis/gpu-model-log-plots.png",
+      "sizeBytes": 369920,
+      "sha256": "14bfe504fe0939ed843f7304ed281797303caa50729d355702a1bb08109a1979"
+    },
+    {
+      "sourcePath": "analysis/gpu-model-log-plots.svg",
+      "archivePath": "analysis/gpu-model-log-plots.svg",
+      "sizeBytes": 93298,
+      "sha256": "33bf1ed9ca729f1ec54c51602c96ac7b3891b933433396a266691450cdd64d5e"
+    },
+    {
+      "sourcePath": "analysis/gpu-resource-report.md",
+      "archivePath": "analysis/gpu-resource-report.md",
+      "sizeBytes": 42669,
+      "sha256": "c4121c33a05a02d11493839b9a480f79dd1ea4a7d07a636afd0b3ca05a8ae0b5"
+    },
+    {
+      "sourcePath": "analysis/latest-fit-summary.json",
+      "archivePath": "analysis/latest-fit-summary.json",
+      "sizeBytes": 11343,
+      "sha256": "86261cf88722d6081c05e0e9c3931040c49f2aef38746ed192f9a51879516bf9"
+    },
+    {
+      "sourcePath": "analysis/model-report.md",
+      "archivePath": "analysis/model-report.md",
+      "sizeBytes": 10995,
+      "sha256": "40654f85b3ee5e854ccf5a77663035ede576641f19d203446a9bf33fa9dbfe34"
+    },
+    {
+      "sourcePath": "data/alibaba-snapshot.json",
+      "archivePath": "data/alibaba-snapshot.json",
+      "sizeBytes": 1175648,
+      "sha256": "dcf1f1fe069cbc60f7cebb1be3c7aca99a6d0fd99946c3d50bc5b5b96ff45b8a"
+    },
+    {
+      "sourcePath": "data/benchmarks.json",
+      "archivePath": "data/benchmarks.json",
+      "sizeBytes": 3857,
+      "sha256": "a196def98c005967d8bca5225f517b36541a42bc2d44c454271d77b318886da4"
+    },
+    {
+      "sourcePath": "data/cpu-benchmarks-expanded.json",
+      "archivePath": "data/cpu-benchmarks-expanded.json",
+      "sizeBytes": 23811,
+      "sha256": "4ddfbe3d954eda99aa0ec0d81c3d0282afa732accd6b8113a5f2ed9729d46c38"
+    },
+    {
+      "sourcePath": "data/experiments.json",
+      "archivePath": "data/experiments.json",
+      "sizeBytes": 5057408,
+      "sha256": "115a55b4497ec71d9ffe87fba4f550dac7cfbac16d19b1509f55306798972dd2"
+    },
+    {
+      "sourcePath": "data/gcp-extra-snapshot.json",
+      "archivePath": "data/gcp-extra-snapshot.json",
+      "sizeBytes": 312862,
+      "sha256": "67cbf64fd98494a37b8a114fc4f6e7769ec8b54d387524f59a303b30c7586e35"
+    },
+    {
+      "sourcePath": "data/gpu-bandwidth.json",
+      "archivePath": "data/gpu-bandwidth.json",
+      "sizeBytes": 16080,
+      "sha256": "e2bcf1a7e312547b8a1ae88d8243c9e49d88e90e1056d7d449121a0dced4cc35"
+    },
+    {
+      "sourcePath": "data/gpu-benchmarks.json",
+      "archivePath": "data/gpu-benchmarks.json",
+      "sizeBytes": 3973,
+      "sha256": "aeb76fff6d9cdd53f8ce8d23de2103496ab7b31e9cf0821afc0504cad0532a6e"
+    },
+    {
+      "sourcePath": "data/gpu-cpu-benchmarks.json",
+      "archivePath": "data/gpu-cpu-benchmarks.json",
+      "sizeBytes": 3159,
+      "sha256": "d483f497e9948ad57cb19cddbef4843ec772eccc22bf43453bc8df5ef5246714"
+    },
+    {
+      "sourcePath": "data/gpu-fp32.json",
+      "archivePath": "data/gpu-fp32.json",
+      "sizeBytes": 16960,
+      "sha256": "b7e96673a38146c549d1d785f37e3ec9df370180724f27ba098ad41e93825bf2"
+    },
+    {
+      "sourcePath": "data/gpu-model-benchmarks.json",
+      "archivePath": "data/gpu-model-benchmarks.json",
+      "sizeBytes": 23412,
+      "sha256": "a2c07654d4e45e149efd4fcf98f43bf428f9fe9b0a860a22891ac959b3854bc8"
+    },
+    {
+      "sourcePath": "data/gpu-resource-experiments.json",
+      "archivePath": "data/gpu-resource-experiments.json",
+      "sizeBytes": 1788163,
+      "sha256": "34f0daca44fc0faee498ba015a929082473648a7ea4c85fc39a9b04768ef3e30"
+    },
+    {
+      "sourcePath": "data/ibm-snapshot.json",
+      "archivePath": "data/ibm-snapshot.json",
+      "sizeBytes": 185528,
+      "sha256": "8a9d620e9df19675902976640a4f0732deaf15412497c425615c30e48a9a4acc"
+    },
+    {
+      "sourcePath": "data/model.json",
+      "archivePath": "data/model.json",
+      "sizeBytes": 10915427,
+      "sha256": "74d6288f7141c24e57dbf5c663871642b2f2c20e034cc67fa8cc2ec5a1db1ad6"
+    },
+    {
+      "sourcePath": "data/oracle-snapshot.json",
+      "archivePath": "data/oracle-snapshot.json",
+      "sizeBytes": 203617,
+      "sha256": "661f4428f88f1366658b0b36e5f38e68a396bdb3ff1b62b73d8efcb58ad17bcf"
+    },
+    {
+      "sourcePath": "data/price-catalog.json",
+      "archivePath": "data/price-catalog.json",
+      "sizeBytes": 8512290,
+      "sha256": "b422450a2b6e1d8a2aa4613e16f551949a610cef0c3e4178ac6430ef620c9010"
+    },
+    {
+      "sourcePath": "data/prices.json",
+      "archivePath": "data/prices.json",
+      "sizeBytes": 21085,
+      "sha256": "f0607f1b49f4d76071b86f4a3b7b8642b494a617f9d9048a0955d36b80550e44"
+    },
+    {
+      "sourcePath": "data/sparecores-benchmarks.json",
+      "archivePath": "data/sparecores-benchmarks.json",
+      "sizeBytes": 4554957,
+      "sha256": "aa83f70f35f83ab3493869134c63e1820f29ebf0384f90acf73c2a9e3cedd27d"
+    },
+    {
+      "sourcePath": "data/sparecores-server-specs.json",
+      "archivePath": "data/sparecores-server-specs.json",
+      "sizeBytes": 1372729,
+      "sha256": "dda2407ff15db5eb76e9c215aede6ba26027d4aa52acb3134c9d70601328b7ad"
+    },
+    {
+      "sourcePath": "lib/bandwidth.js",
+      "archivePath": "lib/bandwidth.js",
+      "sizeBytes": 2546,
+      "sha256": "4aa8a18b11ea33c798f048644bd925f5c0f43ba4f011521d3a555512723313f3"
+    },
+    {
+      "sourcePath": "lib/experiment-view.js",
+      "archivePath": "lib/experiment-view.js",
+      "sizeBytes": 16992,
+      "sha256": "ffe9ca3fb8ea152013e640447b97b35cfa2d30586b7e2feb50dc9779d4e06652"
+    },
+    {
+      "sourcePath": "lib/experiments.js",
+      "archivePath": "lib/experiments.js",
+      "sizeBytes": 30175,
+      "sha256": "806dcade814d3c338803fbd1eaca8c6497fa00b7379001d19514e683324851aa"
+    },
+    {
+      "sourcePath": "lib/fp32.js",
+      "archivePath": "lib/fp32.js",
+      "sizeBytes": 2363,
+      "sha256": "1c916fcde7473c590dbca0530c602b2bc0301e31fd424c267bf2b3a1e8ff1549"
+    },
+    {
+      "sourcePath": "lib/gpu-resource-charts.js",
+      "archivePath": "lib/gpu-resource-charts.js",
+      "sizeBytes": 13945,
+      "sha256": "146a06a24d207856566d17d30a9de09495949eed0247d4de47ea809def6143d0"
+    },
+    {
+      "sourcePath": "lib/gpu-resource-models.js",
+      "archivePath": "lib/gpu-resource-models.js",
+      "sizeBytes": 28061,
+      "sha256": "79687d08347189a08310f6511d6c49a2c9691d57e1bef69ebcb02b434d14b90c"
+    },
+    {
+      "sourcePath": "lib/gpu-resource-view.js",
+      "archivePath": "lib/gpu-resource-view.js",
+      "sizeBytes": 15145,
+      "sha256": "cf6d898593545d181b58e6adee9da25b19e143ba9b781cd753b3cd3251d65bf4"
+    },
+    {
+      "sourcePath": "lib/metrics.js",
+      "archivePath": "lib/metrics.js",
+      "sizeBytes": 2907,
+      "sha256": "3f654fc00f5052f120ef898abc564d0d948238528d699693ed0e7e50fded0786"
+    },
+    {
+      "sourcePath": "lib/model.js",
+      "archivePath": "lib/model.js",
+      "sizeBytes": 34631,
+      "sha256": "17e1bc47fdf802def930fd92f534bd86a23ff5b88a388f62a821e2b179fe39a8"
+    },
+    {
+      "sourcePath": "lib/regression.js",
+      "archivePath": "lib/regression.js",
+      "sizeBytes": 7202,
+      "sha256": "17ffc61ed51f31b850ff9f7092cd19f0ca7e923f704c5c63624016a9bf2d3d6f"
+    },
+    {
+      "sourcePath": "package.json",
+      "archivePath": "package.json",
+      "sizeBytes": 742,
+      "sha256": "f42ab9c46a277714fafa24f3037c552db3b7b7408ea10ba7d8ac4ceddc50aa37"
+    },
+    {
+      "sourcePath": "scripts/fit-experiments.mjs",
+      "archivePath": "scripts/fit-experiments.mjs",
+      "sizeBytes": 10495,
+      "sha256": "df70817c2281a42bedaeeede00f4d76636ee41e007c67de224d902a54fac4a26"
+    },
+    {
+      "sourcePath": "scripts/fit-gpu-resources.mjs",
+      "archivePath": "scripts/fit-gpu-resources.mjs",
+      "sizeBytes": 6720,
+      "sha256": "ee278b8995989c2e56840b0ebaf0af0da6b41d106e13e2097b4b7823cba5aeee"
+    },
+    {
+      "sourcePath": "scripts/fit-model.mjs",
+      "archivePath": "scripts/fit-model.mjs",
+      "sizeBytes": 10966,
+      "sha256": "bbaf879464f552743a3d39805aa12d094514f7a5c01882b84f26205677646054"
+    },
+    {
+      "sourcePath": "scripts/import-sparecores.py",
+      "archivePath": "scripts/import-sparecores.py",
+      "sizeBytes": 16363,
+      "sha256": "7341cfb5823681c358aa3d4498f1caf3187b4e697371d1a6bf554d17917b3b32"
+    },
+    {
+      "sourcePath": "scripts/plot-gpu-resources.py",
+      "archivePath": "scripts/plot-gpu-resources.py",
+      "sizeBytes": 7444,
+      "sha256": "8b053e69a83b138c9a87f31163df9bb31ad18d11e8ab31b9077df2b0d0abf02d"
+    },
+    {
+      "sourcePath": "scripts/pricing.mjs",
+      "archivePath": "scripts/pricing.mjs",
+      "sizeBytes": 46604,
+      "sha256": "ea8c7dad1d81022725a1abf7a0128a4f5cbc6fbfa2db88d15cea557f25626a92"
+    },
+    {
+      "sourcePath": "scripts/providers/alibaba.mjs",
+      "archivePath": "scripts/providers/alibaba.mjs",
+      "sizeBytes": 9330,
+      "sha256": "c9cb69b717e97be3268b808754ab19919185c2f507023dfe07bd469992de476f"
+    },
+    {
+      "sourcePath": "scripts/providers/google.mjs",
+      "archivePath": "scripts/providers/google.mjs",
+      "sizeBytes": 8789,
+      "sha256": "284c6a57c37f107a5704b353ecfcb86950eee3baf48160fc6cc4cb51de753e4e"
+    },
+    {
+      "sourcePath": "scripts/providers/ibm.mjs",
+      "archivePath": "scripts/providers/ibm.mjs",
+      "sizeBytes": 7732,
+      "sha256": "94c367e13078e85e60cea86cc9f3e35ebb86cb2d4ed4e919f963c8f7f7302a1e"
+    },
+    {
+      "sourcePath": "scripts/providers/oracle.mjs",
+      "archivePath": "scripts/providers/oracle.mjs",
+      "sizeBytes": 19859,
+      "sha256": "4d7179e7f540a161f984b6ce2938f54d13a2d77a267297b65942b535b13df8a4"
+    },
+    {
+      "sourcePath": "scripts/update-prices.mjs",
+      "archivePath": "scripts/update-prices.mjs",
+      "sizeBytes": 3432,
+      "sha256": "57a0549cab22396f6070ea85f9290e1b2a2e0e3bd94c475fa36508b657866ab8"
+    }
+  ]
+}

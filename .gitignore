@@ -1,0 +1,7 @@
+/public/
+/resources/
+/.hugo_build.lock
+.DS_Store
+/tmp/
+/compute-price-website.zip
+

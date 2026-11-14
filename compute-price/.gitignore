@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.wrangler/
+.env*
+*.tar.gz
+*.zip
+artifacts/
+/tmp/
+/.openai/
+__pycache__/

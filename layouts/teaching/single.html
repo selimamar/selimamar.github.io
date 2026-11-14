@@ -1,0 +1,27 @@
+{{ define "main" }}
+  <article class="page shell teaching-page">
+    <header class="page-header">
+      <p class="eyebrow">Courses and materials</p>
+      <h1>{{ .Title }}</h1>
+      <div class="short-rule" aria-hidden="true"></div>
+    </header>
+    {{ $courses := hugo.Data.teaching.courses }}
+    {{ if $courses }}
+      <div class="teaching-list prose">
+        {{ range sort $courses "year" "desc" }}
+          <article class="teaching-entry">
+            <h2>{{ .title }}</h2>
+            <p class="teaching-meta">
+              {{ with .institution }}{{ . }}{{ end }}{{ with .term }} · {{ . }}{{ end }}{{ with .year }} {{ . }}{{ end }}{{ with .role }} · {{ . }}{{ end }}
+            </p>
+            {{ with .notes }}<p>{{ . }}</p>{{ end }}
+            {{ with .course_url }}<p><a href="{{ . }}">Course website <span aria-hidden="true">↗</span></a></p>{{ end }}
+          </article>
+        {{ end }}
+      </div>
+    {{ else }}
+      <div class="prose">{{ .Content }}</div>
+    {{ end }}
+  </article>
+{{ end }}
+

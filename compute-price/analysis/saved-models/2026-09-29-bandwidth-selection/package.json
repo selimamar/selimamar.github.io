@@ -1,0 +1,17 @@
+{
+  "name": "compute-price",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A transparent daily index of public cloud compute prices.",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "dev": "node dev/server.mjs",
+    "build": "node build/build.mjs",
+    "test": "node --test test/*.test.mjs",
+    "refresh": "node scripts/update-prices.mjs && node scripts/fit-model.mjs && node scripts/fit-experiments.mjs && node scripts/fit-gpu-resources.mjs",
+    "fit": "node scripts/fit-model.mjs && node scripts/fit-experiments.mjs && node scripts/fit-gpu-resources.mjs",
+    "experiments": "node scripts/fit-experiments.mjs && node scripts/fit-gpu-resources.mjs"
+  },
+  "devDependencies": { "esbuild": "0.28.2" }
+}

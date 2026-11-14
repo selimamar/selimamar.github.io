@@ -1,0 +1,502 @@
+{
+  "schemaVersion": 1,
+  "version": "1.0.0",
+  "retrievedAt": "2026-09-29T06:08:08.617Z",
+  "metric": "GPU on-device memory bandwidth",
+  "unit": "GB/s",
+  "definition": "Peak data-transfer rate between a GPU and its own attached memory, in decimal gigabytes per second (10^9 bytes/s). This is distinct from network, PCIe and NVLink bandwidth.",
+  "modelInput": "bandwidthPerGpuGBps: use the per-device value together with a separate GPU count. gpuMemoryBandwidthGBps is only the sum of installed, separate per-device capacities.",
+  "sourcePolicy": "Join exact publicly documented cloud GPU hardware to a primary manufacturer or provider peak specification. Keep variant-specific PCIe/SXM and memory-capacity distinctions. No imputation for missing or ambiguous variants.",
+  "limitations": [
+    "Peak hardware bandwidth is not measured cloud VM bandwidth or application throughput. Cloud clocks and power limits may differ.",
+    "The sum across devices is not a unified memory pool or an application scaling guarantee.",
+    "Fractional, partitioned, shared, heterogeneous, unknown and conflicting GPU mappings are excluded.",
+    "GPU specifications are reviewed separately from daily prices. Their retrievedAt dates are not advanced by price refreshes.",
+    "hardwareMemoryPerGpuGB is a hardware nominal source annotation, not a replacement for the catalog provider capacity or an assertion about usable bytes."
+  ],
+  "excluded": [
+    {
+      "providers": [
+        "oracle"
+      ],
+      "gpuNames": [
+        "NVIDIA A100 80GB"
+      ],
+      "reason": "Exact PCIe versus SXM variant for BM.GPU.A100-v2.8 was not verified from the reviewed primary sources; no bandwidth is substituted."
+    },
+    {
+      "reason": "GPU models or cloud variants absent from these exact mappings remain unknown. No memory bandwidth is inferred from FP32 or VRAM."
+    }
+  ],
+  "records": [
+    {
+      "id": "nvidia-t4",
+      "hardwareVariant": "NVIDIA T4",
+      "perGpuGBps": 320,
+      "hardwareMemoryPerGpuGB": 16,
+      "metric": "GPU on-device memory bandwidth",
+      "unit": "GB/s",
+      "sourceType": "manufacturer-hardware-peak",
+      "sourceUrls": [
+        "https://www.nvidia.com/en-au/deep-learning-ai/solutions/inference-platform/hpc/",
+        "https://www.nvidia.com/en-us/data-center/tesla-t4/"
+      ],
+      "mappingSourceUrls": [],
+      "retrievedAt": "2026-09-29T06:08:08.617Z",
+      "matches": [
+        {
+          "providers": [
+            "aws",
+            "azure",
+            "alibaba"
+          ],
+          "gpuNames": [
+            "NVIDIA T4"
+          ]
+        },
+        {
+          "providers": [
+            "gcp"
+          ],
+          "gpuNames": [
+            "NVIDIA T4"
+          ],
+          "familyPattern": "^n1-t4$"
+        }
+      ],
+      "notes": "NVIDIA lists 320 GB/s in its inference comparison and 320+ GB/s on the T4 product page. The conservative published nominal 320 GB/s is used, not a measured cloud throughput."
+    },
+    {
+      "id": "nvidia-l4",
+      "hardwareVariant": "NVIDIA L4",
+      "perGpuGBps": 300,
+      "hardwareMemoryPerGpuGB": 24,
+      "metric": "GPU on-device memory bandwidth",
+      "unit": "GB/s",
+      "sourceType": "manufacturer-hardware-peak",
+      "sourceUrls": [
+        "https://www.nvidia.com/en-us/data-center/l4/"
+      ],
+      "mappingSourceUrls": [],
+      "retrievedAt": "2026-09-29T06:08:08.617Z",
+      "matches": [
+        {
+          "providers": [
+            "aws",
+            "ibm"
+          ],
+          "gpuNames": [
+            "NVIDIA L4"
+          ]
+        },
+        {
+          "providers": [
+            "gcp"
+          ],
+          "gpuNames": [
+            "NVIDIA L4"
+          ],
+          "familyPattern": "^g2$"
+        }
+      ],
+      "notes": "On-device GDDR6 bandwidth, distinct from the 64 GB/s PCIe interconnect."
+    },
+    {
+      "id": "nvidia-a10",
+      "hardwareVariant": "NVIDIA A10",
+      "perGpuGBps": 600,
+      "hardwareMemoryPerGpuGB": 24,
+      "metric": "GPU on-device memory bandwidth",
+      "unit": "GB/s",
+      "sourceType": "manufacturer-hardware-peak",
+      "sourceUrls": [
+        "https://www.nvidia.com/en-us/data-center/products/a10-gpu/"
+      ],
+      "mappingSourceUrls": [],
+      "retrievedAt": "2026-09-29T06:08:08.617Z",
+      "matches": [
+        {
+          "providers": [
+            "azure",
+            "alibaba",
+            "oracle"
+          ],
+          "gpuNames": [
+            "NVIDIA A10",
+            "A10"
+          ]
+        }
+      ],
+      "notes": "Exact A10 model peak; not inferred from GPU count or memory capacity."
+    },
+    {
+      "id": "aws-a10g",
+      "hardwareVariant": "NVIDIA A10G for AWS",
+      "perGpuGBps": 600,
+      "hardwareMemoryPerGpuGB": 24,
+      "metric": "GPU on-device memory bandwidth",
+      "unit": "GB/s",
+      "sourceType": "manufacturer-hardware-peak",
+      "sourceUrls": [
+        "https://d1.awsstatic.com/product-marketing/ec2/NVIDIA_AWS_A10G_DataSheet_FINAL_02_17_2022.pdf"
+      ],
+      "mappingSourceUrls": [],
+      "retrievedAt": "2026-09-29T06:08:08.617Z",
+      "matches": [
+        {
+          "providers": [
+            "aws"
+          ],
+          "gpuNames": [
+            "NVIDIA A10G"
+          ],
+          "namePattern": "^g5\\."
+        }
+      ],
+      "notes": "AWS/NVIDIA A10G-specific datasheet publishes 600 GB/s. The A10G has a distinct FP32 rating from generic A10."
+    },
+    {
+      "id": "nvidia-l40s",
+      "hardwareVariant": "NVIDIA L40S",
+      "perGpuGBps": 864,
+      "hardwareMemoryPerGpuGB": 48,
+      "metric": "GPU on-device memory bandwidth",
+      "unit": "GB/s",
+      "sourceType": "manufacturer-hardware-peak",
+      "sourceUrls": [
+        "https://www.nvidia.com/en-us/data-center/l40s/"
+      ],
+      "mappingSourceUrls": [],
+      "retrievedAt": "2026-09-29T06:08:08.617Z",
+      "matches": [
+        {
+          "providers": [
+            "aws",
+            "oracle",
+            "ibm"
+          ],
+          "gpuNames": [
+            "NVIDIA L40S"
+          ]
+        }
+      ],
+      "notes": "On-device GDDR6 bandwidth, not PCIe or network throughput."
+    },
+    {
+      "id": "nvidia-p4",
+      "hardwareVariant": "NVIDIA Tesla P4",
+      "perGpuGBps": 192,
+      "hardwareMemoryPerGpuGB": 8,
+      "metric": "GPU on-device memory bandwidth",
+      "unit": "GB/s",
+      "sourceType": "manufacturer-hardware-peak",
+      "sourceUrls": [
+        "https://images.nvidia.com/content/pdf/tesla/184457-Tesla-P4-Datasheet-NV-Final-Letter-Web.pdf"
+      ],
+      "mappingSourceUrls": [
+        "https://docs.cloud.google.com/compute/docs/gpus"
+      ],
+      "retrievedAt": "2026-09-29T06:08:08.617Z",
+      "matches": [
+        {
+          "providers": [
+            "gcp"
+          ],
+          "gpuNames": [
+            "NVIDIA P4"
+          ],
+          "familyPattern": "^n1-p4$"
+        }
+      ],
+      "notes": "NVIDIA Tesla P4 datasheet on-device GDDR5 memory bandwidth."
+    },
+    {
+      "id": "nvidia-v100",
+      "hardwareVariant": "NVIDIA Tesla V100 16GB / 32GB, PCIe / SXM2",
+      "perGpuGBps": 900,
+      "hardwareMemoryPerGpuGB": null,
+      "metric": "GPU on-device memory bandwidth",
+      "unit": "GB/s",
+      "sourceType": "manufacturer-hardware-peak",
+      "sourceUrls": [
+        "https://images.nvidia.com/content/technologies/volta/pdf/tesla-volta-v100-datasheet-letter-fnl-web.pdf"
+      ],
+      "mappingSourceUrls": [
+        "https://docs.cloud.google.com/compute/docs/gpus",
+        "https://www.alibabacloud.com/help/en/ecs/user-guide/gpu-accelerated-compute-optimized-and-vgpu-accelerated-instance-families-1"
+      ],
+      "retrievedAt": "2026-09-29T06:08:08.617Z",
+      "matches": [
+        {
+          "providers": [
+            "aws"
+          ],
+          "gpuNames": [
+            "NVIDIA V100"
+          ],
+          "namePattern": "^p3(?:dn)?\\."
+        },
+        {
+          "providers": [
+            "gcp"
+          ],
+          "gpuNames": [
+            "NVIDIA V100"
+          ],
+          "familyPattern": "^n1-v100$"
+        },
+        {
+          "providers": [
+            "alibaba"
+          ],
+          "gpuNames": [
+            "NVIDIA V100"
+          ],
+          "familyPattern": "^ecs\\.gn6v$"
+        }
+      ],
+      "notes": "NVIDIA publishes the same 900 GB/s for 16GB/32GB PCIe/SXM2 V100; this does not infer the FP32 variant or GPU memory capacity."
+    },
+    {
+      "id": "aws-a100-40",
+      "hardwareVariant": "NVIDIA A100 40GB (same memory bandwidth for PCIe and SXM)",
+      "perGpuGBps": 1555,
+      "hardwareMemoryPerGpuGB": 40,
+      "metric": "GPU on-device memory bandwidth",
+      "unit": "GB/s",
+      "sourceType": "manufacturer-hardware-peak",
+      "sourceUrls": [
+        "https://images.nvidia.com/data-center/a100/a100-datasheet.pdf"
+      ],
+      "mappingSourceUrls": [
+        "https://aws.amazon.com/ec2/instance-types/p4/"
+      ],
+      "retrievedAt": "2026-09-29T06:08:08.617Z",
+      "matches": [
+        {
+          "providers": [
+            "aws"
+          ],
+          "gpuNames": [
+            "NVIDIA A100"
+          ],
+          "namePattern": "^p4d\\.24xlarge$"
+        }
+      ],
+      "notes": "40GB PCIe and SXM share 1555 GB/s. The capacity is verified from AWS P4d documentation."
+    },
+    {
+      "id": "aws-a100-80-sxm",
+      "hardwareVariant": "NVIDIA A100 SXM4 80GB on AWS P4de",
+      "perGpuGBps": 2039,
+      "hardwareMemoryPerGpuGB": 80,
+      "metric": "GPU on-device memory bandwidth",
+      "unit": "GB/s",
+      "sourceType": "manufacturer-hardware-peak",
+      "sourceUrls": [
+        "https://www.nvidia.com/en-us/data-center/a100/"
+      ],
+      "mappingSourceUrls": [
+        "https://docs.aws.amazon.com/eks/latest/best-practices/aiml-compute.html"
+      ],
+      "retrievedAt": "2026-09-29T06:08:08.617Z",
+      "matches": [
+        {
+          "providers": [
+            "aws"
+          ],
+          "gpuNames": [
+            "NVIDIA A100"
+          ],
+          "namePattern": "^p4de\\.24xlarge$"
+        }
+      ],
+      "notes": "AWS EKS P4de examples explicitly identify A100-SXM4-80GB; the NVIDIA SXM 80GB bandwidth is used, not the 1935 GB/s PCIe rating."
+    },
+    {
+      "id": "azure-a100-80-pcie",
+      "hardwareVariant": "NVIDIA A100 PCIe 80GB on Azure NC A100 v4",
+      "perGpuGBps": 1935,
+      "hardwareMemoryPerGpuGB": 80,
+      "metric": "GPU on-device memory bandwidth",
+      "unit": "GB/s",
+      "sourceType": "manufacturer-hardware-peak",
+      "sourceUrls": [
+        "https://www.nvidia.com/en-us/data-center/a100/"
+      ],
+      "mappingSourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/nca100v4-series"
+      ],
+      "retrievedAt": "2026-09-29T06:08:08.617Z",
+      "matches": [
+        {
+          "providers": [
+            "azure"
+          ],
+          "gpuNames": [
+            "NVIDIA A100"
+          ],
+          "namePattern": "^Standard_NC(?:24|48|96)ads_A100_v4$"
+        }
+      ],
+      "notes": "Microsoft explicitly identifies NC A100 v4 as A100 PCIe 80GB. Do not substitute the higher SXM bandwidth."
+    },
+    {
+      "id": "oracle-a100-40",
+      "hardwareVariant": "NVIDIA A100 SXM 40GB on OCI BM.GPU4.8",
+      "perGpuGBps": 1555,
+      "hardwareMemoryPerGpuGB": 40,
+      "metric": "GPU on-device memory bandwidth",
+      "unit": "GB/s",
+      "sourceType": "manufacturer-hardware-peak",
+      "sourceUrls": [
+        "https://images.nvidia.com/data-center/a100/a100-datasheet.pdf"
+      ],
+      "mappingSourceUrls": [
+        "https://blogs.oracle.com/cloud-infrastructure/accelerate-quantum-espresso-simulation-oci-gpu"
+      ],
+      "retrievedAt": "2026-09-29T06:08:08.617Z",
+      "matches": [
+        {
+          "providers": [
+            "oracle"
+          ],
+          "gpuNames": [
+            "NVIDIA A100 40GB"
+          ],
+          "namePattern": "^BM\\.GPU4\\.8$"
+        }
+      ],
+      "notes": "Oracle identifies BM.GPU4.8 as A100 40GB SXM."
+    },
+    {
+      "id": "aws-rtx-pro-6000",
+      "hardwareVariant": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+      "perGpuGBps": 1597,
+      "hardwareMemoryPerGpuGB": 96,
+      "metric": "GPU on-device memory bandwidth",
+      "unit": "GB/s",
+      "sourceType": "manufacturer-hardware-peak",
+      "sourceUrls": [
+        "https://www.nvidia.com/en-us/data-center/rtx-pro-6000-blackwell-server-edition/"
+      ],
+      "mappingSourceUrls": [
+        "https://aws.amazon.com/ec2/instance-types/g7e/"
+      ],
+      "retrievedAt": "2026-09-29T06:08:08.617Z",
+      "matches": [
+        {
+          "providers": [
+            "aws"
+          ],
+          "gpuNames": [
+            "NVIDIA RTX PRO Server 6000"
+          ],
+          "namePattern": "^g7e\\."
+        },
+        {
+          "providers": [
+            "gcp"
+          ],
+          "gpuNames": [
+            "NVIDIA RTX PRO 6000 Blackwell Server Edition"
+          ],
+          "familyPattern": "^g4$"
+        }
+      ],
+      "notes": "Exact Server Edition on-device memory bandwidth. Workstation variants are not substituted."
+    },
+    {
+      "id": "alibaba-l20",
+      "hardwareVariant": "NVIDIA L20 in Alibaba gn8is",
+      "perGpuGBps": 864,
+      "hardwareMemoryPerGpuGB": 48,
+      "metric": "GPU on-device memory bandwidth",
+      "unit": "GB/s",
+      "sourceType": "provider-published-hardware-peak",
+      "sourceUrls": [
+        "https://www.alibabacloud.com/help/en/ecs/user-guide/gpu-accelerated-compute-optimized-and-vgpu-accelerated-instance-families-1"
+      ],
+      "mappingSourceUrls": [],
+      "retrievedAt": "2026-09-29T06:08:08.617Z",
+      "matches": [
+        {
+          "providers": [
+            "alibaba"
+          ],
+          "gpuNames": [
+            "NVIDIA L20"
+          ],
+          "familyPattern": "^ecs\\.(?:ebm)?gn8is$"
+        }
+      ],
+      "notes": "Alibaba gn8is documentation directly publishes 864 GB/s of GPU memory bandwidth. The adjacent 64 GB/s figure is PCIe bandwidth and is not used."
+    },
+    {
+      "id": "oracle-mi300x",
+      "hardwareVariant": "AMD Instinct MI300X",
+      "perGpuGBps": 5300,
+      "hardwareMemoryPerGpuGB": 192,
+      "metric": "GPU on-device memory bandwidth",
+      "unit": "GB/s",
+      "sourceType": "manufacturer-hardware-peak",
+      "sourceUrls": [
+        "https://www.amd.com/en/products/accelerators/instinct/mi300/mi300x.html"
+      ],
+      "mappingSourceUrls": [
+        "https://docs.oracle.com/en-us/iaas/Content/Compute/References/computeshapes.htm"
+      ],
+      "retrievedAt": "2026-09-29T06:08:08.617Z",
+      "matches": [
+        {
+          "providers": [
+            "oracle"
+          ],
+          "gpuNames": [
+            "AMD MI300X"
+          ],
+          "namePattern": "^BM\\.GPU\\.MI300X\\.8$"
+        }
+      ],
+      "notes": "AMD specifies peak on-device memory bandwidth of 5.3 TB/s, converted using decimal units to 5300 GB/s."
+    },
+    {
+      "id": "nvidia-h100-sxm",
+      "hardwareVariant": "NVIDIA H100 SXM5 80GB",
+      "perGpuGBps": 3350,
+      "hardwareMemoryPerGpuGB": 80,
+      "metric": "GPU on-device memory bandwidth",
+      "unit": "GB/s",
+      "sourceType": "manufacturer-hardware-peak",
+      "sourceUrls": [
+        "https://www.nvidia.com/en-us/data-center/h100/"
+      ],
+      "mappingSourceUrls": [
+        "https://aws.amazon.com/ko/blogs/tech/aws-compute-distributed-training-guide-model-scale-hardware/",
+        "https://blogs.oracle.com/cloud-infrastructure/scaling-ai-oci-nvidia-breakthroughs-mlperf-v41"
+      ],
+      "retrievedAt": "2026-09-29T06:08:08.617Z",
+      "matches": [
+        {
+          "providers": [
+            "aws"
+          ],
+          "gpuNames": [
+            "NVIDIA H100"
+          ],
+          "namePattern": "^p5\\.48xlarge$"
+        },
+        {
+          "providers": [
+            "oracle"
+          ],
+          "gpuNames": [
+            "NVIDIA H100 80GB"
+          ],
+          "namePattern": "^BM\\.GPU\\.H100\\.8$"
+        }
+      ],
+      "notes": "H100 SXM on-device bandwidth 3.35 TB/s = 3350 GB/s. PCIe/NVL variants are not substituted."
+    }
+  ]
+}

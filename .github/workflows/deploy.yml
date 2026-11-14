@@ -1,0 +1,152 @@
+name: Refresh compute prices and deploy Hugo site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    # Once per day at 07:23 UTC; avoid the start-of-hour Actions queue.
+    - cron: '23 7 * * *'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    outputs:
+      compute_refresh_outcome: ${{ steps.compute_refresh.outcome }}
+    env:
+      HUGO_VERSION: 0.165.0
+      TZ: America/Los_Angeles
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v6
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - name: Set up Python for the methodology PDF
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: compute-price/requirements-methodology.txt
+
+      - name: Install PDF dependency
+        run: python -m pip install -r compute-price/requirements-methodology.txt
+
+      - name: Test compute models and publication safety
+        working-directory: compute-price
+        run: node --test test/*.test.mjs
+
+      - name: Restore the last complete compute publication
+        uses: actions/cache/restore@v5
+        with:
+          key: compute-publication-v1-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            compute-publication-v1-${{ runner.os }}-
+          # Never restore benchmark inputs or source code over the checkout.
+          path: |
+            compute-price/data/prices.json
+            compute-price/data/price-catalog.json
+            compute-price/data/model.json
+            compute-price/data/experiments.json
+            compute-price/data/gpu-resource-experiments.json
+            compute-price/data/reference-history.json
+            compute-price/data/residual-diagnostics.json
+            compute-price/data/refresh-status.json
+            compute-price/analysis/model-report.md
+            compute-price/analysis/experiments-report.md
+            compute-price/analysis/gpu-resource-report.md
+            compute-price/analysis/reference-history-report.md
+            compute-price/analysis/residual-report.md
+            compute-price/output/pdf/compute-price-methodology.pdf
+
+      - name: Refresh prices, fits, history, diagnostics and methodology
+        id: compute_refresh
+        timeout-minutes: 30
+        continue-on-error: true
+        env:
+          PYTHON: python
+        run: node compute-price/scripts/refresh-for-hugo.mjs
+
+      - name: Validate the complete publication, including any retained fallback
+        run: node compute-price/scripts/refresh-for-hugo.mjs --validate
+
+      - name: Save the complete publication for the next daily run
+        if: steps.compute_refresh.outcome == 'success'
+        uses: actions/cache/save@v5
+        with:
+          key: compute-publication-v1-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            compute-price/data/prices.json
+            compute-price/data/price-catalog.json
+            compute-price/data/model.json
+            compute-price/data/experiments.json
+            compute-price/data/gpu-resource-experiments.json
+            compute-price/data/reference-history.json
+            compute-price/data/residual-diagnostics.json
+            compute-price/data/refresh-status.json
+            compute-price/analysis/model-report.md
+            compute-price/analysis/experiments-report.md
+            compute-price/analysis/gpu-resource-report.md
+            compute-price/analysis/reference-history-report.md
+            compute-price/analysis/residual-report.md
+            compute-price/output/pdf/compute-price-methodology.pdf
+
+      - name: Install Hugo
+        run: |
+          curl -fsSL --retry 4 --retry-delay 5 --retry-all-errors --connect-timeout 30 --max-time 180 --output-dir "${{ runner.temp }}" -O "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.tar.gz?run=${{ github.run_id }}"
+          mkdir -p "${HOME}/.local/hugo"
+          tar -C "${HOME}/.local/hugo" -xf "${{ runner.temp }}/hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
+          echo "${HOME}/.local/hugo" >> "${GITHUB_PATH}"
+
+      - name: Build
+        env:
+          HUGO_ENVIRONMENT: production
+        run: hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/" --cacheDir "${{ runner.temp }}/hugo_cache"
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          include-hidden-files: false
+          path: ./public
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v5
+
+      - name: Report an unsuccessful compute refresh
+        if: needs.build.outputs.compute_refresh_outcome == 'failure'
+        run: |
+          echo "::error::The site was deployed with its last complete compute snapshot. The daily refresh failed; inspect the refresh step before retrying."
+          exit 1
+

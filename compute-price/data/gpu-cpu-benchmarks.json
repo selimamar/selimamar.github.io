@@ -1,0 +1,86 @@
+{
+  "methodology": {
+    "benchmark": "Geekbench 6 multi-core",
+    "versions": [
+      "6.3.0"
+    ],
+    "scope": "Historical public CPU measurements for exact Linux GPU VM shapes.",
+    "selection": "One public Geekbench Browser result per exact cloud VM, matching vCPU count and plausible available RAM. Whole-instance scores are used without scaling. These records are CPU measurements; they do not supply GPU scores.",
+    "limitations": "Only three directly verified GPU VM CPU results are included here. Public Spare Cores primary benchmark reports can provide broader CPU coverage separately. All results are historical, community submitted and have undisclosed regions. No score is estimated.",
+    "retrievedAt": "2026-09-29T04:11:51Z"
+  },
+  "records": [
+    {
+      "provider": "aws",
+      "name": "g5.2xlarge",
+      "geekbench6Multi": {
+        "score": 5301,
+        "url": "https://browser.geekbench.com/v6/cpu/13642689",
+        "version": "6.3.0",
+        "edition": "for Linux AVX2",
+        "os": "Linux",
+        "system": "Ubuntu 20.04.5 LTS",
+        "model": "Amazon EC2 g5.2xlarge",
+        "cpu": "AMD EPYC 7R32",
+        "runAt": "2025-09-04",
+        "dateBasis": "Geekbench Browser upload date",
+        "retrievedAt": "2026-09-29T04:11:51Z",
+        "vcpus": 8,
+        "ramGiB": 32,
+        "reportedMemoryGB": 31.01,
+        "reportedTopology": "1 Processor, 4 Cores, 8 Threads",
+        "sampleCount": 1,
+        "sourceType": "Public community-submitted Geekbench Browser result",
+        "region": null
+      }
+    },
+    {
+      "provider": "aws",
+      "name": "g5.4xlarge",
+      "geekbench6Multi": {
+        "score": 7504,
+        "url": "https://browser.geekbench.com/v6/cpu/8996204",
+        "version": "6.3.0",
+        "edition": "for Linux x86 (64-bit)",
+        "os": "Linux",
+        "system": "Ubuntu 24.04.1 LTS",
+        "model": "Amazon EC2 g5.4xlarge",
+        "cpu": "AMD EPYC 7R32",
+        "runAt": "2024-11-21",
+        "dateBasis": "Geekbench Browser upload date",
+        "retrievedAt": "2026-09-29T04:11:51Z",
+        "vcpus": 16,
+        "ramGiB": 64,
+        "reportedMemoryGB": 62.1,
+        "reportedTopology": "1 Processor, 8 Cores, 16 Threads",
+        "sampleCount": 1,
+        "sourceType": "Public community-submitted Geekbench Browser result",
+        "region": null
+      }
+    },
+    {
+      "provider": "aws",
+      "name": "g6.xlarge",
+      "geekbench6Multi": {
+        "score": 3561,
+        "url": "https://browser.geekbench.com/v6/cpu/8996461",
+        "version": "6.3.0",
+        "edition": "for Linux x86 (64-bit)",
+        "os": "Linux",
+        "system": "Ubuntu 24.04.1 LTS",
+        "model": "Amazon EC2 g6.xlarge",
+        "cpu": "AMD EPYC 7R13 Processor",
+        "runAt": "2024-11-21",
+        "dateBasis": "Geekbench Browser upload date",
+        "retrievedAt": "2026-09-29T04:11:51Z",
+        "vcpus": 4,
+        "ramGiB": 16,
+        "reportedMemoryGB": 15.01,
+        "reportedTopology": "1 Processor, 2 Cores, 4 Threads",
+        "sampleCount": 1,
+        "sourceType": "Public community-submitted Geekbench Browser result",
+        "region": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "retrievedAt": "2026-09-29T05:32:51.816117+00:00",
+  "loaderUrl": "https://ecsnew.console.aliyun.com/tools/price.do?channel=intl",
+  "priceSourceUrl": "https://g.alicdn.com/aliyun/ecs-price-info-intl/2.0.421/price/js_price/filter_price/instanceTypePrice_2.js",
+  "specSourceUrl": "https://g.alicdn.com/aliyun/ecs-price-info-intl/2.0.421/price/js_price/filter_price/instanceTypeDefinition.js",
+  "displaySourceUrl": "https://g.alicdn.com/aliyun/www-product-ecs-price/1.0.55/index.js",
+  "note": "Actual source excerpts. Selected shape records are unchanged; unrelated shapes and regions omitted. The Windows excerpt is from sibling instanceTypePrice_1.js, added to the fixture to test OS exclusion. Display snippets establish international USD, list hourly rate mapping, and source memory units without executing remote JavaScript. Full-response SHA-256 hashes are below.",
+  "sourceSha256": {
+    "0": "574780a19e620ec75db131824ccb583c2334b16d95b799a6cef4195a8d57cde0",
+    "1": "cdaf2339ab73044479858eb7b69ce78d7a50b039de89b6f05ebf520beb26694b",
+    "2": "3297db956bd938754550b09da5f995aff6ef4f78423943518ba051c920cc05fa",
+    "8": "4a73b6eec9b32cacb12b25abe54cdf2267361f9e8a6bc15035b637ac6d4707bb"
+  }
+}

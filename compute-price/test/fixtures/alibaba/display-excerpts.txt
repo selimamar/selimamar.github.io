@@ -1,0 +1,7 @@
+"common.price.unit.yuan":"USD"
+"common.column.title.hour":"Pay-as-you-go Hourly Price"
+"common.column.title.standardHour":"List Price (Pay-as-you-go)"
+"common.column.title.memory":"MEM (GiB)"
+e.GPUMemorySize+" GB"
+c=r[6],s=r[8];c[8]=s[0]
+standardHour:(0,l.formatGlobalPrice)(e[8])

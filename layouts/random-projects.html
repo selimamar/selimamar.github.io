@@ -1,0 +1,22 @@
+{{ define "main" }}
+  <article class="page shell">
+    <header class="page-header">
+      <p class="eyebrow">Selim Amar · Projects</p>
+      <h1>{{ .Title }}</h1>
+      <div class="short-rule" aria-hidden="true"></div>
+      <div class="page-intro">{{ .Content }}</div>
+    </header>
+    <div class="prose project-list">
+      {{ range site.Menus.main }}
+        {{ if eq .Identifier "projects" }}
+          {{ range .Children }}
+            <section class="project-entry">
+              <h2><a href="{{ .URL }}">{{ .Name }}</a></h2>
+              {{ with .Page.Description }}<p>{{ . }}</p>{{ end }}
+            </section>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    </div>
+  </article>
+{{ end }}

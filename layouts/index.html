@@ -1,0 +1,40 @@
+{{ define "main" }}
+  <article>
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <h1 id="hero-title">{{ .Title }}</h1>
+        <p class="eyebrow hero-role">{{ site.Params.role }}<br>{{ site.Params.institution }}</p>
+        <div class="short-rule" aria-hidden="true"></div>
+        <div class="hero-bio">{{ .Content }}</div>
+        <nav class="profile-links" aria-label="Profile links">
+          <a href="mailto:{{ site.Params.email }}"><span aria-hidden="true">—</span> Email</a>
+          {{ with site.Params.arxiv }}<a href="{{ . }}" rel="me"><span aria-hidden="true">↗</span> arXiv</a>{{ end }}
+          {{ with site.Params.scholar }}<a href="{{ . }}" rel="me"><span aria-hidden="true">↗</span> Google Scholar</a>{{ end }}
+          <a href="{{ "files/Selim_Amar_CV.pdf" | relURL }}"><span aria-hidden="true">↓</span> CV (PDF)</a>
+        </nav>
+      </div>
+      <figure class="portrait-wrap">
+        <img class="portrait" src="{{ "images/selim-amar.jpg" | relURL }}" alt="Selim Amar at the beach" width="3392" height="2544" fetchpriority="high">
+      </figure>
+    </section>
+
+    <div class="work-band">
+    <section class="work shell" aria-label="Publications and research interests">
+      <div class="selected-work">
+        <h2 class="section-label">Publications</h2>
+        <div class="publication-list publication-list-compact">
+          {{ range sort hugo.Data.publications "year" "desc" }}
+            {{ partial "publication.html" (dict "publication" . "compact" true) }}
+          {{ end }}
+        </div>
+      </div>
+      <aside class="interests" aria-labelledby="interests-title">
+        <h2 id="interests-title" class="section-label">Research Interests</h2>
+        <ul>
+          {{ range site.Params.researchInterests }}<li>{{ . }}</li>{{ end }}
+        </ul>
+      </aside>
+    </section>
+    </div>
+  </article>
+{{ end }}

@@ -1,0 +1,83 @@
+{
+  "methodology": {
+    "name": "Geekbench 6.3 multi-core, exact Linux instance",
+    "formula": "CPU price = full instance USD/hour / (Geekbench 6 multi-core score / 1000)",
+    "unit": "USD per hour per 1,000 Geekbench 6 multi-core points",
+    "selection": "A curated public Geekbench Browser result for the exact instance model, with matching vCPU count and plausible available memory. Only Linux AVX2 results from Geekbench 6.3.0 are included. Each entry currently contains one measured result; scores are never estimated from CPU models or scaled across instance sizes.",
+    "coverage": "CPU benchmark coverage currently includes three AWS x86 instance types. Other instances remain eligible for RAM or VRAM comparisons but are excluded from CPU comparisons until an exact compatible public result is curated.",
+    "limitations": "Community-submitted historical benchmarks are illustrative, not provider performance guarantees. Linux distribution, host load and hardware variation affect scores. The benchmark's region is not disclosed. Current regional prices are paired with the same instance model, not a verified benchmark of that exact region. Benchmark upload dates are shown separately from daily price retrieval dates. Normalized RAM, VRAM and CPU costs each use the full rental price and must not be added together.",
+    "refresh": "Prices can refresh daily. Benchmarks are curated separately and retain their original upload dates.",
+    "retrievedAt": "2026-09-29T03:31:20Z"
+  },
+  "records": [
+    {
+      "provider": "aws",
+      "name": "m6i.large",
+      "geekbench6Multi": {
+        "score": 1828,
+        "url": "https://browser.geekbench.com/v6/cpu/6430163",
+        "version": "6.3.0",
+        "edition": "Pro for Linux AVX2",
+        "system": "Ubuntu 24.04 LTS",
+        "model": "Amazon EC2 m6i.large",
+        "cpu": "Intel Xeon Platinum 8375C",
+        "runAt": "2024-06-08",
+        "dateBasis": "Geekbench Browser upload date",
+        "retrievedAt": "2026-09-29T03:31:20Z",
+        "vcpus": 2,
+        "ramGiB": 8,
+        "reportedMemoryGB": 7.6,
+        "reportedTopology": "1 Processor, 1 Core, 2 Threads",
+        "sampleCount": 1,
+        "sourceType": "Public community-submitted Geekbench Browser result",
+        "region": null
+      }
+    },
+    {
+      "provider": "aws",
+      "name": "m7i.large",
+      "geekbench6Multi": {
+        "score": 2500,
+        "url": "https://browser.geekbench.com/v6/cpu/6609235",
+        "version": "6.3.0",
+        "edition": "for Linux AVX2",
+        "system": "Amazon Linux 2023.4.20240611",
+        "model": "Amazon EC2 m7i.large",
+        "cpu": "Intel Xeon Platinum 8488C",
+        "runAt": "2024-06-21",
+        "dateBasis": "Geekbench Browser upload date",
+        "retrievedAt": "2026-09-29T03:31:20Z",
+        "vcpus": 2,
+        "ramGiB": 8,
+        "reportedMemoryGB": 7.59,
+        "reportedTopology": "1 Processor, 1 Core, 2 Threads",
+        "sampleCount": 1,
+        "sourceType": "Public community-submitted Geekbench Browser result",
+        "region": null
+      }
+    },
+    {
+      "provider": "aws",
+      "name": "c7i.large",
+      "geekbench6Multi": {
+        "score": 2488,
+        "url": "https://browser.geekbench.com/v6/cpu/8970305",
+        "version": "6.3.0",
+        "edition": "for Linux AVX2",
+        "system": "Debian GNU/Linux 11 (bullseye)",
+        "model": "Amazon EC2 c7i.large",
+        "cpu": "Intel Xeon Platinum 8488C",
+        "runAt": "2024-11-20",
+        "dateBasis": "Geekbench Browser upload date",
+        "retrievedAt": "2026-09-29T03:31:20Z",
+        "vcpus": 2,
+        "ramGiB": 4,
+        "reportedMemoryGB": 3.73,
+        "reportedTopology": "1 Processor, 1 Core, 2 Threads",
+        "sampleCount": 1,
+        "sourceType": "Public community-submitted Geekbench Browser result",
+        "region": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,3189 @@
+<!DOCTYPE html>
+
+<html class="" lang="en-US">
+<head><meta content="2026-08-14 17:31:40Z" name="cpp-last-modified-time"/><meta content="2026-08-14 17:31:40Z" name="cpp-last-processed-time"/>
+<meta charset="utf-8"/>
+<meta content="(C) Copyright 2026" name="copyright"/>
+<meta content="DITA-OT" name="generator"/>
+<meta content="Compute Shapes" name="title"/>
+<meta content="bare metal cloud, bare metal computing, bare metal machines, base clock, clock frequency, clock speed, cloud compute, cloud compute docs, cloud compute services, compute capacity, compute documentation, compute shapes, custom instances, elastic compute, gpu, hardware platform, machine types, max boost clock, shape family, single-core vms, vm, x7 server platform" name="keywords"/>
+<meta content="2018-12-07" name="last-modified-date"/>
+<meta content="WM178509" name="productservices_id"/>
+<meta content="A shape is a template that determines the number of CPUs, amount of memory, and other resources allocated to a newly created instance. Learn about the predefined and customizable shapes for bare metal machines, VMs, and dedicated VM hosts." name="description"/>
+<meta content="en" name="language"/>
+<meta content="WM178623" name="contenttype_id"/>
+<meta content="https://docs.oracle.com/iaas/Content/Compute/References/computeshapes.htm" name="url"/>
+<title>Compute Shapes</title>
+<meta content="width=device-width" name="viewport"/>
+<meta charset="utf-8"/>
+<link href="/iaas/build/styles.css?f0f229f13e16d525a0f747b7ec3d24604047150846cdd63f76988cec11a37bd2" rel="stylesheet"/>
+</head>
+<body>
+<div id="highline-mount"></div>
+<div data-trackas="dcoc-main-navigation" id="mobile-toc" uk-offcanvas="flip: true; overlay: true">
+<div class="uk-offcanvas-bar uk-padding-remove-left uk-padding-remove-right">
+<button class="uk-offcanvas-close toc-mobile-close" type="button" uk-close=""></button>
+<div class="uk-margin-top vl-table-of-contents-mount">
+<div class="uk-text-center">
+<div uk-spinner=""></div>
+</div>
+</div>
+</div>
+</div>
+<div data-trackas="dcoc-header" i18n="" id="global-nav-mount">
+<div class="vl-nav-mount-height-placeholder"></div>
+</div>
+<div class="uk-section uk-section-secondary vl-background-hero uk-background-cover vl-dcoc-hero" data-trackas="dcoc-content-body" style="background-image: url('/iaas/img/banner-bg.jpg')">
+<div class="uk-container uk-container-large">
+<div uk-grid="">
+<div class="uk-width-expand">
+<h3 class="uk-link-reset uk-text-bold uk-margin-remove-bottom" id="cxe-docs-home-page">
+<a href="/iaas/Content/home.htm">
+                  Oracle Cloud Infrastructure Documentation
+                </a>
+</h3>
+<hr class="vl-hr-accent uk-margin-small-top"/>
+</div>
+</div>
+</div>
+</div>
+<div uk-height-viewport="offset-top: true; offset-bottom: true">
+<div class="vl-dcoc-hero-margin">
+<div class="uk-container vl-padding-small-vertical uk-background-muted uk-hidden@m">
+<div class="uk-grid uk-grid-small uk-text-small" uk-grid="">
+<div class="uk-width-expand" data-trackas="dcoc-main-navigation" id="vl-breadcrumbs-mount"></div>
+<div class="uk-width-auto">
+<button class="uk-button uk-button-link uk-button-small vl-button-icon" type="button" uk-toggle="target: #mobile-toc">
+<span uk-icon="icon: menu; ratio: .8"></span>
+                  All Pages
+                </button>
+</div>
+</div>
+</div>
+</div>
+<div class="uk-container uk-container-large">
+<div class="uk-height-1-1 uk-grid" uk-grid="">
+<div class="vl-sidebar-left uk-visible@m" vl-table-of-contents-left="">
+<div class="vl-table-of-contents-mount vl-table-of-contents-inner" vl-table-of-contents-left-inner="">
+<div class="uk-text-center uk-margin-top">
+<div uk-spinner=""></div>
+</div>
+</div>
+</div>
+<div class="uk-width-expand" data-trackas="dcoc-content-body">
+<div class="uk-grid" uk-grid="">
+<div class="uk-width-expand" uk-height-viewport="offset-top: true">
+<a href="#dcoc-content-body" id="skiplink" tabindex="1">Skip to main content</a>
+<div class="uk-margin-large-bottom" id="dcoc-content-body">
+<div class="vl-content vl-content-max-width">
+<div class="uk-hidden@l">
+<div class="uk-nav uk-active uk-nav-default dts-header" id="vl-dts-mount-header"></div>
+</div>
+<article aria-labelledby="ariaid-title1" role="article">
+<article aria-labelledby="ariaid-title1" class="topic nested0" id="Compute_Shapes">
+<h1 class="title topictitle1" id="ariaid-title1">Compute Shapes</h1>
+<div class="body">
+<p>A shape is a template that determines the number of <strong title="An OCPU represents physical CPU cores. For Intel and AMD processors, the CPU capacity equivalent of one physical core with simultaneous multithreading (hyper-threading) enabled, where each OCPU corresponds to two hardware execution threads (also known as virtual CPUs or vCPUs). For Arm A1 (Compute), one OCPU corresponds to a single physical core. For Arm A2 (Compute), one OCPU corresponds to two physical cores." uk-tooltip="">OCPUs <span class="vl-1px-up" uk-icon="icon: info; ratio: .8"></span></strong>, amount of memory, and other resources that are allocated to an instance. Compute shapes are available with AMD processors, Intel processors, and Arm-based processors.</p>
+<p>This topic provides basic information about the shapes that are available for bare metal instances, virtual machines (VMs), and dedicated virtual machine hosts. For information about service limits, see <a class="xref" href="/iaas/Content/General/service-limits/default.htm#computelimits">Compute Limits</a>. For information about protecting data on NVMe devices, see <a class="xref" href="nvmedeviceinformation.htm">Protecting Data on NVMe Devices</a>.</p>
+<div class="uk-alert uk-alert-primary"><span class="vl-1px-up" uk-icon="file-edit"></span><strong> Note</strong><br/><br/>
+<ul>
+<li>
+<p>When a new region becomes available, it might take a few weeks before host capacity also becomes available.</p>
+<p>To obtain a list of shapes available to you, run the <a class="xref" href="/iaas/api/#/en/iaas/latest/Shape/ListShapes">ListShapes</a> operation.</p>
+</li>
+<li>If your instance uses <a class="xref" href="/iaas/Content/Network/Concepts/securityrules.htm#stateful">stateful security rules</a>, each instance has a <a class="xref" href="/iaas/Content/General/service-limits/default.htm#connection-tracking">maximum number of concurrent connections</a> that can be tracked, based on the instance's shape.</li>
+</ul>
+</div>
+<section class="section" id="Compute_Shapes__pricing"><h2 class="title sectiontitle vl-include-in-page-toc">Compute Shape Pricing</h2>
+<p>You can use the <a class="xref" href="https://www.oracle.com/cloud/cost-estimator.html">Cost Estimator</a> to estimate your expected monthly project costs with Oracle Cloud Infrastructure. For detailed information about billing, see <a class="xref" href="/iaas/Content/Billing/home.htm">Billing and Cost Management</a> and the Oracle Compute Cloud Services section of <a class="xref" href="https://www.oracle.com/assets/paas-iaas-universal-credits-3940775.pdf">Oracle PaaS and IaaS Universal Credits Service Descriptions</a>.</p>
+<dl>
+<dt class="dt dlterm">OCPUs and vCPUs</dt>
+<dd class="dd">
+<p>Oracle measures compute resource pricing differently. The Oracle CPU (OCPU) represents physical CPU cores and is the unit of measurement for CPUs on x86 CPUs (AMD and Intel) and Arm CPUs (OCI Ampere Compute). A virtual CPU (vCPU), the industry-standard for measuring compute resources, represents one execution thread of a physical CPU core.</p>
+<p>Most CPU architectures, including x86, runs two threads per physical core, so one OCPU is the equal of two vCPUs for x86-based compute. For OCI
+Compute, the minimum unit of provisioning starts from one OCPU on both X86 (Intel and AMD) and OCI Ampere Compute processors. </p>
+<div class="p">The following are the provisioning units for compute instances:<ul>
+<li>1 OCPU on Arm A1 (Compute) = 1 core on Arm A1 (Compute) or 1 vCPU</li>
+<li>1 OCPU on Arm A2 (Compute) and A4 (Compute) = 2 cores on Arm A2 (Compute) and A4 (Compute) or 2 vCPUs</li>
+<li>1 OCPU on x86 (AMD and Intel) = 2 vCPUs</li>
+</ul>
+</div>
+<p>For more information, see <a href="https://www.oracle.com/cloud/price-list.html#compute-vm">Cloud Price List</a>. In addition, you can read this blog post on <a class="xref" href="https://blogs.oracle.com/cloud-infrastructure/post/vcpu-and-ocpu-pricing-information">vCPU and OCPU pricing information</a>.</p>
+</dd>
+</dl>
+</section>
+</div>
+<article aria-labelledby="ariaid-title2" class="topic nested1" id="flexible">
+<h2 class="title topictitle2 vl-include-in-page-toc" id="ariaid-title2">Flexible Shapes</h2>
+<div class="body">
+<p>A flexible shape is a shape that lets you customize the number of OCPUs and the amount of memory when launching or resizing your VM. When you <a class="xref" href="../Tasks/launchinginstance.htm" title="Create a bare metal or virtual machine (VM) compute instance." uk-tooltip="">create a VM instance</a> using a flexible shape, you select the number of OCPUs and the amount of memory that you need for the workloads that run on the instance. The network bandwidth and number of VNICs scale proportionately with the number of OCPUs. This flexibility lets you build VMs that match your workload, enabling you to optimize performance and minimize cost.
+</p>
+<p>The flexible shapes are:</p>
+<ul>
+<li>
+<span translate="no">VM.Standard3.Flex (Intel)</span>
+</li>
+<li>
+<span translate="no">VM.Standard4.Ax.Flex (Intel)</span>
+</li>
+<li>
+<span translate="no">VM.Standard.E4.Flex (AMD)</span>
+</li>
+<li>
+<span translate="no">VM.Standard.E5.Flex (AMD)</span>
+</li>
+<li>
+<span translate="no">VM.Standard.E6.Flex (AMD)</span>
+</li>
+<li>
+<span translate="no">VM.Standard.E6.Ax.Flex (AMD)</span>
+</li>
+<li>
+<span translate="no">VM.Standard.A1.Flex (Altra processor from Ampere)</span>
+</li>
+<li>
+<span translate="no">VM.Standard.A2.Flex (AmpereOne processor from Ampere)</span>
+</li>
+<li>
+<span translate="no">VM.Standard.A4.Flex (AmpereOne M processor from Ampere)</span>
+</li>
+<li>
+<span translate="no">VM.Standard.A4.Ax.Flex (AmpereOne M processor from Ampere)</span>
+</li>
+<li>
+<span translate="no">VM.DenseIO.E4.Flex (AMD)</span>
+</li>
+<li>
+<span translate="no">VM.DenseIO.E5.Flex (AMD)</span>
+</li>
+<li>
+<span translate="no">VM.DenseIO.E6.Ax.Flex (AMD)</span>
+</li>
+<li>
+<span translate="no">VM.Optimized3.Flex (Intel)</span>
+</li>
+</ul>
+<p>Flexible memory is also available on flexible shapes. The amount of memory allowed is based on the number of OCPUs selected.</p>
+<p>For <a class="xref" href="computeshapes.htm#vm-standard">standard</a> and <a class="xref" href="computeshapes.htm#vm-hpc-optimized">optimized</a> flexible shapes, the ratio of memory to OCPUs depends on the shape.</p>
+<div class="uk-overflow-auto"><table class="table vl-table-bordered" summary="Table showing the OCPU-to-memory ratios for the flexible shapes."><caption></caption><colgroup><col/><col/><col/><col/></colgroup><thead class="thead">
+<tr class="row">
+<th class="entry" id="flexible__entry__1">Shape</th>
+<th class="entry" id="flexible__entry__2">Maximum OCPUs</th>
+<th class="entry" id="flexible__entry__3">Minimum Memory</th>
+<th class="entry" id="flexible__entry__4">Maximum Memory</th>
+</tr>
+</thead><tbody class="tbody">
+<tr class="row">
+<td class="entry" headers="flexible__entry__1">VM.Standard3.Flex</td>
+<td class="entry" headers="flexible__entry__2">
+<span class="notranslate">32</span>
+<p>See <a class="xref" href="extended-memory-vm-instances.htm" title="Extended memory virtual machine (VM) instances are VM instances that provide more memory and cores than available with standard shapes." uk-tooltip="">Extended Memory VM Instances</a>.</p>
+</td>
+<td class="entry" headers="flexible__entry__3">
+<span class="notranslate">1 GB</span> or a value matching the number of OCPUs, whichever is greater</td>
+<td class="entry" headers="flexible__entry__4">64 GB per OCPU, up to <span class="notranslate">512 GB</span> total<p>See <a class="xref" href="extended-memory-vm-instances.htm" title="Extended memory virtual machine (VM) instances are VM instances that provide more memory and cores than available with standard shapes." uk-tooltip="">Extended Memory VM Instances</a>.</p>
+</td>
+</tr>
+<tr class="row">
+<td class="entry" headers="flexible__entry__1">VM.Standard4.Ax.Flex</td>
+<td class="entry" headers="flexible__entry__2">39</td>
+<td class="entry" headers="flexible__entry__3"><span translate="no">1 GB</span> or a value matching the number of OCPUs, whichever is greater</td>
+<td class="entry" headers="flexible__entry__4"><span translate="no">64 GB per OCPU</span>, up to <span translate="no">360 GB</span> total</td>
+</tr>
+<tr class="row">
+<td class="entry" headers="flexible__entry__1">VM.Standard.E4.Flex</td>
+<td class="entry" headers="flexible__entry__2">
+<span translate="no">64</span>
+<p>See <a class="xref" href="extended-memory-vm-instances.htm" title="Extended memory virtual machine (VM) instances are VM instances that provide more memory and cores than available with standard shapes." uk-tooltip="">Extended Memory VM Instances</a>.</p>
+</td>
+<td class="entry" headers="flexible__entry__3">
+<span translate="no">1 GB</span> or a value matching the number of OCPUs, whichever is greater</td>
+<td class="entry" headers="flexible__entry__4"><span translate="no">64 GB per OCPU</span>, up to <span translate="no">1024 GB</span> total<p>See <a class="xref" href="extended-memory-vm-instances.htm" title="Extended memory virtual machine (VM) instances are VM instances that provide more memory and cores than available with standard shapes." uk-tooltip="">Extended Memory VM Instances</a>.</p>
+</td>
+</tr>
+<tr class="row">
+<td class="entry" headers="flexible__entry__1">VM.Standard.E5.Flex</td>
+<td class="entry" headers="flexible__entry__2">126
+                                    <p>See <a class="xref" href="extended-memory-vm-instances.htm" title="Extended memory virtual machine (VM) instances are VM instances that provide more memory and cores than available with standard shapes." uk-tooltip="">Extended Memory VM Instances</a>.</p>
+</td>
+<td class="entry" headers="flexible__entry__3">
+<span translate="no">1 GB</span> or a value matching the number of OCPUs, whichever is greater</td>
+<td class="entry" headers="flexible__entry__4">64 GB per OCPU, up to 1024 GB total
+                                    <p>See <a class="xref" href="extended-memory-vm-instances.htm" title="Extended memory virtual machine (VM) instances are VM instances that provide more memory and cores than available with standard shapes." uk-tooltip="">Extended Memory VM Instances</a>.</p>
+</td>
+</tr>
+<tr class="row">
+<td class="entry" headers="flexible__entry__1">VM.Standard.E6.Flex</td>
+<td class="entry" headers="flexible__entry__2">
+<p>126</p>
+</td>
+<td class="entry" headers="flexible__entry__3">
+<span translate="no">1 GB</span> or a value matching the number of OCPUs, whichever is greater</td>
+<td class="entry" headers="flexible__entry__4">64 GB per OCPU, up to 1454 GB total</td>
+</tr>
+<tr class="row">
+<td class="entry" headers="flexible__entry__1">VM.Standard.E6.Ax.Flex</td>
+<td class="entry" headers="flexible__entry__2">94</td>
+<td class="entry" headers="flexible__entry__3">1 GB or a value matching the number of OCPUs, whichever is greater</td>
+<td class="entry" headers="flexible__entry__4">64 GB per OCPU, up to 712 GB total</td>
+</tr>
+<tr class="row">
+<td class="entry" headers="flexible__entry__1">VM.Standard.A1.Flex</td>
+<td class="entry" headers="flexible__entry__2">
+<span translate="no">76</span>
+<p>(OCPU is 1 core of an Altra processor)</p>
+</td>
+<td class="entry" headers="flexible__entry__3">
+<span translate="no">1 GB</span> or a value matching the number of OCPUs, whichever is greater</td>
+<td class="entry" headers="flexible__entry__4">64 GB per OCPU, up to <span translate="no">472 GB</span> total</td>
+</tr>
+<tr class="row">
+<td class="entry" headers="flexible__entry__1">VM.Standard.A2.Flex</td>
+<td class="entry" headers="flexible__entry__2">
+<span translate="no">78</span>
+<p>(OCPU is 2 cores of an AmpereOne processor)</p>
+</td>
+<td class="entry" headers="flexible__entry__3"><span translate="no">1 GB</span> or a value matching the number of OCPUs, whichever is greater</td>
+<td class="entry" headers="flexible__entry__4"><span translate="no">64 GB per OCPU</span>, up to <span translate="no">946 GB</span> total</td>
+</tr>
+<tr class="row">
+<td class="entry" headers="flexible__entry__1">VM.Standard.A4.Flex</td>
+<td class="entry" headers="flexible__entry__2">
+45
+<p>(OCPU is 2 cores of an AmpereOne M processor)</p>
+</td>
+<td class="entry" headers="flexible__entry__3"><span translate="no">1 GB</span> or a value matching the number of OCPUs, whichever is greater</td>
+<td class="entry" headers="flexible__entry__4"><span translate="no">64 GB per OCPU</span>, up to <span translate="no">700 GB</span> total</td>
+</tr>
+<tr class="row">
+<td class="entry" headers="flexible__entry__1">VM.Standard.A4.Ax.Flex</td>
+<td class="entry" headers="flexible__entry__2">
+45
+<p>(OCPU is 2 cores of an AmpereOne M processor)</p>
+</td>
+<td class="entry" headers="flexible__entry__3"><span translate="no">1 GB</span> or a value matching the number of OCPUs, whichever is greater</td>
+<td class="entry" headers="flexible__entry__4"><span translate="no">64 GB per OCPU</span>, up to <span translate="no">720 GB</span> total</td>
+</tr>
+<tr class="row">
+<td class="entry" headers="flexible__entry__1">VM.Optimized3.Flex</td>
+<td class="entry" headers="flexible__entry__2">
+<span translate="no">18</span>
+</td>
+<td class="entry" headers="flexible__entry__3">
+<span translate="no">1 GB</span> or a value matching the number of OCPUs, whichever is greater</td>
+<td class="entry" headers="flexible__entry__4">64 GB per OCPU, up to <span translate="no">256 GB</span> total</td>
+</tr>
+</tbody></table></div>
+<p>For <a class="xref" href="computeshapes.htm#vm-dense">dense I/O</a> flexible shapes, the following configurations are available:</p>
+<p><strong>VM.DenseIO.E4.Flex</strong></p>
+<ul>
+<li><span translate="no">8 OCPUs</span>, <span translate="no">128 GB</span> memory</li>
+<li><span translate="no">16 OCPUs</span>, <span translate="no">256 GB</span> memory</li>
+<li><span translate="no">32 OCPUs</span>, <span translate="no">512 GB</span> memory</li>
+</ul>
+<p><strong>VM.DenseIO.E5.Flex</strong></p>
+<ul>
+<li><span translate="no">8 OCPUs</span>, <span translate="no">96 GB</span> memory</li>
+<li><span translate="no">16 OCPUs</span>, <span translate="no">192 GB</span> memory</li>
+<li><span translate="no">24 OCPUs</span>, <span translate="no">288 GB</span> memory</li>
+<li><span translate="no">32 OCPUs</span>, <span translate="no">384 GB</span> memory</li>
+<li><span translate="no">40 OCPUs</span>, <span translate="no">480 GB</span> memory</li>
+<li><span translate="no">48 OCPUs</span>, <span translate="no">576 GB</span> memory</li>
+</ul>
+<p><strong>VM.DenseIO.E6.Ax.Flex</strong></p>
+<ul>
+<li><span translate="no">8 OCPUs</span>, <span translate="no">96 GB</span> memory</li>
+<li><span translate="no">16 OCPUs</span>, <span translate="no">192 GB</span> memory</li>
+<li><span translate="no">24 OCPUs</span>, <span translate="no">288 GB</span> memory</li>
+<li><span translate="no">32 OCPUs</span>, <span translate="no">384 GB</span> memory</li>
+<li><span translate="no">40 OCPUs</span>, <span translate="no">480 GB</span> memory</li>
+<li><span translate="no">48 OCPUs</span>, <span translate="no">576 GB</span> memory</li>
+</ul>
+<p>These resources are billed at a per-second granularity with a one-minute minimum. Optimize your costs by choosing the shape that matches your workload and by changing the shape when your workload changes. For example, you can configure the VM to maximize compute processing power by choosing a low core-to-memory ratio. Or, for applications like in-memory databases or big data processing engines, configure an instance with a high core-to-memory ratio. Modify the OCPUs and memory as your workload changes, scaling up to increase performance or scaling down to reduce costs.</p>
+</div>
+<article aria-labelledby="ariaid-title3" class="topic nested2" id="images">
+<h3 class="title topictitle3 vl-include-in-page-toc" id="ariaid-title3">Supported Images</h3>
+<div class="body">
+<p>Most <a class="xref" href="images.htm">platform images</a> are compatible with flexible shapes. Use a platform image that was published after the flexible shape was released (for release dates, see <a class="xref" href="/iaas/releasenotes/services/compute/">the Compute release notes</a>).</p>
+<p>Custom images are also supported, depending on the image. You must <a class="xref" href="../Tasks/managingcustomimages.htm#Managing_Custom_Images__console-custom-image-tasks">add flexible shape compatibility to the custom image</a>, and then test the image on the flexible shape to ensure that it actually works on the shape.</p>
+</div>
+</article>
+<article aria-labelledby="ariaid-title4" class="topic nested2" id="regions">
+<h3 class="title topictitle3 vl-include-in-page-toc" id="ariaid-title4">Supported Regions</h3>
+<div class="body">
+<p>For a list of supported regions, see the <a class="xref" href="/iaas/Content/General/service-limits/default.htm#Compute_Instances">compute instance service limits</a>. As host capacity becomes available in additional regions, the list is updated.</p>
+<div class="uk-alert uk-alert-primary"><span class="vl-1px-up" uk-icon="file-edit"></span><strong> Note</strong><br/><br/> Capacity might be limited for A1 shapes.</div>
+</div>
+</article>
+</article>
+<article aria-labelledby="ariaid-title5" class="topic nested1" id="computeshapes_topic-extended-memory">
+<h2 class="title topictitle2 vl-include-in-page-toc" id="ariaid-title5">Extended Memory VM Instances</h2>
+<div class="body">
+<p>
+<a class="xref" href="extended-memory-vm-instances.htm" title="Extended memory virtual machine (VM) instances are VM instances that provide more memory and cores than available with standard shapes." uk-tooltip="">Extended memory virtual machine (VM) instances</a> are VM instances that provide more memory and cores than available with standard shapes.</p>
+<div class="p">The following shapes are available for extended memory VM instances:<ul>
+<li>
+<p>
+<span translate="no">VM.Standard3.Flex</span>
+</p>
+</li>
+<li>
+<p>
+<span translate="no">VM.Standard.E4.Flex</span>
+</p>
+</li>
+<li>
+<p>
+<span translate="no">VM.Standard.E5.Flex</span>
+</p>
+</li>
+</ul>
+</div>
+</div>
+</article>
+<article aria-labelledby="ariaid-title6" class="topic nested1" id="baremetalshapes">
+<h2 class="title topictitle2 vl-include-in-page-toc" id="ariaid-title6">Bare Metal Shapes</h2>
+<div class="body">
+<p class="keepWithNext">The following shapes are available for bare metal instances:</p>
+<ul>
+<li>
+<a class="xref" href="computeshapes.htm#bm-standard">Standard Shapes</a>
+</li>
+<li>
+<a class="xref" href="computeshapes.htm#bm-dense">Dense I/O Shapes</a>
+</li>
+<li>
+<a class="xref" href="computeshapes.htm#bm-gpu">GPU Shapes</a>
+</li>
+<li>
+<a class="xref" href="computeshapes.htm#bm-hpc-optimized">HPC and Optimized Shapes</a>
+</li>
+</ul>
+<p>Network bandwidth is based on expected bandwidth for traffic within a VCN. To determine which <a class="xref" href="/iaas/Content/Network/Tasks/managingVNICs.htm#overview__How">physical NICs are active for a shape</a>, refer to the network bandwidth specifications in the following tables. If the network bandwidth is listed as "2 x <var class="keyword varname">&lt;bandwidth&gt;</var> Gbps," it means that both NIC 0 and NIC 1 are active.</p>
+<p>
+For bare metal instances, optionally <a class="xref" href="../References/bios-settings.htm" title="When you create a bare metal compute instance, you can optionally configure advanced BIOS settings that let you optimize performance. For example, you can disable simultaneous multithreading to optimize the NUMA settings." uk-tooltip="">configure advanced BIOS settings</a>, such as disabling simultaneous multithreading, disabling cores, or optimizing the NUMA settings.
+</p>
+</div>
+<article aria-labelledby="ariaid-title7" class="topic nested2" id="bm-standard">
+<h3 class="title topictitle3 vl-include-in-page-toc" id="ariaid-title7">Standard Shapes</h3>
+<div class="body">
+<p>
+Designed for general purpose workloads and suitable for a wide range of applications and use cases. Standard shapes provide a balance of cores, memory, and network resources. Standard shapes are available with Intel, AMD, and Arm-based processors.
+</p>
+<p class="keepWithNext">These are the bare metal standard series:</p>
+<ul>
+<li><strong>BM.Standard3:</strong> X9-based standard compute. Processor: Intel Xeon Platinum 8358. Base frequency 2.6 GHz, max turbo frequency 3.4 GHz.</li>
+<li><strong>BM.Standard4.Ax:</strong> X12-based standard compute. Processor: Intel Xeon 6987P-C. Base frequency 2.2 GHz, max turbo frequency 3.2 GHz.</li>
+<li><strong>BM.Standard.E4:</strong> E4-based standard compute. Processor: AMD EPYC 7J13. Base frequency 2.55 GHz, max boost frequency 3.5 GHz.</li>
+<li><strong>BM.Standard.E5:</strong> E5-based standard compute. Processor: AMD EPYC 9J14. Base frequency 2.4 GHz, max boost frequency 3.7 GHz.</li>
+<li><strong>BM.Standard.E6:</strong> E6-based standard compute. Processor: AMD EPYC 9J45. Base frequency 2.7 GHz, max boost frequency 4.1 GHz.</li>
+<li><strong>BM.Standard.E6.Ax:</strong> E6-based standard compute. Processor: AMD EPYC 9J45. Base frequency 2.7 GHz, max boost frequency 4.1 GHz.</li>
+<li><strong>BM.Standard.A1:</strong> OCI Ampere A1 Compute Arm-based standard compute. Each OCPU corresponds to a single hardware execution thread. Processor: Ampere Altra Q80-30. Max frequency 3.0 GHz.</li>
+<li><strong>BM.Standard.A4:</strong> OCI Ampere A4 Compute Arm-based standard compute. Each OCPU corresponds to two hardware execution threads (2 cores). Processor: Ampere AmpereOne M A06-36M. Frequency 3.6 GHz.</li>
+<li><strong>BM.Standard.A4.Ax:</strong> OCI Ampere A4 Compute Arm-based standard compute. Each OCPU corresponds to two hardware execution threads (2 cores). Processor: Ampere AmpereOne M 192-36M. Frequency 3.6 GHz.</li>
+</ul>
+<div class="uk-overflow-auto"><table class="table vl-table-bordered vl-table-divider-col" summary="This table lists the standard shapes that you can use with bare metal instances."><caption></caption><colgroup><col/><col/><col/><col/><col/><col style="width:81px"/><col/></colgroup><thead class="thead">
+<tr class="row">
+<th class="entry" id="bm-standard__entry__1">Shape</th>
+<th class="entry" id="bm-standard__entry__2">OCPU</th>
+<th class="entry" id="bm-standard__entry__3">Memory (GB)</th>
+<th class="entry" id="bm-standard__entry__4">Local Disk </th>
+<th class="entry" id="bm-standard__entry__5">Max Network Bandwidth</th>
+<th class="entry" id="bm-standard__entry__6">Max VNICs Total: Linux</th>
+<th class="entry" id="bm-standard__entry__7">Max VNICs Total: Windows</th>
+</tr>
+</thead><tbody class="tbody">
+<tr class="row">
+<th class="entry" headers="bm-standard__entry__1" id="bm-standard__entry__8" scope="row">BM.Standard3.64</th>
+<td class="entry" headers="bm-standard__entry__8 bm-standard__entry__2">
+<span class="notranslate">64</span>
+</td>
+<td class="entry" headers="bm-standard__entry__8 bm-standard__entry__3">
+<span class="notranslate">1024</span>
+</td>
+<td class="entry" headers="bm-standard__entry__8 bm-standard__entry__4">Block storage only</td>
+<td class="entry" headers="bm-standard__entry__8 bm-standard__entry__5">2 x 50 Gbps</td>
+<td class="entry" headers="bm-standard__entry__8 bm-standard__entry__6">
+<span class="notranslate">256</span>
+</td>
+<td class="entry" headers="bm-standard__entry__8 bm-standard__entry__7">129 (1 on the first physical NIC, 128 on the second)</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="bm-standard__entry__1" id="bm-standard__entry__15" scope="row">BM.Standard4.Ax.120</th>
+<td class="entry" headers="bm-standard__entry__15 bm-standard__entry__2">
+<span class="notranslate">120</span>
+</td>
+<td class="entry" headers="bm-standard__entry__15 bm-standard__entry__3">
+<span class="notranslate">1152</span>
+</td>
+<td class="entry" headers="bm-standard__entry__15 bm-standard__entry__4">Block storage only</td>
+<td class="entry" headers="bm-standard__entry__15 bm-standard__entry__5">2 x 100 Gbps</td>
+<td class="entry" headers="bm-standard__entry__15 bm-standard__entry__6">
+<span class="notranslate">256</span>
+</td>
+<td class="entry" headers="bm-standard__entry__15 bm-standard__entry__7">129 (1 on the first physical NIC, 128 on the second)</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="bm-standard__entry__1" id="bm-standard__entry__22" scope="row">BM.Standard.E4.128</th>
+<td class="entry" headers="bm-standard__entry__22 bm-standard__entry__2">
+<span class="notranslate">128</span>
+</td>
+<td class="entry" headers="bm-standard__entry__22 bm-standard__entry__3">
+<span class="notranslate">2048</span>
+</td>
+<td class="entry" headers="bm-standard__entry__22 bm-standard__entry__4">Block storage only</td>
+<td class="entry" headers="bm-standard__entry__22 bm-standard__entry__5">2 x 50 Gbps</td>
+<td class="entry" headers="bm-standard__entry__22 bm-standard__entry__6">
+<span class="notranslate">256</span>
+</td>
+<td class="entry" headers="bm-standard__entry__22 bm-standard__entry__7">129 (1 on the first physical NIC, 128 on the second)</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="bm-standard__entry__1" id="bm-standard__entry__29" scope="row">BM.Standard.E5.192</th>
+<td class="entry" headers="bm-standard__entry__29 bm-standard__entry__2">
+<span class="notranslate">192</span>
+</td>
+<td class="entry" headers="bm-standard__entry__29 bm-standard__entry__3">
+<span class="notranslate">2304</span>
+</td>
+<td class="entry" headers="bm-standard__entry__29 bm-standard__entry__4">Block storage only</td>
+<td class="entry" headers="bm-standard__entry__29 bm-standard__entry__5">1 x 100 Gbps</td>
+<td class="entry" headers="bm-standard__entry__29 bm-standard__entry__6">
+<span class="notranslate">256</span>
+</td>
+<td class="entry" headers="bm-standard__entry__29 bm-standard__entry__7">129 (1 on the first physical NIC, 128 on the second)</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="bm-standard__entry__1" id="bm-standard__entry__36" scope="row">BM.Standard.E6.256</th>
+<td class="entry" headers="bm-standard__entry__36 bm-standard__entry__2">
+<span class="notranslate">256</span>
+</td>
+<td class="entry" headers="bm-standard__entry__36 bm-standard__entry__3">
+<span class="notranslate">3072</span>
+</td>
+<td class="entry" headers="bm-standard__entry__36 bm-standard__entry__4">
+<p>2 x 960 GB NVMe</p>
+<p>Block storage</p>
+</td>
+<td class="entry" headers="bm-standard__entry__36 bm-standard__entry__5">1 x 200 Gbps</td>
+<td class="entry" headers="bm-standard__entry__36 bm-standard__entry__6">
+<span class="notranslate">256</span>
+</td>
+<td class="entry" headers="bm-standard__entry__36 bm-standard__entry__7">129 (1 on the first physical NIC, 128 on the second)</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="bm-standard__entry__1" id="bm-standard__entry__43" scope="row">BM.Standard.E6.Ax.192</th>
+<td class="entry" headers="bm-standard__entry__43 bm-standard__entry__2">
+<span class="notranslate">192</span>
+</td>
+<td class="entry" headers="bm-standard__entry__43 bm-standard__entry__3">
+<span class="notranslate">1536</span>
+</td>
+<td class="entry" headers="bm-standard__entry__43 bm-standard__entry__4">
+<p>2 x 960 GB NVMe</p>
+<p>Block storage</p>
+</td>
+<td class="entry" headers="bm-standard__entry__43 bm-standard__entry__5">1 x 200 Gbps</td>
+<td class="entry" headers="bm-standard__entry__43 bm-standard__entry__6">
+<span class="notranslate">256</span>
+</td>
+<td class="entry" headers="bm-standard__entry__43 bm-standard__entry__7">129 (1 on the first physical NIC, 128 on the second)</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="bm-standard__entry__1" id="bm-standard__entry__50" scope="row">
+<p>BM.Standard.A1.160</p>
+<p>See <a class="xref" href="arm.htm" title="OCI Ampere Compute is a general-purpose, Arm-based compute platform based on the Ampere processor. OCI Ampere A1 Compute (based on Ampere Altra processors) and OCI Ampere A2 Compute (based on AmpereOne processors) instances provide superior price-performance, near linear scaling, built-in security due to the single-threaded core architecture, and a broad developer ecosystem." uk-tooltip="">Arm-Based Compute</a>.</p>
+</th>
+<td class="entry" headers="bm-standard__entry__50 bm-standard__entry__2">
+<span class="notranslate">160</span>
+</td>
+<td class="entry" headers="bm-standard__entry__50 bm-standard__entry__3">
+<span class="notranslate">1024</span>
+</td>
+<td class="entry" headers="bm-standard__entry__50 bm-standard__entry__4">Block storage only</td>
+<td class="entry" headers="bm-standard__entry__50 bm-standard__entry__5">2 x 50 Gbps</td>
+<td class="entry" headers="bm-standard__entry__50 bm-standard__entry__6">
+<span class="notranslate">256</span>
+</td>
+<td class="entry" headers="bm-standard__entry__50 bm-standard__entry__7">Windows images are not supported on this shape.</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="bm-standard__entry__1" id="bm-standard__entry__57" scope="row">
+<p>BM.Standard.A4.48</p>
+<p>See <a class="xref" href="arm.htm" title="OCI Ampere Compute is a general-purpose, Arm-based compute platform based on the Ampere processor. OCI Ampere A1 Compute (based on Ampere Altra processors) and OCI Ampere A2 Compute (based on AmpereOne processors) instances provide superior price-performance, near linear scaling, built-in security due to the single-threaded core architecture, and a broad developer ecosystem." uk-tooltip="">Arm-Based Compute</a>.</p>
+</th>
+<td class="entry" headers="bm-standard__entry__57 bm-standard__entry__2">
+<span class="notranslate">48</span>
+</td>
+<td class="entry" headers="bm-standard__entry__57 bm-standard__entry__3">
+<span class="notranslate">768</span>
+</td>
+<td class="entry" headers="bm-standard__entry__57 bm-standard__entry__4">
+<p>1 x 3.84 TB NVMe</p>
+<p>Block Storage</p>
+</td>
+<td class="entry" headers="bm-standard__entry__57 bm-standard__entry__5">1 x 100 Gbps</td>
+<td class="entry" headers="bm-standard__entry__57 bm-standard__entry__6">
+<span class="notranslate">256</span>
+</td>
+<td class="entry" headers="bm-standard__entry__57 bm-standard__entry__7">Windows images are not supported on this shape.</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="bm-standard__entry__1" id="bm-standard__entry__64" scope="row">
+<p>BM.Standard.A4.Ax.48</p>
+<p>See <a class="xref" href="arm.htm" title="OCI Ampere Compute is a general-purpose, Arm-based compute platform based on the Ampere processor. OCI Ampere A1 Compute (based on Ampere Altra processors) and OCI Ampere A2 Compute (based on AmpereOne processors) instances provide superior price-performance, near linear scaling, built-in security due to the single-threaded core architecture, and a broad developer ecosystem." uk-tooltip="">Arm-Based Compute</a>.</p>
+</th>
+<td class="entry" headers="bm-standard__entry__64 bm-standard__entry__2">
+<span class="notranslate">48</span>
+</td>
+<td class="entry" headers="bm-standard__entry__64 bm-standard__entry__3">
+<span class="notranslate">768</span>
+</td>
+<td class="entry" headers="bm-standard__entry__64 bm-standard__entry__4">
+<p>1 x 3.84 TB NVMe</p>
+<p>Block Storage</p>
+</td>
+<td class="entry" headers="bm-standard__entry__64 bm-standard__entry__5">1 x 100 Gbps</td>
+<td class="entry" headers="bm-standard__entry__64 bm-standard__entry__6">
+<span class="notranslate">256</span>
+</td>
+<td class="entry" headers="bm-standard__entry__64 bm-standard__entry__7">Windows images are not supported on this shape.</td>
+</tr>
+</tbody></table></div>
+</div>
+<article aria-labelledby="ariaid-title8" class="topic nested3" id="c-states-frequency-scaling">
+<h4 class="title topictitle4" id="ariaid-title8">
+<strong>C-States and Frequency Scaling</strong>
+</h4>
+<div class="body">
+<p>Modern CPUs transition to a power-saving state (called c-states) when the CPU is idle or underutilized. These c-states start at C0, which is the normal CPU operating mode (the CPU is 100% activated). The higher the c-state, the deeper the sleep mode into which the CPU transitions. The sleep modes work by cutting the clock signal and power from idle units inside the CPU, thereby reducing the energy use. As the CPU transitions to higher c-states (deeper sleep states), the longer it takes to wake up the units that are shut down. This is an undesirable side effect of c-states transitions, because it can slow down a demanding application.</p>
+<p>Fortunately, the hypervisor on standard VM shapes manages this complexity for the end user by preventing transitions to deeper sleep states even when the CPU is underutilized. In addition, it disables c-states when it sees sustained high utilization. When c-states are disabled, the CPU operates in C0 state, where all cores are active at base frequency. Each processor manufacturer names the maximum frequency per core differently; for Intel the maximum frequency is named max turbo frequency, and for AMD it is called max boost frequency. This maximum frequency is realized by the respective CPU's built-in algorithms when the processor is running in C0 state under normal but sustained load.</p>
+<p>Currently, the hypervisor does not allow the client operating system running in the instance to manage the c-states using kernel command line options. The client always shows the base frequency, even when the hypervisor is running the processor at the maximum frequency advertised by the processor.</p>
+</div>
+</article>
+</article>
+<article aria-labelledby="ariaid-title9" class="topic nested2" id="bm-dense">
+<h3 class="title topictitle3 vl-include-in-page-toc" id="ariaid-title9">Dense I/O Shapes</h3>
+<div class="body">
+<p class="keepWithNext">
+Designed for large databases, big data workloads, and applications that require high-performance local storage. DenseIO shapes include locally-attached NVMe-based SSDs.
+</p>
+<p class="keepWithNext">This is the bare metal dense I/O series:</p>
+<ul>
+<li>
+<strong>BM.DenseIO.E4:</strong> E4-based dense I/O compute. Processor: AMD EPYC 7J13. Base frequency 2.55 GHz, max boost frequency 3.5 GHz.</li>
+<li><strong>BM.DenseIO.E5:</strong> E5-based dense I/O compute. Processor: AMD EPYC 9J14. Base frequency 2.6 GHz, max boost frequency 3.7 GHz.</li>
+<li><strong>BM.DenseIO.E6.Ax:</strong> E6-based dense I/O compute. Processor: AMD EPYC 9J45. Base frequency 2.7 GHz, max boost frequency 4.1 GHz.</li>
+</ul>
+<div class="uk-overflow-auto"><table class="table vl-table-bordered vl-table-divider-col" summary="This table lists the dense I/O shapes that you can use with bare metal instances."><caption></caption><colgroup><col/><col/><col/><col/><col/><col style="width:81px"/><col/></colgroup><thead class="thead">
+<tr class="row">
+<th class="entry" id="bm-dense__entry__1">Shape</th>
+<th class="entry" id="bm-dense__entry__2">OCPU</th>
+<th class="entry" id="bm-dense__entry__3">Memory (GB)</th>
+<th class="entry" id="bm-dense__entry__4">Local Disk </th>
+<th class="entry" id="bm-dense__entry__5">Max Network Bandwidth</th>
+<th class="entry" id="bm-dense__entry__6">Max VNICs Total: Linux</th>
+<th class="entry" id="bm-dense__entry__7">Max VNICs Total: Windows</th>
+</tr>
+</thead><tbody class="tbody">
+<tr class="row">
+<th class="entry" headers="bm-dense__entry__1" id="bm-dense__entry__8" scope="row">BM.DenseIO.E4.128</th>
+<td class="entry" headers="bm-dense__entry__8 bm-dense__entry__2">
+<span translate="no">128</span>
+</td>
+<td class="entry" headers="bm-dense__entry__8 bm-dense__entry__3">
+<span translate="no">2048</span>
+</td>
+<td class="entry" headers="bm-dense__entry__8 bm-dense__entry__4">54.4 TB NVMe SSD Storage (8 drives)</td>
+<td class="entry" headers="bm-dense__entry__8 bm-dense__entry__5">2 x 50 Gbps</td>
+<td class="entry" headers="bm-dense__entry__8 bm-dense__entry__6">
+<span translate="no">256</span>
+</td>
+<td class="entry" headers="bm-dense__entry__8 bm-dense__entry__7">129 (1 on the first physical NIC, 128 on the second)</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="bm-dense__entry__1" id="bm-dense__entry__15" scope="row">BM.DenseIO.E5.128<sup class="ph sup">1</sup>
+</th>
+<td class="entry" headers="bm-dense__entry__15 bm-dense__entry__2">
+<span translate="no">128</span>
+</td>
+<td class="entry" headers="bm-dense__entry__15 bm-dense__entry__3">
+<span translate="no">1536</span>
+</td>
+<td class="entry" headers="bm-dense__entry__15 bm-dense__entry__4">81.6 TB NVMe SSD Storage (12 x 6.8 TB drives)</td>
+<td class="entry" headers="bm-dense__entry__15 bm-dense__entry__5">1 x 100Gbps</td>
+<td class="entry" headers="bm-dense__entry__15 bm-dense__entry__6">
+<span translate="no">256</span>
+</td>
+<td class="entry" headers="bm-dense__entry__15 bm-dense__entry__7">129 (1 on the first physical NIC, 128 on the second)</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="bm-dense__entry__1" id="bm-dense__entry__22" scope="row">BM.DenseIO.E6.Ax.192<sup class="ph sup">1</sup>
+</th>
+<td class="entry" headers="bm-dense__entry__22 bm-dense__entry__2">
+<span translate="no">192</span>
+</td>
+<td class="entry" headers="bm-dense__entry__22 bm-dense__entry__3">
+<span translate="no">2304</span>
+</td>
+<td class="entry" headers="bm-dense__entry__22 bm-dense__entry__4">81.6 TB NVMe SSD Storage (12 x 6.8 TB drives)</td>
+<td class="entry" headers="bm-dense__entry__22 bm-dense__entry__5">1 x 200Gbps</td>
+<td class="entry" headers="bm-dense__entry__22 bm-dense__entry__6">
+<span translate="no">256</span>
+</td>
+<td class="entry" headers="bm-dense__entry__22 bm-dense__entry__7">129 (1 on the first physical NIC, 128 on the second)</td>
+</tr>
+</tbody></table></div>
+<p>
+<strong>Notes</strong>
+</p>
+<p id="bm-dense__bm.denseIo.note1">
+<strong>1:</strong> Please contact an <a class="xref" href="https://www.oracle.com/corporate/contact/global.html">Oracle sales representative</a> for additional details.</p>
+</div>
+</article>
+<article aria-labelledby="ariaid-title10" class="topic nested2" id="bm-gpu">
+<h3 class="title topictitle3 vl-include-in-page-toc" id="ariaid-title10">GPU Shapes</h3>
+<div class="body">
+<p>
+Designed for hardware-accelerated workloads. GPU shapes include Intel, AMD, or Arm CPUs with NVIDIA or AMD graphics processors.
+ Some bare metal GPU shapes support cluster networking.
+</p>
+<p class="keepWithNext">These are the bare metal GPU series:</p>
+<ul>
+<li>
+<p>
+<strong>BM.GPU2:</strong> X7-based GPU compute.</p>
+<ul>
+<li>GPU: NVIDIA Tesla P100 16 GB</li>
+<li>CPU: Intel Xeon Platinum 8167M. Base frequency 2.0 GHz, max turbo frequency 2.4 GHz.</li>
+</ul>
+</li>
+<li>
+<p>
+<strong>BM.GPU3:</strong> X7-based GPU compute.</p>
+<ul>
+<li>GPU: NVIDIA Tesla V100 16 GB</li>
+<li>CPU: Intel Xeon Platinum 8167M. Base frequency 2.0 GHz, max turbo frequency 2.4 GHz.</li>
+</ul>
+</li>
+<li>
+<p>
+<strong>BM.GPU4:</strong> E3-based GPU compute.</p>
+<ul>
+<li>GPU: NVIDIA A100 40 GB</li>
+<li>CPU: AMD EPYC 7542. Base frequency 2.9 GHz, max boost frequency 3.4 GHz.</li>
+</ul>
+</li>
+<li>
+<p>
+<strong>BM.GPU.A10:</strong> X9-based GPU compute.</p>
+<ul>
+<li>GPU: NVIDIA A10 24 GB</li>
+<li>CPU: Intel Xeon Platinum 8358. Base frequency 2.6 GHz, max turbo frequency 3.4 GHz.</li>
+</ul>
+</li>
+<li>
+<p>
+<strong>BM.GPU.A100:</strong> E4-based GPU compute.</p>
+<ul>
+<li>GPU: NVIDIA A100 80 GB</li>
+<li>CPU: AMD EPYC 7J13. Base frequency 2.55 GHz, max boost frequency 3.7 GHz.</li>
+</ul>
+</li>
+<li>
+<p>
+<strong>BM.GPU.MI300X.8</strong>: X10-based GPU compute.</p>
+<ul>
+<li>GPU: 8x MI300X 192 GB</li>
+<li>CPU: Intel Sapphire Rapids 8480+ 2x 56c. Base frequency 2 GHz, max boost frequency 3.8 GHz.</li>
+</ul>
+</li>
+<li>
+<p><strong>BM.GPU.MI355X.8:</strong> X10-based GPU compute.</p>
+<ul>
+<li>GPU: 8x MI355X 288 GB</li>
+<li>CPU: 2 x 64-core AMD 5th Gen AMD EPYC™ Processors</li>
+</ul>
+</li>
+<li>
+<p>
+<strong>BM.GPU.L40S.4</strong>
+</p>
+<ul>
+<li>GPU: 4x L40S 48 GB</li>
+<li>CPU: 2 x 56-core Intel Sapphire Rapids 8480+</li>
+</ul>
+</li>
+<li><p><strong>BM.GPU.RTXPRO.8</strong></p>
+<ul>
+<li>GPU: 8x NVIDIA RTX PRO 6000 Blackwell GPUs 96 GB GDDR7</li>
+<li>CPU: 2 x 72-core Intel Xeon 6</li>
+</ul>
+</li>
+<li>
+<p>
+<strong>BM.GPU.H100.8:</strong> X10-based GPU compute.</p>
+<ul>
+<li>GPU: 8x H100 80 GB</li>
+<li>CPU: Intel Sapphire Rapids 8480+ 2x 56c. Base frequency 2 GHz, max boost frequency 3.8 GHz.</li>
+</ul>
+</li>
+<li>
+<p>
+<strong>BM.GPU.H200.8</strong>
+</p>
+<ul>
+<li>GPU: 8x NVIDIA H200 Tensor Core GPUs 141 GB</li>
+<li>CPU: 2 x 56-core Intel Sapphire Rapids 8480+</li>
+</ul>
+</li>
+<li>
+<p>
+<strong>BM.GPU.B200.8</strong>
+</p>
+<ul>
+<li>GPU: 8x NVIDIA B200 Tensor Core GPUs 180 GB</li>
+<li>CPU: 2 x 64-core Intel Emerald Rapids 8592+</li>
+</ul>
+</li>
+<li>
+<p><strong>BM.GPU.B300.8</strong></p>
+<ul>
+<li>GPU: 8x NVIDIA B300 Tensor Core GPUs 263 GB</li>
+<li>CPU: 2 x 64-core Intel Emerald Rapids 8592+</li>
+</ul>
+</li>
+<li>
+<p>
+<strong>BM.GPU.GB200.4</strong>
+</p>
+<ul>
+<li>GPU: 4 x NVIDIA Blackwell B200 192 GB</li>
+<li>CPU: 2 x 72-core NVIDIA Grace</li>
+</ul>
+</li>
+<li>
+<p><strong>BM.GPU.GB300.4</strong></p>
+<ul>
+<li>GPU: 4 x NVIDIA Blackwell B300 278 GB</li>
+<li>CPU: 2 x 72-core NVIDIA Grace</li>
+</ul>
+</li>
+</ul>
+<div class="uk-overflow-auto"><table class="table vl-table-bordered vl-table-divider-col" summary="This table lists the GPU shapes that you can use with bare metal instances."><caption></caption><colgroup><col style="width:14.305949008498583%"/><col style="width:14.305949008498583%"/><col style="width:14.164305949008499%"/><col style="width:14.305949008498583%"/><col style="width:14.164305949008499%"/><col style="width:14.44759206798867%"/><col style="width:81px"/><col style="width:14.305949008498583%"/></colgroup><thead class="thead">
+<tr class="row">
+<th class="entry" id="bm-gpu__entry__1">Shape</th>
+<th class="entry" id="bm-gpu__entry__2">OCPU</th>
+<th class="entry" id="bm-gpu__entry__3">GPU Memory (GB)</th>
+<th class="entry" id="bm-gpu__entry__4">CPU Memory (GB)</th>
+<th class="entry" id="bm-gpu__entry__5">Local Disk </th>
+<th class="entry" id="bm-gpu__entry__6">Max Network Bandwidth</th>
+<th class="entry" id="bm-gpu__entry__7">Max VNICs Total: Linux</th>
+<th class="entry" id="bm-gpu__entry__8">Max VNICs Total: Windows</th>
+</tr>
+</thead><tbody class="tbody">
+<tr class="row">
+<th class="entry" headers="bm-gpu__entry__1" id="bm-gpu__entry__9" scope="row">
+<p>BM.GPU2.2</p>
+<p>(GPU: 2xP100)</p>
+</th>
+<td class="entry" headers="bm-gpu__entry__9 bm-gpu__entry__2">
+<span class="notranslate">28</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__9 bm-gpu__entry__3">
+<span class="notranslate">32</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__9 bm-gpu__entry__4">
+<span class="notranslate">192</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__9 bm-gpu__entry__5">Block storage only</td>
+<td class="entry" headers="bm-gpu__entry__9 bm-gpu__entry__6">2 x 25 Gbps</td>
+<td class="entry" headers="bm-gpu__entry__9 bm-gpu__entry__7">
+<span class="notranslate">28</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__9 bm-gpu__entry__8">15 (1 on the first physical NIC, 14 on the second)</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="bm-gpu__entry__1" id="bm-gpu__entry__17" scope="row">
+<p>BM.GPU3.8</p>
+<p>(GPU: 8xV100)</p>
+</th>
+<td class="entry" headers="bm-gpu__entry__17 bm-gpu__entry__2">
+<span class="notranslate">52</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__17 bm-gpu__entry__3">
+<span class="notranslate">128</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__17 bm-gpu__entry__4">
+<span class="notranslate">768</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__17 bm-gpu__entry__5">Block storage only</td>
+<td class="entry" headers="bm-gpu__entry__17 bm-gpu__entry__6">2 x 25 Gbps</td>
+<td class="entry" headers="bm-gpu__entry__17 bm-gpu__entry__7">
+<span class="notranslate">52</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__17 bm-gpu__entry__8">27 (1 on the first physical NIC, 26 on the second)</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="bm-gpu__entry__1" id="bm-gpu__entry__25" scope="row">
+<p>BM.GPU4.8</p>
+<p>(GPU: 8xA100)</p>
+</th>
+<td class="entry" headers="bm-gpu__entry__25 bm-gpu__entry__2">
+<span class="notranslate">64</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__25 bm-gpu__entry__3">
+<span class="notranslate">320</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__25 bm-gpu__entry__4">
+<span class="notranslate">2048</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__25 bm-gpu__entry__5">27.2 TB NVMe SSD (4 drives)</td>
+<td class="entry" headers="bm-gpu__entry__25 bm-gpu__entry__6">
+<p>1 x 50 Gbps</p>
+<p>8 x 200 Gbps RDMA</p>
+</td>
+<td class="entry" headers="bm-gpu__entry__25 bm-gpu__entry__7">
+<span class="notranslate">64</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__25 bm-gpu__entry__8">Windows images are not supported on this shape.</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="bm-gpu__entry__1" id="bm-gpu__entry__33" scope="row">
+<p>BM.GPU.A10.4</p>
+<p>(GPU: 4xA10)</p>
+</th>
+<td class="entry" headers="bm-gpu__entry__33 bm-gpu__entry__2">
+<span class="notranslate">64</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__33 bm-gpu__entry__3">
+<span class="notranslate">96</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__33 bm-gpu__entry__4">
+<span class="notranslate">1024</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__33 bm-gpu__entry__5">7.68 TB NVMe SSD (2 drives)</td>
+<td class="entry" headers="bm-gpu__entry__33 bm-gpu__entry__6">2 x 50 Gbps</td>
+<td class="entry" headers="bm-gpu__entry__33 bm-gpu__entry__7">
+<span class="notranslate">256</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__33 bm-gpu__entry__8">Windows images are not supported on this shape.</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="bm-gpu__entry__1" id="bm-gpu__entry__41" scope="row">
+<p>BM.GPU.A100-v2.8</p>
+<p>(GPU: 8xA100)</p>
+</th>
+<td class="entry" headers="bm-gpu__entry__41 bm-gpu__entry__2">
+<span class="notranslate">128</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__41 bm-gpu__entry__3">
+<span class="notranslate">640</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__41 bm-gpu__entry__4">
+<span class="notranslate">2048</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__41 bm-gpu__entry__5">27.2 TB NVMe SSD (4 drives)</td>
+<td class="entry" headers="bm-gpu__entry__41 bm-gpu__entry__6">
+<p>2 x 50 Gbps</p>
+<p>16 x 100 Gbps RDMA</p>
+</td>
+<td class="entry" headers="bm-gpu__entry__41 bm-gpu__entry__7">
+<span class="notranslate">256</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__41 bm-gpu__entry__8">Windows images are not supported on this shape.</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="bm-gpu__entry__1" id="bm-gpu__entry__49" scope="row">
+<p>BM.GPU.MI300X.8</p>
+</th>
+<td class="entry" headers="bm-gpu__entry__49 bm-gpu__entry__2">
+<span class="notranslate">112</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__49 bm-gpu__entry__3">
+<span class="notranslate">1536</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__49 bm-gpu__entry__4">
+<span class="notranslate">2048</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__49 bm-gpu__entry__5">8 x 3.84 TB NVMe</td>
+<td class="entry" headers="bm-gpu__entry__49 bm-gpu__entry__6">
+<p>1 x 100 Gbps</p>
+<p>8 x 1 x 400 Gbps RDMA</p>
+</td>
+<td class="entry" headers="bm-gpu__entry__49 bm-gpu__entry__7">
+<span class="notranslate">256</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__49 bm-gpu__entry__8">Windows images are not supported on this shape.</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="bm-gpu__entry__1" id="bm-gpu__entry__57" scope="row">
+<p>BM.GPU.MI355X.8</p>
+</th>
+<td class="entry" headers="bm-gpu__entry__57 bm-gpu__entry__2">
+<span class="notranslate">128</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__57 bm-gpu__entry__3">
+<span class="notranslate">288</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__57 bm-gpu__entry__4">
+<span class="notranslate">3072</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__57 bm-gpu__entry__5">8 x 7.68 TB NVMe</td>
+<td class="entry" headers="bm-gpu__entry__57 bm-gpu__entry__6">
+<p>2 x 200 Gbps</p>
+<p>8 x 400 Gbps RDMA</p>
+</td>
+<td class="entry" headers="bm-gpu__entry__57 bm-gpu__entry__7">
+<span class="notranslate">256</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__57 bm-gpu__entry__8">Windows images are not supported on this shape.</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="bm-gpu__entry__1" id="bm-gpu__entry__65" scope="row">
+<p>BM.GPU.L40S.4</p>
+</th>
+<td class="entry" headers="bm-gpu__entry__65 bm-gpu__entry__2">
+<span class="notranslate">112</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__65 bm-gpu__entry__3">
+<span class="notranslate">192</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__65 bm-gpu__entry__4">
+<span class="notranslate">1024</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__65 bm-gpu__entry__5">2 x 3.84 TB NVMe</td>
+<td class="entry" headers="bm-gpu__entry__65 bm-gpu__entry__6">
+<p>1 x 200 Gbps</p>
+<p>800 Gbps RDMA</p>
+</td>
+<td class="entry" headers="bm-gpu__entry__65 bm-gpu__entry__7">
+<span class="notranslate">256</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__65 bm-gpu__entry__8">Windows images are not supported on this shape.</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="bm-gpu__entry__1" id="bm-gpu__entry__73" scope="row">BM.GPU.RTXPRO.8</th>
+<td class="entry" headers="bm-gpu__entry__73 bm-gpu__entry__2"><span class="notranslate">144</span></td>
+<td class="entry" headers="bm-gpu__entry__73 bm-gpu__entry__3">8 x 96 GB</td>
+<td class="entry" headers="bm-gpu__entry__73 bm-gpu__entry__4"><span class="notranslate">3072</span></td>
+<td class="entry" headers="bm-gpu__entry__73 bm-gpu__entry__5">8 x 7.68 TB NVMe</td>
+<td class="entry" headers="bm-gpu__entry__73 bm-gpu__entry__6">
+<p>2 x 200 Gbps</p>
+<p>8 x 400 Gbps RDMA</p>
+</td>
+<td class="entry" headers="bm-gpu__entry__73 bm-gpu__entry__7"><span class="notranslate">256</span></td>
+<td class="entry" headers="bm-gpu__entry__73 bm-gpu__entry__8">Windows images are not supported on this shape.</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="bm-gpu__entry__1" id="bm-gpu__entry__81" scope="row">
+<p>BM.GPU.H100.8</p>
+<p>(GPU: 8xH100)</p>
+</th>
+<td class="entry" headers="bm-gpu__entry__81 bm-gpu__entry__2">112<span class="notranslate"> </span>
+</td>
+<td class="entry" headers="bm-gpu__entry__81 bm-gpu__entry__3">
+<span class="notranslate">640</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__81 bm-gpu__entry__4">
+<span class="notranslate">2048</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__81 bm-gpu__entry__5">16 x 3.84 TB NVMe</td>
+<td class="entry" headers="bm-gpu__entry__81 bm-gpu__entry__6">
+<p>1 x 100 Gbps</p>
+<p>8 x 2 x 200 Gbps RDMA</p>
+</td>
+<td class="entry" headers="bm-gpu__entry__81 bm-gpu__entry__7">
+<span class="notranslate">256</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__81 bm-gpu__entry__8">Windows images are not supported on this shape.</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="bm-gpu__entry__1" id="bm-gpu__entry__89" scope="row">
+<p>BM.GPU.H200.8</p>
+<p>(GPU: 8xH200)</p>
+</th>
+<td class="entry" headers="bm-gpu__entry__89 bm-gpu__entry__2">
+<span class="notranslate">112</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__89 bm-gpu__entry__3">
+<span class="notranslate">1128</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__89 bm-gpu__entry__4">
+<span class="notranslate">3072</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__89 bm-gpu__entry__5">8 x 3.84 TB NVMe</td>
+<td class="entry" headers="bm-gpu__entry__89 bm-gpu__entry__6">
+<p>1 x 200 Gbps</p>
+<p>8 x 400 Gbps RDMA</p>
+</td>
+<td class="entry" headers="bm-gpu__entry__89 bm-gpu__entry__7">
+<span class="notranslate">256</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__89 bm-gpu__entry__8">Windows images are not supported on this shape.</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="bm-gpu__entry__1" id="bm-gpu__entry__97" scope="row">
+<p>BM.GPU.B200.8</p>
+<p>(GPU: 8xB200)</p>
+</th>
+<td class="entry" headers="bm-gpu__entry__97 bm-gpu__entry__2"><span class="notranslate">128</span></td>
+<td class="entry" headers="bm-gpu__entry__97 bm-gpu__entry__3"><span class="notranslate">1440</span></td>
+<td class="entry" headers="bm-gpu__entry__97 bm-gpu__entry__4"><span class="notranslate">4096</span></td>
+<td class="entry" headers="bm-gpu__entry__97 bm-gpu__entry__5">8 x 3.84 TB NVMe</td>
+<td class="entry" headers="bm-gpu__entry__97 bm-gpu__entry__6">
+<p>2 x 200 Gbps</p>
+<p>8 x 400 Gbps RDMA</p>
+</td>
+<td class="entry" headers="bm-gpu__entry__97 bm-gpu__entry__7"><span class="notranslate">256</span></td>
+<td class="entry" headers="bm-gpu__entry__97 bm-gpu__entry__8">Windows images are not supported on this shape.</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="bm-gpu__entry__1" id="bm-gpu__entry__105" scope="row">BM.GPU.B300.8</th>
+<td class="entry" headers="bm-gpu__entry__105 bm-gpu__entry__2"><span class="notranslate">128</span></td>
+<td class="entry" headers="bm-gpu__entry__105 bm-gpu__entry__3"><span class="notranslate">2100</span></td>
+<td class="entry" headers="bm-gpu__entry__105 bm-gpu__entry__4"><span class="notranslate">4096</span></td>
+<td class="entry" headers="bm-gpu__entry__105 bm-gpu__entry__5">8 x 3.84 TB NVMe</td>
+<td class="entry" headers="bm-gpu__entry__105 bm-gpu__entry__6">
+<p>2 x 200 Gbps</p>
+<p>8 x 800 Gbps RDMA</p>
+</td>
+<td class="entry" headers="bm-gpu__entry__105 bm-gpu__entry__7"><span class="notranslate">256</span></td>
+<td class="entry" headers="bm-gpu__entry__105 bm-gpu__entry__8">Windows images are not supported on this shape.</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="bm-gpu__entry__1" id="bm-gpu__entry__113" scope="row">
+<p>BM.GPU.GB200.4</p>
+<p>(GPU: 4xB200)</p>
+</th>
+<td class="entry" headers="bm-gpu__entry__113 bm-gpu__entry__2">
+<span class="notranslate">144</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__113 bm-gpu__entry__3">
+<span class="notranslate">768</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__113 bm-gpu__entry__4">
+<span class="notranslate">960</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__113 bm-gpu__entry__5">4 x 7.68 TB NVMe</td>
+<td class="entry" headers="bm-gpu__entry__113 bm-gpu__entry__6">
+<p>2 x 200 Gbps</p>
+<p>4 x 400 Gbps RDMA</p>
+</td>
+<td class="entry" headers="bm-gpu__entry__113 bm-gpu__entry__7">
+<span class="notranslate">512</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__113 bm-gpu__entry__8">Windows images are not supported on this shape.</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="bm-gpu__entry__1" id="bm-gpu__entry__121" scope="row">
+<p>BM.GPU.GB300.4</p>
+<p>(GPU: 4xB300)</p>
+</th>
+<td class="entry" headers="bm-gpu__entry__121 bm-gpu__entry__2">
+<span class="notranslate">144</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__121 bm-gpu__entry__3">
+<span class="notranslate">1112</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__121 bm-gpu__entry__4">
+<span class="notranslate">960</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__121 bm-gpu__entry__5">4 x 7.68 TB NVMe</td>
+<td class="entry" headers="bm-gpu__entry__121 bm-gpu__entry__6">
+<p>2 x 200 Gbps</p>
+<p>8 x 400 Gbps RDMA</p>
+</td>
+<td class="entry" headers="bm-gpu__entry__121 bm-gpu__entry__7">
+<span class="notranslate">512</span>
+</td>
+<td class="entry" headers="bm-gpu__entry__121 bm-gpu__entry__8">Windows images are not supported on this shape.</td>
+</tr>
+</tbody></table></div>
+</div>
+</article>
+<article aria-labelledby="ariaid-title11" class="topic nested2" id="bm-hpc-optimized">
+<h3 class="title topictitle3 vl-include-in-page-toc" id="ariaid-title11">HPC and Optimized Shapes</h3>
+<div class="body">
+<p>
+Designed for high-performance computing workloads that require high frequency processor cores. Bare metal HPC and optimized shapes support cluster networking.
+</p>
+<p class="keepWithNext">This is the bare metal optimized series:</p>
+<ul>
+<li>
+<strong>BM.Optimized3:</strong> Processor: Intel Xeon 6354. Base frequency 3.0 GHz, max turbo frequency 3.6 GHz.</li>
+<li>
+<strong>BM.HPC.E5:</strong> Processor: AMD EPYC 9J14. Base frequency 2.4 GHz, max boost frequency 3.7 GHz.</li>
+</ul>
+<div class="uk-overflow-auto"><table class="table vl-table-bordered vl-table-divider-col" summary="This table lists the Optimized shapes that you can use with bare metal instances."><caption></caption><colgroup><col/><col/><col/><col/><col/><col style="width:81px"/><col/></colgroup><thead class="thead">
+<tr class="row">
+<th class="entry" id="bm-hpc-optimized__entry__1">Shape</th>
+<th class="entry" id="bm-hpc-optimized__entry__2">OCPU</th>
+<th class="entry" id="bm-hpc-optimized__entry__3">Memory (GB)</th>
+<th class="entry" id="bm-hpc-optimized__entry__4">Local Disk </th>
+<th class="entry" id="bm-hpc-optimized__entry__5">Max Network Bandwidth</th>
+<th class="entry" id="bm-hpc-optimized__entry__6">Max VNICs Total: Linux</th>
+<th class="entry" id="bm-hpc-optimized__entry__7">Max VNICs Total: Windows</th>
+</tr>
+</thead><tbody class="tbody">
+<tr class="row">
+<th class="entry" headers="bm-hpc-optimized__entry__1" id="bm-hpc-optimized__entry__8" scope="row">BM.Optimized3.36</th>
+<td class="entry" headers="bm-hpc-optimized__entry__8 bm-hpc-optimized__entry__2">
+<span class="notranslate">36</span>
+</td>
+<td class="entry" headers="bm-hpc-optimized__entry__8 bm-hpc-optimized__entry__3">
+<span class="notranslate">512</span>
+</td>
+<td class="entry" headers="bm-hpc-optimized__entry__8 bm-hpc-optimized__entry__4">3.84 TB NVMe SSD (1 drive)</td>
+<td class="entry" headers="bm-hpc-optimized__entry__8 bm-hpc-optimized__entry__5">
+<p>2 X 50 Gbps</p>
+<p>1 X 100 Gbps RDMA</p>
+</td>
+<td class="entry" headers="bm-hpc-optimized__entry__8 bm-hpc-optimized__entry__6">
+<span class="notranslate">256</span>
+</td>
+<td class="entry" headers="bm-hpc-optimized__entry__8 bm-hpc-optimized__entry__7">
+<span class="notranslate">129</span>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="bm-hpc-optimized__entry__1" id="bm-hpc-optimized__entry__15" scope="row">BM.HPC.E5.144<sup class="ph sup">1</sup>
+</th>
+<td class="entry" headers="bm-hpc-optimized__entry__15 bm-hpc-optimized__entry__2">
+<span translate="no">144</span>
+</td>
+<td class="entry" headers="bm-hpc-optimized__entry__15 bm-hpc-optimized__entry__3">
+<span translate="no">768</span>
+</td>
+<td class="entry" headers="bm-hpc-optimized__entry__15 bm-hpc-optimized__entry__4">3.84 TB NVMe SSD (1 drive)</td>
+<td class="entry" headers="bm-hpc-optimized__entry__15 bm-hpc-optimized__entry__5">1 x 100Gbps <p>1 x 100Gbps RDMA</p>
+</td>
+<td class="entry" headers="bm-hpc-optimized__entry__15 bm-hpc-optimized__entry__6">
+<span translate="no">256</span>
+</td>
+<td class="entry" headers="bm-hpc-optimized__entry__15 bm-hpc-optimized__entry__7">129 (1 on the first physical NIC, 128 on the second)</td>
+</tr>
+</tbody></table></div>
+<p>
+<strong>Notes</strong>
+</p>
+<p id="bm-hpc-optimized__bm.hpc.note1">
+<strong>1:</strong> Please contact an <a class="xref" href="https://www.oracle.com/corporate/contact/global.html">Oracle sales representative</a> for additional details.</p>
+</div>
+</article>
+</article>
+<article aria-labelledby="ariaid-title12" class="topic nested1" id="vmshapes">
+<h2 class="title topictitle2 vl-include-in-page-toc" id="ariaid-title12">Virtual Machine (VM) Shapes</h2>
+<div class="body">
+<p class="keepWithNext">The following shapes are available for VMs:</p>
+<ul>
+<li>
+<a class="xref" href="computeshapes.htm#vm-standard">Standard Shapes</a>
+</li>
+<li>
+<a class="xref" href="computeshapes.htm#vm-dense">Dense I/O Shapes</a>
+</li>
+<li>
+<a class="xref" href="computeshapes.htm#vm-gpu">GPU Shapes</a>
+</li>
+<li>
+<a class="xref" href="computeshapes.htm#vm-hpc-optimized">HPC and Optimized Shapes</a>
+</li>
+</ul>
+<p>Network bandwidth is based on expected bandwidth for traffic within a VCN.</p>
+</div>
+<article aria-labelledby="ariaid-title13" class="topic nested2" id="vm-standard">
+<h3 class="title topictitle3 vl-include-in-page-toc" id="ariaid-title13">Standard Shapes</h3>
+<div class="body">
+<p>
+Designed for general purpose workloads and suitable for a wide range of applications and use cases. Standard shapes provide a balance of cores, memory, and network resources. Standard shapes are available with Intel, AMD, and Arm-based processors.
+</p>
+<p class="keepWithNext">These are the VM standard series:</p>
+<ul>
+<li><strong>VM.Standard3:</strong> X9-based standard compute. Processor: Intel Xeon Platinum 8358. Base frequency 2.6 GHz, max turbo frequency 3.4 GHz.</li>
+<li><strong>VM.Standard4.Ax:</strong> X12-based standard compute. Processor: Intel Xeon 6987P-C. Base frequency 2.2 GHz, max turbo frequency 3.2 GHz.</li>
+<li>
+<p>
+<strong>VM.Standard.E2.1.Micro:</strong> E2-based, E3-based, or E4-based standard compute. Oracle Cloud Infrastructure assigns one of the following processors:</p>
+<ul>
+<li>AMD EPYC 7551. Base frequency 2.0 GHz, max boost frequency 3.0 GHz.</li>
+<li>AMD EPYC 7742. Base frequency 2.25 GHz, max boost frequency 3.4 GHz.</li>
+<li>AMD EPYC 7J13. Base frequency 2.55 GHz, max boost frequency 3.5 GHz.</li>
+</ul>
+</li>
+<li>
+<strong>VM.Standard.E4:</strong> E4-based standard compute. Processor: AMD EPYC 7J13. Base frequency 2.55 GHz, max boost frequency 3.5 GHz.</li>
+<li>
+<strong>VM.Standard.E5:</strong> E5-based standard compute. Processor: AMD EPYC 9J14. Base frequency 2.4 GHz, max boost frequency 3.7 GHz.</li>
+<li><strong>VM.Standard.E6:</strong> E6-based standard compute. Processor: AMD EPYC 9J45. Base frequency 2.7 GHz, max boost frequency 4.1 GHz.</li>
+<li><strong>VM.Standard.E6.Ax:</strong> E6-based standard compute. Processor: AMD EPYC 9J45. Base frequency 2.7 GHz, max boost frequency 4.1 GHz.</li>
+<li>
+<strong>VM.Standard.A1:</strong>
+OCI Ampere A1 Compute Arm-based standard compute. Each OCPU corresponds to a single hardware execution thread. Processor: Ampere Altra Q80-30. Max frequency 3.0 GHz.</li>
+<li>
+<strong>VM.Standard.A2:</strong>
+OCI Ampere A2 Compute Arm-based standard compute. Each OCPU corresponds to two hardware execution threads (2 cores). Processor: Ampere AmpereOne A160-30. Max frequency 3.0 GHz.</li>
+<li><strong>VM.Standard.A4:</strong> OCI Ampere A4 Compute Arm-based standard compute. Each OCPU corresponds to two hardware execution threads (2 cores). Processor: Ampere AmpereOne M A06-36M. Frequency 3.6 GHz.</li>
+<li><strong>VM.Standard.A4.Ax:</strong> OCI Ampere A4 Compute Arm-based standard compute. Each OCPU corresponds to two hardware execution threads (2 cores). Processor: Ampere AmpereOne M 192-36M. Frequency 3.6 GHz.</li>
+</ul>
+<div class="uk-overflow-auto"><table class="table vl-table-bordered vl-table-divider-col" summary="This table lists the standard shapes that you can use with virtual machines."><caption></caption><colgroup><col/><col/><col/><col style="width:152px"/><col/><col/><col/></colgroup><thead class="thead">
+<tr class="row">
+<th class="entry" id="vm-standard__entry__1">Shape</th>
+<th class="entry" id="vm-standard__entry__2">OCPU</th>
+<th class="entry" id="vm-standard__entry__3">Memory (GB)</th>
+<th class="entry" id="vm-standard__entry__4">Local Disk (TB)</th>
+<th class="entry" id="vm-standard__entry__5">Max Network Bandwidth</th>
+<th class="entry" id="vm-standard__entry__6">Max VNICs Total: Linux</th>
+<th class="entry" id="vm-standard__entry__7">Max VNICs Total: Windows</th>
+</tr>
+</thead><tbody class="tbody">
+<tr class="row">
+<th class="entry" headers="vm-standard__entry__1" id="vm-standard__entry__8" scope="row">
+<p>VM.Standard3.Flex</p>
+<p>See <a class="xref" href="computeshapes.htm#flexible">Flexible Shapes</a> and <a class="xref" href="burstable-instances.htm">Burstable Instances</a>.</p>
+</th>
+<td class="entry" headers="vm-standard__entry__8 vm-standard__entry__2">
+<span class="notranslate">1</span> minimum, <span class="notranslate">32</span> OCPU maximum
+<p>See <a class="xref" href="extended-memory-vm-instances.htm" title="Extended memory virtual machine (VM) instances are VM instances that provide more memory and cores than available with standard shapes." uk-tooltip="">Extended Memory VM Instances</a>.</p>
+</td>
+<td class="entry" headers="vm-standard__entry__8 vm-standard__entry__3">
+<span class="notranslate">1 GB</span> minimum, <span class="notranslate">512 GB</span> maximum
+<p>See <a class="xref" href="extended-memory-vm-instances.htm" title="Extended memory virtual machine (VM) instances are VM instances that provide more memory and cores than available with standard shapes." uk-tooltip="">Extended Memory VM Instances</a>.</p>
+</td>
+<td class="entry" headers="vm-standard__entry__8 vm-standard__entry__4">Block storage only</td>
+<td class="entry" headers="vm-standard__entry__8 vm-standard__entry__5">
+1 Gbps per OCPU, maximum 32 Gbps
+</td>
+<td class="entry" headers="vm-standard__entry__8 vm-standard__entry__6">
+<div>
+<p>VM with 1 OCPU: 2 VNICs.</p>
+<p>VM with 2 or more OCPUs: 1 VNIC per OCPU.</p>
+<p>Maximum 24 VNICs.</p>
+</div>
+</td>
+<td class="entry" headers="vm-standard__entry__8 vm-standard__entry__7">
+<div>
+<p>VM with 1 OCPU: 2 VNICs.</p>
+<p>VM with 2 or more OCPUs: 1 VNIC per OCPU.</p>
+<p>Maximum 24 VNICs.</p>
+</div>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="vm-standard__entry__1" id="vm-standard__entry__15" scope="row">
+<p>VM.Standard4.Ax.Flex</p>
+<p>See <a class="xref" href="computeshapes.htm#flexible">Flexible Shapes</a>.</p>
+</th>
+<td class="entry" headers="vm-standard__entry__15 vm-standard__entry__2">1 minimum, 39 OCPU maximum</td>
+<td class="entry" headers="vm-standard__entry__15 vm-standard__entry__3">1 GB minimum, 360 GB maximum</td>
+<td class="entry" headers="vm-standard__entry__15 vm-standard__entry__4">Block storage only</td>
+<td class="entry" headers="vm-standard__entry__15 vm-standard__entry__5">1 Gbps per OCPU, maximum 99 Gbps</td>
+<td class="entry" headers="vm-standard__entry__15 vm-standard__entry__6">
+<div>
+<p>VM with 1 OCPU: 2 VNICs.</p>
+<p>VM with 2 or more OCPUs: 1 VNIC per OCPU.</p>
+<p>Maximum 24 VNICs.</p>
+</div>
+</td>
+<td class="entry" headers="vm-standard__entry__15 vm-standard__entry__7">
+<div>
+<p>VM with 1 OCPU: 2 VNICs.</p>
+<p>VM with 2 or more OCPUs: 1 VNIC per OCPU.</p>
+<p>Maximum 24 VNICs.</p>
+</div>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="vm-standard__entry__1" id="vm-standard__entry__22" scope="row">VM.Standard.E2.1.Micro</th>
+<td class="entry" headers="vm-standard__entry__22 vm-standard__entry__2">
+<p>1</p>
+<p>See <a class="xref" href="/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm">Always Free Resources</a>.</p>
+</td>
+<td class="entry" headers="vm-standard__entry__22 vm-standard__entry__3">
+<span class="notranslate">1</span>
+</td>
+<td class="entry" headers="vm-standard__entry__22 vm-standard__entry__4">Block storage only</td>
+<td class="entry" headers="vm-standard__entry__22 vm-standard__entry__5">480 Mbps</td>
+<td class="entry" headers="vm-standard__entry__22 vm-standard__entry__6">
+<span class="notranslate">1</span>
+</td>
+<td class="entry" headers="vm-standard__entry__22 vm-standard__entry__7">-</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="vm-standard__entry__1" id="vm-standard__entry__29" scope="row">
+<p>VM.Standard.E4.Flex</p>
+<p>See <a class="xref" href="computeshapes.htm#flexible">Flexible Shapes</a> and <a class="xref" href="burstable-instances.htm">Burstable Instances</a>.</p>
+</th>
+<td class="entry" headers="vm-standard__entry__29 vm-standard__entry__2">
+<span translate="no">1</span> OCPU minimum, <span translate="no">64</span> OCPU maximum
+<p>See <a class="xref" href="extended-memory-vm-instances.htm" title="Extended memory virtual machine (VM) instances are VM instances that provide more memory and cores than available with standard shapes." uk-tooltip="">Extended Memory VM Instances</a>.</p>
+</td>
+<td class="entry" headers="vm-standard__entry__29 vm-standard__entry__3">
+<span translate="no">1 GB</span> minimum, <span translate="no">1024 GB</span> maximum
+<p>See <a class="xref" href="extended-memory-vm-instances.htm" title="Extended memory virtual machine (VM) instances are VM instances that provide more memory and cores than available with standard shapes." uk-tooltip="">Extended Memory VM Instances</a>.</p>
+</td>
+<td class="entry" headers="vm-standard__entry__29 vm-standard__entry__4">Block storage only</td>
+<td class="entry" headers="vm-standard__entry__29 vm-standard__entry__5">
+<span translate="no">1 Gbps per OCPU</span>, maximum <span translate="no">40 Gbps</span>
+</td>
+<td class="entry" headers="vm-standard__entry__29 vm-standard__entry__6">
+<div>
+<p>VM with 1 OCPU: 2 VNICs.</p>
+<p>VM with 2 or more OCPUs: 1 VNIC per OCPU.</p>
+<p>Maximum 24 VNICs.</p>
+</div>
+</td>
+<td class="entry" headers="vm-standard__entry__29 vm-standard__entry__7">
+<div>
+<p>VM with 1 OCPU: 2 VNICs.</p>
+<p>VM with 2 or more OCPUs: 1 VNIC per OCPU.</p>
+<p>Maximum 24 VNICs.</p>
+</div>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="vm-standard__entry__1" id="vm-standard__entry__36" scope="row">
+<p>VM.Standard.E5.Flex</p>
+<p>See <a class="xref" href="computeshapes.htm#flexible">Flexible Shapes</a>.</p>
+</th>
+<td class="entry" headers="vm-standard__entry__36 vm-standard__entry__2">
+<p>1 OCPU minimum, 126 OCPU maximum</p>
+</td>
+<td class="entry" headers="vm-standard__entry__36 vm-standard__entry__3">
+<p>1 GB minimum, 1049 GB maximum</p>
+</td>
+<td class="entry" headers="vm-standard__entry__36 vm-standard__entry__4">Block storage only</td>
+<td class="entry" headers="vm-standard__entry__36 vm-standard__entry__5">1 Gbps per OCPU, maximum 40 Gbps</td>
+<td class="entry" headers="vm-standard__entry__36 vm-standard__entry__6">
+<p>VM with 1 OCPU: 2 VNICs.</p>
+<p>VM with 2 or more OCPUs: 1 VNIC per OCPU.</p>
+<p>Maximum 24 VNICs.</p>
+</td>
+<td class="entry" headers="vm-standard__entry__36 vm-standard__entry__7">
+<p>VM with 1 OCPU: 2 VNICs.</p>
+<p>VM with 2 or more OCPUs: 1 VNIC per OCPU.</p>
+<p>Maximum 24 VNICs.</p>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="vm-standard__entry__1" id="vm-standard__entry__43" scope="row">
+<p>VM.Standard.E6.Flex</p>
+<p>See <a class="xref" href="computeshapes.htm#flexible">Flexible Shapes</a>.</p>
+</th>
+<td class="entry" headers="vm-standard__entry__43 vm-standard__entry__2">
+<p>1 OCPU minimum, 126 OCPU maximum</p>
+</td>
+<td class="entry" headers="vm-standard__entry__43 vm-standard__entry__3">
+<p>1 GB minimum, 1454 GB maximum</p>
+</td>
+<td class="entry" headers="vm-standard__entry__43 vm-standard__entry__4">Block storage only</td>
+<td class="entry" headers="vm-standard__entry__43 vm-standard__entry__5">1 Gbps per OCPU, maximum 99 Gbps</td>
+<td class="entry" headers="vm-standard__entry__43 vm-standard__entry__6">
+<p>VM with 1 OCPU: 2 VNICs.</p>
+<p>VM with 2 or more OCPUs: 1 VNIC per OCPU.</p>
+<p>Maximum 24 VNICs.</p>
+</td>
+<td class="entry" headers="vm-standard__entry__43 vm-standard__entry__7">
+<p>VM with 1 OCPU: 2 VNICs.</p>
+<p>VM with 2 or more OCPUs: 1 VNIC per OCPU.</p>
+<p>Maximum 24 VNICs.</p>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="vm-standard__entry__1" id="vm-standard__entry__50" scope="row">
+<p>VM.Standard.E6.Ax.Flex</p>
+<p>See <a class="xref" href="computeshapes.htm#flexible">Flexible Shapes</a>.</p>
+</th>
+<td class="entry" headers="vm-standard__entry__50 vm-standard__entry__2">
+<p>1 OCPU minimum, 94 OCPU maximum</p>
+</td>
+<td class="entry" headers="vm-standard__entry__50 vm-standard__entry__3">
+<p>1 GB minimum, 712 GB maximum</p>
+</td>
+<td class="entry" headers="vm-standard__entry__50 vm-standard__entry__4">Block storage only</td>
+<td class="entry" headers="vm-standard__entry__50 vm-standard__entry__5">1 Gbps per OCPU, maximum 99 Gbps</td>
+<td class="entry" headers="vm-standard__entry__50 vm-standard__entry__6">
+<p>VM with 1 OCPU: 2 VNICs.</p>
+<p>VM with 2 or more OCPUs: 1 VNIC per OCPU.</p>
+<p>Maximum 24 VNICs.</p>
+</td>
+<td class="entry" headers="vm-standard__entry__50 vm-standard__entry__7">
+<p>VM with 1 OCPU: 2 VNICs.</p>
+<p>VM with 2 or more OCPUs: 1 VNIC per OCPU.</p>
+<p>Maximum 24 VNICs.</p>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="vm-standard__entry__1" id="vm-standard__entry__57" scope="row">
+<p>VM.Standard.A1.Flex</p>
+<p>See <a class="xref" href="computeshapes.htm#flexible">Flexible Shapes</a> and <a class="xref" href="arm.htm" title="OCI Ampere Compute is a general-purpose, Arm-based compute platform based on the Ampere processor. OCI Ampere A1 Compute (based on Ampere Altra processors) and OCI Ampere A2 Compute (based on AmpereOne processors) instances provide superior price-performance, near linear scaling, built-in security due to the single-threaded core architecture, and a broad developer ecosystem." uk-tooltip="">Arm-Based Compute</a>.</p>
+</th>
+<td class="entry" headers="vm-standard__entry__57 vm-standard__entry__2">
+<p>
+<span translate="no">1</span> OCPU minimum, <span translate="no">76</span> OCPU maximum
+</p>
+<p>See <a class="xref" href="/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm">Always Free Resources</a>.</p>
+</td>
+<td class="entry" headers="vm-standard__entry__57 vm-standard__entry__3">
+<span translate="no">1 GB</span> minimum, <span translate="no">472 GB</span> maximum
+</td>
+<td class="entry" headers="vm-standard__entry__57 vm-standard__entry__4">Block storage only</td>
+<td class="entry" headers="vm-standard__entry__57 vm-standard__entry__5">
+<span translate="no">1 Gbps per OCPU</span>, maximum <span translate="no">40 Gbps</span>
+</td>
+<td class="entry" headers="vm-standard__entry__57 vm-standard__entry__6">
+<div>
+<p>VM with 1 OCPU: 2 VNICs.</p>
+<p>VM with 2 or more OCPUs: 1 VNIC per OCPU.</p>
+<p>Maximum 24 VNICs.</p>
+</div>
+</td>
+<td class="entry" headers="vm-standard__entry__57 vm-standard__entry__7">Windows images are not supported on this shape.</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="vm-standard__entry__1" id="vm-standard__entry__64" scope="row">
+<p>VM.Standard.A2.Flex</p>
+<p>See <a class="xref" href="computeshapes.htm#flexible">Flexible Shapes</a> and <a class="xref" href="arm.htm" title="OCI Ampere Compute is a general-purpose, Arm-based compute platform based on the Ampere processor. OCI Ampere A1 Compute (based on Ampere Altra processors) and OCI Ampere A2 Compute (based on AmpereOne processors) instances provide superior price-performance, near linear scaling, built-in security due to the single-threaded core architecture, and a broad developer ecosystem." uk-tooltip="">Arm-Based Compute</a>.</p>
+</th>
+<td class="entry" headers="vm-standard__entry__64 vm-standard__entry__2"><span translate="no">1 OCPU</span> minimum, 78 OCPU maximum</td>
+<td class="entry" headers="vm-standard__entry__64 vm-standard__entry__3"><span translate="no">1 GB minimum</span>, <span translate="no">946 GB maximum</span></td>
+<td class="entry" headers="vm-standard__entry__64 vm-standard__entry__4">Block storage only</td>
+<td class="entry" headers="vm-standard__entry__64 vm-standard__entry__5"><span translate="no">1 Gbps per OCPU</span>, maximum <span translate="no">78 Gbps</span></td>
+<td class="entry" headers="vm-standard__entry__64 vm-standard__entry__6">
+<p>VM with <span translate="no">1 OCPU</span>: <span translate="no">2 VNICs</span>.</p>
+<p>VM with <span translate="no">2 or more OCPUs</span>: <span translate="no">1 VNIC per OCPU</span>.</p>
+<p>Maximum <span translate="no">24 VNICs</span>.</p>
+</td>
+<td class="entry" headers="vm-standard__entry__64 vm-standard__entry__7">Windows images are not supported on this shape.</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="vm-standard__entry__1" id="vm-standard__entry__71" scope="row">
+<p>VM.Standard.A4.Flex</p>
+<p>See <a class="xref" href="computeshapes.htm#flexible">Flexible Shapes</a> and <a class="xref" href="arm.htm" title="OCI Ampere Compute is a general-purpose, Arm-based compute platform based on the Ampere processor. OCI Ampere A1 Compute (based on Ampere Altra processors) and OCI Ampere A2 Compute (based on AmpereOne processors) instances provide superior price-performance, near linear scaling, built-in security due to the single-threaded core architecture, and a broad developer ecosystem." uk-tooltip="">Arm-Based Compute</a>.</p>
+</th>
+<td class="entry" headers="vm-standard__entry__71 vm-standard__entry__2"><span translate="no">1 OCPU</span> minimum, 45 OCPU maximum</td>
+<td class="entry" headers="vm-standard__entry__71 vm-standard__entry__3"><span translate="no">1 GB minimum</span>, <span translate="no">700 GB maximum</span></td>
+<td class="entry" headers="vm-standard__entry__71 vm-standard__entry__4">Block storage only</td>
+<td class="entry" headers="vm-standard__entry__71 vm-standard__entry__5"><span translate="no">1 Gbps per OCPU</span>, maximum <span translate="no">100 Gbps</span></td>
+<td class="entry" headers="vm-standard__entry__71 vm-standard__entry__6">
+<p>VM with <span translate="no">1 OCPU</span>: <span translate="no">2 VNICs</span>.</p>
+<p>VM with <span translate="no">2 or more OCPUs</span>: <span translate="no">1 VNIC per OCPU</span>.</p>
+<p>Maximum <span translate="no">24 VNICs</span>.</p>
+</td>
+<td class="entry" headers="vm-standard__entry__71 vm-standard__entry__7">Windows images are not supported on this shape.</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="vm-standard__entry__1" id="vm-standard__entry__78" scope="row">
+<p>VM.Standard.A4.Ax.Flex</p>
+<p>See <a class="xref" href="computeshapes.htm#flexible">Flexible Shapes</a> and <a class="xref" href="arm.htm" title="OCI Ampere Compute is a general-purpose, Arm-based compute platform based on the Ampere processor. OCI Ampere A1 Compute (based on Ampere Altra processors) and OCI Ampere A2 Compute (based on AmpereOne processors) instances provide superior price-performance, near linear scaling, built-in security due to the single-threaded core architecture, and a broad developer ecosystem." uk-tooltip="">Arm-Based Compute</a>.</p>
+</th>
+<td class="entry" headers="vm-standard__entry__78 vm-standard__entry__2"><span translate="no">1 OCPU</span> minimum, 45 OCPU maximum</td>
+<td class="entry" headers="vm-standard__entry__78 vm-standard__entry__3"><span translate="no">1 GB minimum</span>, <span translate="no">720 GB maximum</span></td>
+<td class="entry" headers="vm-standard__entry__78 vm-standard__entry__4">Block storage only</td>
+<td class="entry" headers="vm-standard__entry__78 vm-standard__entry__5"><span translate="no">1 Gbps per OCPU</span>, maximum <span translate="no">100 Gbps</span></td>
+<td class="entry" headers="vm-standard__entry__78 vm-standard__entry__6">
+<p>VM with <span translate="no">1 OCPU</span>: <span translate="no">2 VNICs</span>.</p>
+<p>VM with <span translate="no">2 or more OCPUs</span>: <span translate="no">1 VNIC per OCPU</span>.</p>
+<p>Maximum <span translate="no">24 VNICs</span>.</p>
+</td>
+<td class="entry" headers="vm-standard__entry__78 vm-standard__entry__7">Windows images are not supported on this shape.</td>
+</tr>
+</tbody></table></div>
+</div>
+</article>
+<article aria-labelledby="ariaid-title14" class="topic nested2" id="vm-dense">
+<h3 class="title topictitle3 vl-include-in-page-toc" id="ariaid-title14">Dense I/O Shapes</h3>
+<div class="body">
+<p class="keepWithNext">
+Designed for large databases, big data workloads, and applications that require high-performance local storage. DenseIO shapes include locally-attached NVMe-based SSDs.
+</p>
+<p class="keepWithNext">This is the VM dense I/O series:</p>
+<ul>
+<li>
+<strong>VM.DenseIO.E4:</strong> E4-based dense I/O compute. Processor: AMD EPYC 7J13. Base frequency 2.55 GHz, max boost frequency 3.5 GHz.</li>
+<li><strong>VM.DenseIO.E5:</strong> E5-based dense I/O compute. Processor: AMD EPYC 9J14. Base frequency 2.6 GHz, max boost frequency 3.7 GHz.</li>
+<li><strong>VM.DenseIO.E6.Ax:</strong> E6-based dense I/O compute. Processor: AMD EPYC 9J45. Base frequency 2.7 GHz, max boost frequency 4.1 GHz.</li>
+</ul>
+<div class="uk-overflow-auto"><table class="table vl-table-bordered vl-table-divider-col" summary="This table lists the dense I/O shapes that you can use with virtual machines."><caption></caption><colgroup><col/><col/><col/><col style="width:152px"/><col/><col/><col/></colgroup><thead class="thead">
+<tr class="row">
+<th class="entry" id="vm-dense__entry__1">Shape</th>
+<th class="entry" id="vm-dense__entry__2">OCPU</th>
+<th class="entry" id="vm-dense__entry__3">Memory (GB)</th>
+<th class="entry" id="vm-dense__entry__4">Local Disk (TB)</th>
+<th class="entry" id="vm-dense__entry__5">Max Network Bandwidth</th>
+<th class="entry" id="vm-dense__entry__6">Max VNICs Total: Linux</th>
+<th class="entry" id="vm-dense__entry__7">Max VNICs Total: Windows</th>
+</tr>
+</thead><tbody class="tbody">
+<tr class="row">
+<th class="entry" headers="vm-dense__entry__1" id="vm-dense__entry__8" rowspan="3" scope="row">
+<p>VM.DenseIO.E4.Flex</p>
+<p>See <a class="xref" href="computeshapes.htm#flexible">Flexible Shapes</a>.</p>
+</th>
+<td class="entry" headers="vm-dense__entry__8 vm-dense__entry__2">8</td>
+<td class="entry" headers="vm-dense__entry__8 vm-dense__entry__3">128</td>
+<td class="entry" headers="vm-dense__entry__8 vm-dense__entry__4">6.8 TB NVMe SSD storage (1 drive)</td>
+<td class="entry" headers="vm-dense__entry__8 vm-dense__entry__5">8 Gbps</td>
+<td class="entry" headers="vm-dense__entry__8 vm-dense__entry__6">
+<span class="notranslate">8</span>
+</td>
+<td class="entry" headers="vm-dense__entry__8 vm-dense__entry__7">
+<span class="notranslate">8</span>
+</td>
+</tr>
+<tr class="row">
+<td class="entry" headers="vm-dense__entry__8 vm-dense__entry__2">
+<span translate="no">16</span>
+</td>
+<td class="entry" headers="vm-dense__entry__8 vm-dense__entry__3">
+<span translate="no">256</span>
+</td>
+<td class="entry" headers="vm-dense__entry__8 vm-dense__entry__4">13.6 TB NVMe SSD storage (2 drives)</td>
+<td class="entry" headers="vm-dense__entry__8 vm-dense__entry__5">
+16 Gbps
+</td>
+<td class="entry" headers="vm-dense__entry__8 vm-dense__entry__6">
+<span class="notranslate">16</span>
+</td>
+<td class="entry" headers="vm-dense__entry__8 vm-dense__entry__7">
+<span class="notranslate">16</span>
+</td>
+</tr>
+<tr class="row">
+<td class="entry" headers="vm-dense__entry__8 vm-dense__entry__2">
+<span translate="no">32</span>
+</td>
+<td class="entry" headers="vm-dense__entry__8 vm-dense__entry__3">
+<span translate="no">512</span>
+</td>
+<td class="entry" headers="vm-dense__entry__8 vm-dense__entry__4">27.2 TB NVMe SSD storage (4 drives)</td>
+<td class="entry" headers="vm-dense__entry__8 vm-dense__entry__5">
+<span translate="no">32 Gbps</span>
+</td>
+<td class="entry" headers="vm-dense__entry__8 vm-dense__entry__6">
+<span class="notranslate">24</span>
+</td>
+<td class="entry" headers="vm-dense__entry__8 vm-dense__entry__7">
+<span class="notranslate">24</span>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="vm-dense__entry__1" id="vm-dense__entry__27" rowspan="6" scope="row">VM.DenseIO.E5.Flex<sup class="ph sup">1</sup>
+</th>
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__2">
+<span translate="no">8</span>
+</td>
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__3">
+<span translate="no">96</span>
+</td>
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__4">6.8 TB NVMe SSD storage (1 drive)</td>
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__5">
+<span translate="no">8 Gbps</span>
+</td>
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__6">
+<span translate="no">8</span>
+</td>
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__7">
+<span translate="no">8</span>
+</td>
+</tr>
+<tr class="row">
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__2">
+<span translate="no">16</span>
+</td>
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__3">
+<span translate="no">192</span>
+</td>
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__4">13.6 TB NVMe SSD storage (2 drives)</td>
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__5">
+<span translate="no">16 Gbps</span>
+</td>
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__6">
+<span translate="no">16</span>
+</td>
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__7">
+<span translate="no">16</span>
+</td>
+</tr>
+<tr class="row">
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__2">
+<span translate="no">24</span>
+</td>
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__3">
+<span translate="no">288</span>
+</td>
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__4">20.4 TB NVMe SSD storage (3 drives)</td>
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__5">
+<span translate="no">24 Gbps</span>
+</td>
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__6">
+<span translate="no">24</span>
+</td>
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__7">
+<span translate="no">24</span>
+</td>
+</tr>
+<tr class="row">
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__2">
+<span translate="no">32</span>
+</td>
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__3">
+<span translate="no">384</span>
+</td>
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__4">27.2 TB NVMe SSD storage (4 drives)</td>
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__5">
+<span translate="no">32 Gbps</span>
+</td>
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__6">
+<span translate="no">24</span>
+</td>
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__7">
+<span translate="no">24</span>
+</td>
+</tr>
+<tr class="row">
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__2">
+<span translate="no">40</span>
+</td>
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__3">
+<span translate="no">480</span>
+</td>
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__4">34 TB NVMe SSD storage (5 drives)</td>
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__5">
+<span translate="no">40 Gbps</span>
+</td>
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__6">
+<span translate="no">24</span>
+</td>
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__7">
+<span translate="no">24</span>
+</td>
+</tr>
+<tr class="row">
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__2">
+<span translate="no">48</span>
+</td>
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__3">
+<span translate="no">576</span>
+</td>
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__4">40.8 TB NVMe SSD storage (6 drives)</td>
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__5">
+<span translate="no">48 Gbps</span>
+</td>
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__6">
+<span translate="no">24</span>
+</td>
+<td class="entry" headers="vm-dense__entry__27 vm-dense__entry__7">
+<span translate="no">24</span>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="vm-dense__entry__1" id="vm-dense__entry__64" rowspan="6" scope="row">VM.DenseIO.E6.Ax.Flex<sup class="ph sup">1</sup>
+</th>
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__2">
+<span translate="no">8</span>
+</td>
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__3">
+<span translate="no">96</span>
+</td>
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__4">6.8 TB NVMe SSD storage (1 drive)</td>
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__5">
+<span translate="no">8 Gbps</span>
+</td>
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__6">
+<span translate="no">8</span>
+</td>
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__7">
+<span translate="no">8</span>
+</td>
+</tr>
+<tr class="row">
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__2">
+<span translate="no">16</span>
+</td>
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__3">
+<span translate="no">192</span>
+</td>
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__4">13.6 TB NVMe SSD storage (2 drives)</td>
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__5">
+<span translate="no">16 Gbps</span>
+</td>
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__6">
+<span translate="no">16</span>
+</td>
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__7">
+<span translate="no">16</span>
+</td>
+</tr>
+<tr class="row">
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__2">
+<span translate="no">24</span>
+</td>
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__3">
+<span translate="no">288</span>
+</td>
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__4">20.4 TB NVMe SSD storage (3 drives)</td>
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__5">
+<span translate="no">24 Gbps</span>
+</td>
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__6">
+<span translate="no">24</span>
+</td>
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__7">
+<span translate="no">24</span>
+</td>
+</tr>
+<tr class="row">
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__2">
+<span translate="no">32</span>
+</td>
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__3">
+<span translate="no">384</span>
+</td>
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__4">27.2 TB NVMe SSD storage (4 drives)</td>
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__5">
+<span translate="no">32 Gbps</span>
+</td>
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__6">
+<span translate="no">24</span>
+</td>
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__7">
+<span translate="no">24</span>
+</td>
+</tr>
+<tr class="row">
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__2">
+<span translate="no">40</span>
+</td>
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__3">
+<span translate="no">480</span>
+</td>
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__4">34 TB NVMe SSD storage (5 drives)</td>
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__5">
+<span translate="no">40 Gbps</span>
+</td>
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__6">
+<span translate="no">24</span>
+</td>
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__7">
+<span translate="no">24</span>
+</td>
+</tr>
+<tr class="row">
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__2">
+<span translate="no">48</span>
+</td>
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__3">
+<span translate="no">576</span>
+</td>
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__4">40.8 TB NVMe SSD storage (6 drives)</td>
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__5">
+<span translate="no">48 Gbps</span>
+</td>
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__6">
+<span translate="no">24</span>
+</td>
+<td class="entry" headers="vm-dense__entry__64 vm-dense__entry__7">
+<span translate="no">24</span>
+</td>
+</tr>
+</tbody></table></div>
+<p>
+<strong>Notes</strong>
+</p>
+<p id="vm-dense__vm.dense.e5.note1">
+<strong>1:</strong> Please contact an <a class="xref" href="https://www.oracle.com/corporate/contact/global.html">Oracle sales representative</a> for additional details.</p>
+</div>
+</article>
+<article aria-labelledby="ariaid-title15" class="topic nested2" id="vm-gpu">
+<h3 class="title topictitle3 vl-include-in-page-toc" id="ariaid-title15">GPU Shapes</h3>
+<div class="body">
+<p>
+Designed for hardware-accelerated workloads. GPU shapes include Intel, AMD, or Arm CPUs with NVIDIA or AMD graphics processors.
+</p>
+<p class="keepWithNext">These are the VM GPU series:</p>
+<ul>
+<li>
+<p>
+<strong>VM.GPU2:</strong> X7-based GPU compute.</p>
+<ul>
+<li>GPU: NVIDIA Tesla P100 16 GB</li>
+<li>CPU: Intel Xeon Platinum 8167M. Base frequency 2.0 GHz, max turbo frequency 2.4 GHz.</li>
+</ul>
+</li>
+<li>
+<p>
+<strong>VM.GPU3:</strong> X7-based GPU compute.</p>
+<ul>
+<li>GPU: NVIDIA Tesla V100 16 GB</li>
+<li>CPU: Intel Xeon Platinum 8167M. Base frequency 2.0 GHz, max turbo frequency 2.4 GHz.</li>
+</ul>
+</li>
+<li>
+<p>
+<strong>VM.GPU.A10:</strong> X9-based GPU compute.</p>
+<ul>
+<li>GPU: NVIDIA A10 24 GB</li>
+<li>CPU: Intel Xeon Platinum 8358. Base frequency 2.6 GHz, max turbo frequency 3.4 GHz.</li>
+</ul>
+</li>
+</ul>
+<div class="uk-overflow-auto"><table class="table vl-table-bordered vl-table-divider-col" summary="This table lists the GPU shapes that you can use with virtual machines."><caption></caption><colgroup><col/><col/><col/><col/><col style="width:152px"/><col/><col/><col/></colgroup><thead class="thead">
+<tr class="row">
+<th class="entry" id="vm-gpu__entry__1">Shape</th>
+<th class="entry" id="vm-gpu__entry__2">OCPU</th>
+<th class="entry" id="vm-gpu__entry__3">GPU Memory (GB)</th>
+<th class="entry" id="vm-gpu__entry__4">CPU Memory (GB)</th>
+<th class="entry" id="vm-gpu__entry__5">Local Disk (TB)</th>
+<th class="entry" id="vm-gpu__entry__6">Max Network Bandwidth</th>
+<th class="entry" id="vm-gpu__entry__7">Max VNICs Total: Linux</th>
+<th class="entry" id="vm-gpu__entry__8">Max VNICs Total: Windows</th>
+</tr>
+</thead><tbody class="tbody">
+<tr class="row">
+<th class="entry" headers="vm-gpu__entry__1" id="vm-gpu__entry__9" scope="row">
+<p>VM.GPU2.1</p>
+<p>(GPU: 1xP100)</p>
+</th>
+<td class="entry" headers="vm-gpu__entry__9 vm-gpu__entry__2">
+<span class="notranslate">12</span>
+</td>
+<td class="entry" headers="vm-gpu__entry__9 vm-gpu__entry__3">
+<span class="notranslate">16</span>
+</td>
+<td class="entry" headers="vm-gpu__entry__9 vm-gpu__entry__4">
+<span class="notranslate">72</span>
+</td>
+<td class="entry" headers="vm-gpu__entry__9 vm-gpu__entry__5">Block storage only</td>
+<td class="entry" headers="vm-gpu__entry__9 vm-gpu__entry__6">8 Gbps</td>
+<td class="entry" headers="vm-gpu__entry__9 vm-gpu__entry__7">
+<span class="notranslate">12</span>
+</td>
+<td class="entry" headers="vm-gpu__entry__9 vm-gpu__entry__8">
+<span class="notranslate">12</span>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="vm-gpu__entry__1" id="vm-gpu__entry__17" scope="row">
+<p>VM.GPU3.1</p>
+<p>(GPU: 1xV100)</p>
+</th>
+<td class="entry" headers="vm-gpu__entry__17 vm-gpu__entry__2">
+<span class="notranslate">6</span>
+</td>
+<td class="entry" headers="vm-gpu__entry__17 vm-gpu__entry__3">
+<span class="notranslate">16</span>
+</td>
+<td class="entry" headers="vm-gpu__entry__17 vm-gpu__entry__4">
+<span class="notranslate">90</span>
+</td>
+<td class="entry" headers="vm-gpu__entry__17 vm-gpu__entry__5">Block storage only</td>
+<td class="entry" headers="vm-gpu__entry__17 vm-gpu__entry__6">4 Gbps</td>
+<td class="entry" headers="vm-gpu__entry__17 vm-gpu__entry__7">
+<span class="notranslate">6</span>
+</td>
+<td class="entry" headers="vm-gpu__entry__17 vm-gpu__entry__8">
+<span class="notranslate">6</span>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="vm-gpu__entry__1" id="vm-gpu__entry__25" scope="row">
+<p>VM.GPU3.2</p>
+<p>(GPU: 2xV100)</p>
+</th>
+<td class="entry" headers="vm-gpu__entry__25 vm-gpu__entry__2">
+<span class="notranslate">12</span>
+</td>
+<td class="entry" headers="vm-gpu__entry__25 vm-gpu__entry__3">
+<span class="notranslate">32</span>
+</td>
+<td class="entry" headers="vm-gpu__entry__25 vm-gpu__entry__4">
+<span class="notranslate">180</span>
+</td>
+<td class="entry" headers="vm-gpu__entry__25 vm-gpu__entry__5">Block storage only</td>
+<td class="entry" headers="vm-gpu__entry__25 vm-gpu__entry__6">8 Gbps</td>
+<td class="entry" headers="vm-gpu__entry__25 vm-gpu__entry__7">
+<span class="notranslate">12</span>
+</td>
+<td class="entry" headers="vm-gpu__entry__25 vm-gpu__entry__8">
+<span class="notranslate">12</span>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="vm-gpu__entry__1" id="vm-gpu__entry__33" scope="row">
+<p>VM.GPU3.4</p>
+<p>(GPU: 4xV100)</p>
+</th>
+<td class="entry" headers="vm-gpu__entry__33 vm-gpu__entry__2">
+<span class="notranslate">24</span>
+</td>
+<td class="entry" headers="vm-gpu__entry__33 vm-gpu__entry__3">
+<span class="notranslate">64</span>
+</td>
+<td class="entry" headers="vm-gpu__entry__33 vm-gpu__entry__4">
+<span class="notranslate">360</span>
+</td>
+<td class="entry" headers="vm-gpu__entry__33 vm-gpu__entry__5">Block storage only</td>
+<td class="entry" headers="vm-gpu__entry__33 vm-gpu__entry__6">24.6 Gbps</td>
+<td class="entry" headers="vm-gpu__entry__33 vm-gpu__entry__7">
+<span class="notranslate">24</span>
+</td>
+<td class="entry" headers="vm-gpu__entry__33 vm-gpu__entry__8">
+<span class="notranslate">24</span>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="vm-gpu__entry__1" id="vm-gpu__entry__41" scope="row">
+<p>VM.GPU.A10.1</p>
+<p>(GPU: 1xA10)</p>
+</th>
+<td class="entry" headers="vm-gpu__entry__41 vm-gpu__entry__2">
+<span class="notranslate">15</span>
+</td>
+<td class="entry" headers="vm-gpu__entry__41 vm-gpu__entry__3">
+<span class="notranslate">24</span>
+</td>
+<td class="entry" headers="vm-gpu__entry__41 vm-gpu__entry__4">
+<span class="notranslate">240</span>
+</td>
+<td class="entry" headers="vm-gpu__entry__41 vm-gpu__entry__5">Block storage only</td>
+<td class="entry" headers="vm-gpu__entry__41 vm-gpu__entry__6">24 Gbps</td>
+<td class="entry" headers="vm-gpu__entry__41 vm-gpu__entry__7">
+<span class="notranslate">15</span>
+</td>
+<td class="entry" headers="vm-gpu__entry__41 vm-gpu__entry__8">
+<span class="notranslate">15</span>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="vm-gpu__entry__1" id="vm-gpu__entry__49" scope="row">
+<p> VM.GPU.A10.2</p>
+<p>(GPU: 2xA10)</p>
+</th>
+<td class="entry" headers="vm-gpu__entry__49 vm-gpu__entry__2">
+<span class="notranslate">30</span>
+</td>
+<td class="entry" headers="vm-gpu__entry__49 vm-gpu__entry__3">
+<span class="notranslate">48</span>
+</td>
+<td class="entry" headers="vm-gpu__entry__49 vm-gpu__entry__4">
+<span class="notranslate">480</span>
+</td>
+<td class="entry" headers="vm-gpu__entry__49 vm-gpu__entry__5">Block storage only</td>
+<td class="entry" headers="vm-gpu__entry__49 vm-gpu__entry__6">48 Gbps</td>
+<td class="entry" headers="vm-gpu__entry__49 vm-gpu__entry__7">
+<span class="notranslate">24</span>
+</td>
+<td class="entry" headers="vm-gpu__entry__49 vm-gpu__entry__8">
+<span class="notranslate">24</span>
+</td>
+</tr>
+</tbody></table></div>
+</div>
+</article>
+<article aria-labelledby="ariaid-title16" class="topic nested2" id="vm-hpc-optimized">
+<h3 class="title topictitle3 vl-include-in-page-toc" id="ariaid-title16">HPC and Optimized Shapes</h3>
+<div class="body">
+<p>Designed for high-performance computing workloads that require high frequency processor cores.</p>
+<p class="keepWithNext">This is the VM optimized series:</p>
+<ul>
+<li>
+<strong>VM.Optimized3:</strong> Processor: Intel Xeon 6354. Base frequency 3.0 GHz, max turbo frequency 3.6 GHz.</li>
+</ul>
+<div class="uk-overflow-auto"><table class="table vl-table-bordered vl-table-divider-col" summary="This table lists the Optimized shapes that you can use with virtual machines."><caption></caption><colgroup><col/><col/><col/><col/><col/><col style="width:81px"/><col/></colgroup><thead class="thead">
+<tr class="row">
+<th class="entry" id="vm-hpc-optimized__entry__1">Shape</th>
+<th class="entry" id="vm-hpc-optimized__entry__2">OCPU</th>
+<th class="entry" id="vm-hpc-optimized__entry__3">Memory (GB)</th>
+<th class="entry" id="vm-hpc-optimized__entry__4">Local Disk </th>
+<th class="entry" id="vm-hpc-optimized__entry__5">Max Network Bandwidth</th>
+<th class="entry" id="vm-hpc-optimized__entry__6">Max VNICs Total: Linux</th>
+<th class="entry" id="vm-hpc-optimized__entry__7">Max VNICs Total: Windows</th>
+</tr>
+</thead><tbody class="tbody">
+<tr class="row">
+<th class="entry" headers="vm-hpc-optimized__entry__1" id="vm-hpc-optimized__entry__8" scope="row">VM.Optimized3.Flex</th>
+<td class="entry" headers="vm-hpc-optimized__entry__8 vm-hpc-optimized__entry__2">
+<span translate="no">1</span> OCPU minimum, <span translate="no">18</span> OCPU maximum
+</td>
+<td class="entry" headers="vm-hpc-optimized__entry__8 vm-hpc-optimized__entry__3">
+<span translate="no">1 GB</span> minimum, <span translate="no">256 GB</span> maximum
+</td>
+<td class="entry" headers="vm-hpc-optimized__entry__8 vm-hpc-optimized__entry__4">Block storage only</td>
+<td class="entry" headers="vm-hpc-optimized__entry__8 vm-hpc-optimized__entry__5">4 Gbps per OCPU, maximum 40 Gbps</td>
+<td class="entry" headers="vm-hpc-optimized__entry__8 vm-hpc-optimized__entry__6">
+<p>2 VNICs per OCPU.</p>
+<p>Maximum 24 VNICs.</p>
+</td>
+<td class="entry" headers="vm-hpc-optimized__entry__8 vm-hpc-optimized__entry__7">
+<p>2 VNICs per OCPU.</p>
+<p>Maximum 24 VNICs.</p>
+</td>
+</tr>
+</tbody></table></div>
+</div>
+</article>
+</article>
+<article aria-labelledby="ariaid-title17" class="topic nested1" id="dedicatedvmhost">
+<h2 class="title topictitle2 vl-include-in-page-toc" id="ariaid-title17">Dedicated Virtual Machine Host Shapes</h2>
+<div class="body">
+<div class="uk-overflow-auto"><table class="table vl-table-bordered vl-table-divider-col" summary="This table lists the attributes for dedicated virtual machine host shapes."><caption></caption><colgroup><col/><col/><col/><col/><col/><col/><col/></colgroup><thead class="thead">
+<tr class="row">
+<th class="entry" id="dedicatedvmhost__entry__1">Shape</th>
+<th class="entry" id="dedicatedvmhost__entry__2">Instance Type</th>
+<th class="entry" id="dedicatedvmhost__entry__3">Billed OCPU</th>
+<th class="entry" id="dedicatedvmhost__entry__4">Usable OCPU<sup class="ph sup">1</sup>
+</th>
+<th class="entry" id="dedicatedvmhost__entry__5">Total Memory (GB)<sup class="ph sup">3</sup>
+</th>
+<th class="entry" id="dedicatedvmhost__entry__6">Usable Memory (GB)<sup class="ph sup">1</sup>
+</th>
+<th class="entry" id="dedicatedvmhost__entry__7">Supported Shapes for Hosted VMs</th>
+</tr>
+</thead><tbody class="tbody">
+<tr class="row">
+<th class="entry" headers="dedicatedvmhost__entry__1" id="dedicatedvmhost__entry__8" scope="row">DVH.Standard2.52<sup class="ph sup">2</sup>
+</th>
+<td class="entry" headers="dedicatedvmhost__entry__8 dedicatedvmhost__entry__2">X7-based VM host</td>
+<td class="entry" headers="dedicatedvmhost__entry__8 dedicatedvmhost__entry__3">
+<span class="notranslate">52</span>
+</td>
+<td class="entry" headers="dedicatedvmhost__entry__8 dedicatedvmhost__entry__4">
+<span class="notranslate">48</span>
+</td>
+<td class="entry" headers="dedicatedvmhost__entry__8 dedicatedvmhost__entry__5">
+<span class="notranslate">768</span>
+</td>
+<td class="entry" headers="dedicatedvmhost__entry__8 dedicatedvmhost__entry__6">
+<span class="notranslate">736</span>
+</td>
+<td class="entry" headers="dedicatedvmhost__entry__8 dedicatedvmhost__entry__7">VM.Standard2 series
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="dedicatedvmhost__entry__1" id="dedicatedvmhost__entry__15" scope="row">DVH.Standard3.64</th>
+<td class="entry" headers="dedicatedvmhost__entry__15 dedicatedvmhost__entry__2">X9-based VM host</td>
+<td class="entry" headers="dedicatedvmhost__entry__15 dedicatedvmhost__entry__3">
+<span class="notranslate">64</span>
+</td>
+<td class="entry" headers="dedicatedvmhost__entry__15 dedicatedvmhost__entry__4">
+<span class="notranslate">60</span>
+</td>
+<td class="entry" headers="dedicatedvmhost__entry__15 dedicatedvmhost__entry__5">
+<span class="notranslate">1024</span>
+</td>
+<td class="entry" headers="dedicatedvmhost__entry__15 dedicatedvmhost__entry__6">
+<span class="notranslate">960</span>
+</td>
+<td class="entry" headers="dedicatedvmhost__entry__15 dedicatedvmhost__entry__7">VM.Standard3 series
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="dedicatedvmhost__entry__1" id="dedicatedvmhost__entry__22" scope="row">DVH.Standard.E2.64<sup class="ph sup">2</sup>
+</th>
+<td class="entry" headers="dedicatedvmhost__entry__22 dedicatedvmhost__entry__2">E2-based VM host</td>
+<td class="entry" headers="dedicatedvmhost__entry__22 dedicatedvmhost__entry__3">
+<span class="notranslate">64</span>
+</td>
+<td class="entry" headers="dedicatedvmhost__entry__22 dedicatedvmhost__entry__4">
+<span class="notranslate">59</span>
+</td>
+<td class="entry" headers="dedicatedvmhost__entry__22 dedicatedvmhost__entry__5">
+<span class="notranslate">512</span>
+</td>
+<td class="entry" headers="dedicatedvmhost__entry__22 dedicatedvmhost__entry__6">
+<span class="notranslate">480</span>
+</td>
+<td class="entry" headers="dedicatedvmhost__entry__22 dedicatedvmhost__entry__7">VM.Standard.E2 series
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="dedicatedvmhost__entry__1" id="dedicatedvmhost__entry__29" scope="row">DVH.Standard.E3.128<sup class="ph sup">2</sup>
+</th>
+<td class="entry" headers="dedicatedvmhost__entry__29 dedicatedvmhost__entry__2">E3-based VM host</td>
+<td class="entry" headers="dedicatedvmhost__entry__29 dedicatedvmhost__entry__3">
+<span class="notranslate">128</span>
+</td>
+<td class="entry" headers="dedicatedvmhost__entry__29 dedicatedvmhost__entry__4">
+<span class="notranslate">124</span>
+</td>
+<td class="entry" headers="dedicatedvmhost__entry__29 dedicatedvmhost__entry__5">
+<span class="notranslate">2048</span>
+</td>
+<td class="entry" headers="dedicatedvmhost__entry__29 dedicatedvmhost__entry__6">
+<span class="notranslate">1912</span>
+</td>
+<td class="entry" headers="dedicatedvmhost__entry__29 dedicatedvmhost__entry__7">VM.Standard.E3 series
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="dedicatedvmhost__entry__1" id="dedicatedvmhost__entry__36" scope="row">DVH.Standard.E4.128</th>
+<td class="entry" headers="dedicatedvmhost__entry__36 dedicatedvmhost__entry__2">E4-based VM host</td>
+<td class="entry" headers="dedicatedvmhost__entry__36 dedicatedvmhost__entry__3">
+<span class="notranslate">128</span>
+</td>
+<td class="entry" headers="dedicatedvmhost__entry__36 dedicatedvmhost__entry__4">
+<span class="notranslate">124</span>
+</td>
+<td class="entry" headers="dedicatedvmhost__entry__36 dedicatedvmhost__entry__5">
+<span class="notranslate">2048</span>
+</td>
+<td class="entry" headers="dedicatedvmhost__entry__36 dedicatedvmhost__entry__6">
+<span class="notranslate">1912</span>
+</td>
+<td class="entry" headers="dedicatedvmhost__entry__36 dedicatedvmhost__entry__7">VM.Standard.E4 series
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="dedicatedvmhost__entry__1" id="dedicatedvmhost__entry__43" scope="row">DVH.Standard.E5.192</th>
+<td class="entry" headers="dedicatedvmhost__entry__43 dedicatedvmhost__entry__2">E5-based VM host</td>
+<td class="entry" headers="dedicatedvmhost__entry__43 dedicatedvmhost__entry__3">192</td>
+<td class="entry" headers="dedicatedvmhost__entry__43 dedicatedvmhost__entry__4">188</td>
+<td class="entry" headers="dedicatedvmhost__entry__43 dedicatedvmhost__entry__5">2304</td>
+<td class="entry" headers="dedicatedvmhost__entry__43 dedicatedvmhost__entry__6">2098</td>
+<td class="entry" headers="dedicatedvmhost__entry__43 dedicatedvmhost__entry__7">VM.Standard.E5 series
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="dedicatedvmhost__entry__1" id="dedicatedvmhost__entry__50" scope="row">DVH.DenseIO2.52<sup class="ph sup">2</sup>
+</th>
+<td class="entry" headers="dedicatedvmhost__entry__50 dedicatedvmhost__entry__2">X7-based dense I/O VM host</td>
+<td class="entry" headers="dedicatedvmhost__entry__50 dedicatedvmhost__entry__3">
+<span class="notranslate">52</span>
+</td>
+<td class="entry" headers="dedicatedvmhost__entry__50 dedicatedvmhost__entry__4">
+<span class="notranslate">48</span>
+</td>
+<td class="entry" headers="dedicatedvmhost__entry__50 dedicatedvmhost__entry__5">
+<span class="notranslate">768</span>
+</td>
+<td class="entry" headers="dedicatedvmhost__entry__50 dedicatedvmhost__entry__6">
+<span class="notranslate">736</span>
+</td>
+<td class="entry" headers="dedicatedvmhost__entry__50 dedicatedvmhost__entry__7">VM.DenseIO2 series
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="dedicatedvmhost__entry__1" id="dedicatedvmhost__entry__57" scope="row">DVH.Optimized3.36</th>
+<td class="entry" headers="dedicatedvmhost__entry__57 dedicatedvmhost__entry__2">X9-based optimized VM host</td>
+<td class="entry" headers="dedicatedvmhost__entry__57 dedicatedvmhost__entry__3">
+<span class="notranslate">36</span>
+</td>
+<td class="entry" headers="dedicatedvmhost__entry__57 dedicatedvmhost__entry__4">
+<span class="notranslate">34</span>
+</td>
+<td class="entry" headers="dedicatedvmhost__entry__57 dedicatedvmhost__entry__5">
+<span class="notranslate">512</span>
+</td>
+<td class="entry" headers="dedicatedvmhost__entry__57 dedicatedvmhost__entry__6">
+<span class="notranslate">472</span>
+</td>
+<td class="entry" headers="dedicatedvmhost__entry__57 dedicatedvmhost__entry__7">VM.Optimized3 series
+</td>
+</tr>
+</tbody></table></div>
+<p>
+<strong>Notes</strong>
+</p>
+<p id="dedicatedvmhost__footnote_3_1">
+<strong>1:</strong> The difference between total and usable OCPUs and memory is caused by the need to reserve OCPUs and memory for hypervisor use.</p>
+<p id="dedicatedvmhost__footnote_3_2">
+<strong>2:</strong> Because this dedicated virtual machine host shape supports hosted VMs that use a <a class="xref" href="computeshapes.htm#previous-generation-shapes">previous generation</a> shape series, it is available by request only.</p>
+<p id="dedicatedvmhost__footnote_3_3">
+<strong>3:</strong> For Standard2, Standard.E2, and DenseIO2 shapes, billing is based on OCPUs, not memory. For all other shapes that support flexible hosted VMs, billing is based on OCPUs and memory, which are billed independently.</p>
+</div>
+</article>
+<article aria-labelledby="ariaid-title18" class="topic nested1" id="previous-generation-shapes">
+<h2 class="title topictitle2 vl-include-in-page-toc" id="ariaid-title18">Previous Generation Shapes</h2>
+<div class="body">
+<div class="uk-alert uk-alert-success"><span class="vl-1px-up" uk-icon="lifesaver"></span><strong> Tip</strong><br/><br/> Previous generation shapes are still fully supported. However, because the underlying hardware has reached the sustaining phase of its lifecycle, capacity in certain high-demand regions might be limited.</div>
+<p>
+Oracle Cloud Infrastructure periodically releases new generations of Compute shapes. The latest shapes let you take advantage of newer hardware and a better price-performance ratio. When a shape is several years old, and newer generation shapes that are suited for the same purposes are available, the old shape transitions to become a previous generation shape.</p>
+<p>Your current utilization is fully supported on the previous generation shape. In certain high demand regions, you may need to plan your utilization growth on a newer generation shape.</p>
+<section class="section" id="previous-generation-shapes__upgrading-from-previous-generation"><h3 class="title sectiontitle vl-include-in-page-toc">Upgrading from a Previous Generation Shape</h3>
+</section>
+<p>To upgrade from a previous generation shape to a current generation shape, you can do the following things:</p>
+<ul>
+<li>For supported VM instances, <a class="xref" href="../Tasks/resizinginstances.htm">change the shape of the instance</a>.</li>
+<li>For bare metal instances and VM instances that don't support changing the shape, <a class="xref" href="../Tasks/terminatinginstance.htm" title="You can permanently delete (terminate) instances that you no longer need. Any attached VNICs and volumes are automatically detached when the instance terminates. Eventually, the instance's public and private IP addresses are released and become available for other instances." uk-tooltip="">terminate the instance but DO NOT delete the boot volume</a>. Then, <a class="xref" href="../Tasks/launchinginstance.htm" title="Create a bare metal or virtual machine (VM) compute instance." uk-tooltip="">use the boot volume to create a new instance</a>.</li>
+</ul>
+<section class="section" id="previous-generation-shapes__previous-generation-bm"><h3 class="title sectiontitle vl-include-in-page-toc">Previous Generation Bare Metal Shapes</h3>
+<p class="keepWithNext">These are the previous generation bare metal shape series.</p>
+<div class="uk-margin-top" uk-accordion=""><div><a class="uk-accordion-title" href="#">BM.Standard1</a><div class="uk-accordion-content"><p>
+<strong>Newer shape recommendation:</strong>
+BM.Standard3.64, BM.Standard.E4.128, BM.Standard.E5.192, BM.Standard.E6.256, BM.Standard.A1.160, or BM.Standard.A4.48.</p><p>
+<strong>End of orderability date:</strong> December 31, 2020</p><p>X5-based standard compute. Processor: Intel Xeon E5-2699 v3. Base frequency 2.3 GHz, max turbo frequency 3.6 GHz.</p><div class="uk-overflow-auto"><table class="table vl-table-bordered vl-table-divider-col" summary="This table lists the previous generation BM.Standard1 shapes that some customers can use with bare metal instances."><caption></caption><colgroup><col/><col/><col/><col/><col/><col style="width:81px"/><col/></colgroup><thead class="thead">
+<tr class="row">
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__1">Shape</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__2">OCPU</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__3">Memory (GB)</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__4">Local Disk </th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__5">Max Network Bandwidth</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__6">Max VNICs Total: Linux</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__7">Max VNICs Total: Windows</th>
+</tr>
+</thead><tbody class="tbody">
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__1" id="previous-generation-shapes__previous-generation-bm__entry__8" scope="row">BM.Standard1.36</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__8 previous-generation-shapes__previous-generation-bm__entry__2">
+<span class="notranslate">36</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__8 previous-generation-shapes__previous-generation-bm__entry__3">
+<span class="notranslate">256</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__8 previous-generation-shapes__previous-generation-bm__entry__4">Block storage only</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__8 previous-generation-shapes__previous-generation-bm__entry__5">1 x 10 Gbps</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__8 previous-generation-shapes__previous-generation-bm__entry__6">
+<span class="notranslate">100</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__8 previous-generation-shapes__previous-generation-bm__entry__7">
+<span class="notranslate">1</span>
+</td>
+</tr>
+</tbody></table></div></div></div></div>
+<div class="uk-margin-top" uk-accordion=""><div><a class="uk-accordion-title" href="#">BM.Standard.B1</a><div class="uk-accordion-content"><p>
+<strong>Newer shape recommendation:</strong>
+BM.Standard3.64, BM.Standard.E4.128, BM.Standard.E5.192, BM.Standard.E6.256, BM.Standard.A1.160, or BM.Standard.A4.48.</p><p>
+<strong>End of orderability date:</strong> December 31, 2020</p><p>X6-based standard compute. Processor: Intel Xeon E5-2699 v4. Base frequency 2.2 GHz, max turbo frequency 3.6 GHz.</p><div class="uk-overflow-auto"><table class="table vl-table-bordered vl-table-divider-col" summary="This table lists the previous generation BM.Standard.B1 shapes that some customers can use with bare metal instances."><caption></caption><colgroup><col/><col/><col/><col/><col/><col style="width:81px"/><col/></colgroup><thead class="thead">
+<tr class="row">
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__15">Shape</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__16">OCPU</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__17">Memory (GB)</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__18">Local Disk </th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__19">Max Network Bandwidth</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__20">Max VNICs Total: Linux</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__21">Max VNICs Total: Windows</th>
+</tr>
+</thead><tbody class="tbody">
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__15" id="previous-generation-shapes__previous-generation-bm__entry__22" scope="row">BM.Standard.B1.44</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__22 previous-generation-shapes__previous-generation-bm__entry__16">
+<span class="notranslate">44</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__22 previous-generation-shapes__previous-generation-bm__entry__17">
+<span class="notranslate">512</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__22 previous-generation-shapes__previous-generation-bm__entry__18">Block storage only</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__22 previous-generation-shapes__previous-generation-bm__entry__19">1 x 25 Gbps</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__22 previous-generation-shapes__previous-generation-bm__entry__20">
+<span class="notranslate">44</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__22 previous-generation-shapes__previous-generation-bm__entry__21">None</td>
+</tr>
+</tbody></table></div></div></div></div>
+<div class="uk-margin-top" uk-accordion=""><div><a class="uk-accordion-title" href="#">BM.Standard2</a><div class="uk-accordion-content"><p>
+<strong>Newer shape recommendation:</strong>
+BM.Standard3.64, BM.Standard.E4.128, BM.Standard.E5.192, BM.Standard.E6.256, BM.Standard.A1.160, or BM.Standard.A4.48.</p><p>
+<strong>End of orderability date:</strong> February 28, 2022</p><p>X7-based standard compute. Processor: Intel Xeon Platinum 8167M. Base frequency 2.0 GHz, max turbo frequency 2.4 GHz.</p><div class="uk-overflow-auto"><table class="table vl-table-bordered vl-table-divider-col" summary="This table lists the previous generation BM.Standard2 shapes that some customers can use with bare metal instances."><caption></caption><colgroup><col/><col/><col/><col/><col/><col style="width:81px"/><col/></colgroup><thead class="thead">
+<tr class="row">
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__29">Shape</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__30">OCPU</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__31">Memory (GB)</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__32">Local Disk </th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__33">Max Network Bandwidth</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__34">Max VNICs Total: Linux</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__35">Max VNICs Total: Windows</th>
+</tr>
+</thead><tbody class="tbody">
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__29" id="previous-generation-shapes__previous-generation-bm__entry__36" scope="row">BM.Standard2.52</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__36 previous-generation-shapes__previous-generation-bm__entry__30">
+<span class="notranslate">52</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__36 previous-generation-shapes__previous-generation-bm__entry__31">
+<span class="notranslate">768</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__36 previous-generation-shapes__previous-generation-bm__entry__32">Block storage only</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__36 previous-generation-shapes__previous-generation-bm__entry__33">2 x 25 Gbps</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__36 previous-generation-shapes__previous-generation-bm__entry__34">
+<span class="notranslate">200</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__36 previous-generation-shapes__previous-generation-bm__entry__35">101 total (1 on the first physical NIC, 100 on the second)</td>
+</tr>
+</tbody></table></div></div></div></div>
+<div class="uk-margin-top" uk-accordion=""><div><a class="uk-accordion-title" href="#">BM.Standard.E2</a><div class="uk-accordion-content"><p>
+<strong>Newer shape recommendation:</strong>
+BM.Standard3.64, BM.Standard.E4.128, BM.Standard.E5.192, BM.Standard.E6.256, BM.Standard.A1.160, or BM.Standard.A4.48.</p><p>
+<strong>End of orderability date:</strong> February 8, 2021</p><p>E2-based standard compute. Processor: AMD EPYC 7551. Base frequency 2.0 GHz, max boost frequency 3.0 GHz.</p><div class="uk-overflow-auto"><table class="table vl-table-bordered vl-table-divider-col" summary="This table lists the previous generation BM.Standard.E2 shapes that some customers can use with bare metal instances."><caption></caption><colgroup><col/><col/><col/><col/><col/><col style="width:81px"/><col/></colgroup><thead class="thead">
+<tr class="row">
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__43">Shape</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__44">OCPU</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__45">Memory (GB)</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__46">Local Disk </th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__47">Max Network Bandwidth</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__48">Max VNICs Total: Linux</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__49">Max VNICs Total: Windows</th>
+</tr>
+</thead><tbody class="tbody">
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__43" id="previous-generation-shapes__previous-generation-bm__entry__50" scope="row">BM.Standard.E2.64</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__50 previous-generation-shapes__previous-generation-bm__entry__44">
+<span class="notranslate">64</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__50 previous-generation-shapes__previous-generation-bm__entry__45">
+<span class="notranslate">512</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__50 previous-generation-shapes__previous-generation-bm__entry__46">Block storage only</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__50 previous-generation-shapes__previous-generation-bm__entry__47">2 x 25 Gbps</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__50 previous-generation-shapes__previous-generation-bm__entry__48">
+<span class="notranslate">150</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__50 previous-generation-shapes__previous-generation-bm__entry__49">76 (1 on the first physical NIC, 75 on the second)</td>
+</tr>
+</tbody></table></div></div></div></div>
+<div class="uk-margin-top" uk-accordion=""><div><a class="uk-accordion-title" href="#">BM.Standard.E3</a><div class="uk-accordion-content"><p>
+<strong>Newer shape recommendation:</strong>
+BM.Standard3.64, BM.Standard.E4.128, BM.Standard.E5.192, BM.Standard.E6.256, BM.Standard.A1.160, or BM.Standard.A4.48.</p><p>
+<strong>End of orderability date:</strong> March 31, 2022</p><p>E3-based standard compute. Processor: AMD EPYC 7742. Base frequency 2.25 GHz, max boost frequency 3.4 GHz.</p><div class="uk-overflow-auto"><table class="table vl-table-bordered vl-table-divider-col" summary="This table lists the previous generation BM.Standard.E3 shapes that some customers can use with bare metal instances."><caption></caption><colgroup><col/><col/><col/><col/><col/><col style="width:81px"/><col/></colgroup><thead class="thead">
+<tr class="row">
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__57">Shape</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__58">OCPU</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__59">Memory (GB)</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__60">Local Disk </th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__61">Max Network Bandwidth</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__62">Max VNICs Total: Linux</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__63">Max VNICs Total: Windows</th>
+</tr>
+</thead><tbody class="tbody">
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__57" id="previous-generation-shapes__previous-generation-bm__entry__64" scope="row">BM.Standard.E3.128</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__64 previous-generation-shapes__previous-generation-bm__entry__58">
+<span class="notranslate">128</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__64 previous-generation-shapes__previous-generation-bm__entry__59">
+<span class="notranslate">2048</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__64 previous-generation-shapes__previous-generation-bm__entry__60">Block storage only</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__64 previous-generation-shapes__previous-generation-bm__entry__61">2 x 50 Gbps</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__64 previous-generation-shapes__previous-generation-bm__entry__62">
+<span class="notranslate">256</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__64 previous-generation-shapes__previous-generation-bm__entry__63">129 (1 on the first physical NIC, 128 on the second)</td>
+</tr>
+</tbody></table></div></div></div></div>
+<div class="uk-margin-top" uk-accordion=""><div><a class="uk-accordion-title" href="#">BM.DenseIO1</a><div class="uk-accordion-content"><p>
+<strong>Newer shape recommendation:</strong>
+BM.DenseIO.E4.128 or BM.DenseIO.E5.128.</p><p>
+<strong>End of orderability date:</strong> December 31, 2020</p><p>X5-based dense I/O compute. Processor: Intel Xeon E5-2699 v3. Base frequency 2.3 GHz, max turbo frequency 3.6 GHz.</p><div class="uk-overflow-auto"><table class="table vl-table-bordered vl-table-divider-col" summary="This table lists the previous generation BM.DenseIO1 shapes that some customers can use with bare metal instances."><caption></caption><colgroup><col/><col/><col/><col/><col/><col style="width:81px"/><col/></colgroup><thead class="thead">
+<tr class="row">
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__71">Shape</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__72">OCPU</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__73">Memory (GB)</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__74">Local Disk </th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__75">Max Network Bandwidth</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__76">Max VNICs Total: Linux</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__77">Max VNICs Total: Windows</th>
+</tr>
+</thead><tbody class="tbody">
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__71" id="previous-generation-shapes__previous-generation-bm__entry__78" scope="row">BM.DenseIO1.36</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__78 previous-generation-shapes__previous-generation-bm__entry__72">
+<span class="notranslate">36</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__78 previous-generation-shapes__previous-generation-bm__entry__73">
+<span class="notranslate">512</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__78 previous-generation-shapes__previous-generation-bm__entry__74">28.8 TB NVMe SSD (9 drives)</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__78 previous-generation-shapes__previous-generation-bm__entry__75">1 x 10 Gbps</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__78 previous-generation-shapes__previous-generation-bm__entry__76">
+<span class="notranslate">36</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__78 previous-generation-shapes__previous-generation-bm__entry__77">
+<span class="notranslate">1</span>
+</td>
+</tr>
+</tbody></table></div></div></div></div>
+<div class="uk-margin-top" uk-accordion=""><div><a class="uk-accordion-title" href="#">BM.DenseIO2</a><div class="uk-accordion-content"><p>
+<strong>Newer shape recommendation:</strong>
+BM.DenseIO.E4.128 or BM.DenseIO.E5.128.</p><p>
+<strong>End of orderability date:</strong> April 14, 2022</p><p>X7-based dense I/O compute. Processor: Intel Xeon Platinum 8167M. Base frequency 2.0 GHz, max turbo frequency 2.4 GHz.</p><div class="uk-overflow-auto"><table class="table vl-table-bordered vl-table-divider-col" summary="This table lists the previous generation BM.DenseIO2 shapes that some customers can use with bare metal instances."><caption></caption><colgroup><col/><col/><col/><col/><col/><col style="width:81px"/><col/></colgroup><thead class="thead">
+<tr class="row">
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__85">Shape</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__86">OCPU</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__87">Memory (GB)</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__88">Local Disk </th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__89">Max Network Bandwidth</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__90">Max VNICs Total: Linux</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__91">Max VNICs Total: Windows</th>
+</tr>
+</thead><tbody class="tbody">
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__85" id="previous-generation-shapes__previous-generation-bm__entry__92" scope="row">BM.DenseIO2.52</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__92 previous-generation-shapes__previous-generation-bm__entry__86">
+<span class="notranslate">52</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__92 previous-generation-shapes__previous-generation-bm__entry__87">
+<span class="notranslate">768</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__92 previous-generation-shapes__previous-generation-bm__entry__88">
+<p>51.2 TB NVMe SSD (8 drives)</p>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__92 previous-generation-shapes__previous-generation-bm__entry__89">2 x 25 Gbps</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__92 previous-generation-shapes__previous-generation-bm__entry__90">52 total (26 per physical NIC)</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__92 previous-generation-shapes__previous-generation-bm__entry__91">27 total (1 on the first physical NIC, 26 on the second)</td>
+</tr>
+</tbody></table></div></div></div></div>
+<div class="uk-margin-top" uk-accordion=""><div><a class="uk-accordion-title" href="#">BM.HPC2</a><div class="uk-accordion-content"><p>
+<strong>Newer shape recommendation:</strong> BM.Optimized3.36 or BM.HPC.E5.144.</p><p>
+<strong>End of orderability date:</strong> February 28, 2022</p><p>X7-based high frequency compute. Processor: Intel Xeon Gold 6154. Base frequency 3.0 GHz, max turbo frequency 3.7 GHz.</p><div class="uk-overflow-auto"><table class="table vl-table-bordered vl-table-divider-col" summary="This table lists the previous generation BM.HPC2 shapes that some customers can use with bare metal instances."><caption></caption><colgroup><col/><col/><col/><col/><col/><col style="width:81px"/><col/></colgroup><thead class="thead">
+<tr class="row">
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__99">Shape</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__100">OCPU</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__101">Memory (GB)</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__102">Local Disk </th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__103">Max Network Bandwidth</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__104">Max VNICs Total: Linux</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-bm__entry__105">Max VNICs Total: Windows</th>
+</tr>
+</thead><tbody class="tbody">
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__99" id="previous-generation-shapes__previous-generation-bm__entry__106" scope="row">BM.HPC2.36</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__106 previous-generation-shapes__previous-generation-bm__entry__100">
+<span class="notranslate">36</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__106 previous-generation-shapes__previous-generation-bm__entry__101">
+<span class="notranslate">384</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__106 previous-generation-shapes__previous-generation-bm__entry__102">
+<p>6.4 TB NVMe SSD (1 drive)</p>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__106 previous-generation-shapes__previous-generation-bm__entry__103">
+<p>1 x 25 Gbps</p>
+<p>1 x 100 Gbps RDMA</p>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__106 previous-generation-shapes__previous-generation-bm__entry__104">
+<span class="notranslate">50</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-bm__entry__106 previous-generation-shapes__previous-generation-bm__entry__105">
+<span class="notranslate">1</span>
+</td>
+</tr>
+</tbody></table></div></div></div></div>
+</section>
+<section class="section" id="previous-generation-shapes__previous-generation-vm"><h3 class="title sectiontitle vl-include-in-page-toc">Previous Generation VM Shapes</h3>
+<p class="keepWithNext">These are the previous generation VM shape series.</p>
+<div class="uk-margin-top" uk-accordion=""><div><a class="uk-accordion-title" href="#">VM.Standard1</a><div class="uk-accordion-content"><p>
+<strong>Newer shape recommendation:</strong>
+VM.Standard.E4.Flex, VM.Standard.E5.Flex, VM.Standard.E6.Flex, VM.Standard.A1.Flex, VM.Standard.A2.Flex, or VM.Standard.A4.Flex.</p><p>
+<strong>End of orderability date:</strong> December 31, 2020</p><p>X5-based standard compute. Processor: Intel Xeon E5-2699 v3. Base frequency 2.3 GHz, max turbo frequency 3.6 GHz.</p><div class="uk-overflow-auto"><table class="table vl-table-bordered vl-table-divider-col" summary="This table lists the previous generation VM.Standard1 shapes that some customers can use with virtual machines."><caption></caption><colgroup><col/><col/><col/><col style="width:152px"/><col/><col/><col/></colgroup><thead class="thead">
+<tr class="row">
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__1">Shape</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__2">OCPU</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__3">Memory (GB)</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__4">Local Disk (TB)</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__5">Max Network Bandwidth</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__6">Max VNICs Total: Linux</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__7">Max VNICs Total: Windows</th>
+</tr>
+</thead><tbody class="tbody">
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__1" id="previous-generation-shapes__previous-generation-vm__entry__8" scope="row">VM.Standard1.1</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__8 previous-generation-shapes__previous-generation-vm__entry__2">
+<span class="notranslate">1</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__8 previous-generation-shapes__previous-generation-vm__entry__3">
+<span class="notranslate">7</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__8 previous-generation-shapes__previous-generation-vm__entry__4">Block storage only</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__8 previous-generation-shapes__previous-generation-vm__entry__5">600 Mbps</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__8 previous-generation-shapes__previous-generation-vm__entry__6">
+<span class="notranslate">2</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__8 previous-generation-shapes__previous-generation-vm__entry__7">
+<span class="notranslate">1</span>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__1" id="previous-generation-shapes__previous-generation-vm__entry__15" scope="row">VM.Standard1.2</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__15 previous-generation-shapes__previous-generation-vm__entry__2">
+<span class="notranslate">2</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__15 previous-generation-shapes__previous-generation-vm__entry__3">
+<span class="notranslate">14</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__15 previous-generation-shapes__previous-generation-vm__entry__4">Block storage only</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__15 previous-generation-shapes__previous-generation-vm__entry__5">1.2 Gbps</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__15 previous-generation-shapes__previous-generation-vm__entry__6">
+<span class="notranslate">2</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__15 previous-generation-shapes__previous-generation-vm__entry__7">
+<span class="notranslate">1</span>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__1" id="previous-generation-shapes__previous-generation-vm__entry__22" scope="row">VM.Standard1.4</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__22 previous-generation-shapes__previous-generation-vm__entry__2">
+<span class="notranslate">4</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__22 previous-generation-shapes__previous-generation-vm__entry__3">
+<span class="notranslate">28</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__22 previous-generation-shapes__previous-generation-vm__entry__4">Block storage only</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__22 previous-generation-shapes__previous-generation-vm__entry__5">1.2 Gbps</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__22 previous-generation-shapes__previous-generation-vm__entry__6">
+<span class="notranslate">4</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__22 previous-generation-shapes__previous-generation-vm__entry__7">
+<span class="notranslate">1</span>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__1" id="previous-generation-shapes__previous-generation-vm__entry__29" scope="row">VM.Standard1.8</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__29 previous-generation-shapes__previous-generation-vm__entry__2">
+<span class="notranslate">8</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__29 previous-generation-shapes__previous-generation-vm__entry__3">
+<span class="notranslate">56</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__29 previous-generation-shapes__previous-generation-vm__entry__4">Block storage only</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__29 previous-generation-shapes__previous-generation-vm__entry__5">2.4 Gbps</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__29 previous-generation-shapes__previous-generation-vm__entry__6">
+<span class="notranslate">8</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__29 previous-generation-shapes__previous-generation-vm__entry__7">
+<span class="notranslate">1</span>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__1" id="previous-generation-shapes__previous-generation-vm__entry__36" scope="row">VM.Standard1.16</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__36 previous-generation-shapes__previous-generation-vm__entry__2">
+<span class="notranslate">16</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__36 previous-generation-shapes__previous-generation-vm__entry__3">
+<span class="notranslate">112</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__36 previous-generation-shapes__previous-generation-vm__entry__4">Block storage only</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__36 previous-generation-shapes__previous-generation-vm__entry__5">4.8 Gbps</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__36 previous-generation-shapes__previous-generation-vm__entry__6">
+<span class="notranslate">16</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__36 previous-generation-shapes__previous-generation-vm__entry__7">
+<span class="notranslate">1</span>
+</td>
+</tr>
+</tbody></table></div></div></div></div>
+<div class="uk-margin-top" uk-accordion=""><div><a class="uk-accordion-title" href="#">VM.Standard.B1</a><div class="uk-accordion-content"><p>
+<strong>Newer shape recommendation:</strong>
+VM.Standard.E4.Flex, VM.Standard.E5.Flex, VM.Standard.E6.Flex, VM.Standard.A1.Flex, VM.Standard.A2.Flex, or VM.Standard.A4.Flex.</p><p>
+<strong>End of orderability date:</strong> December 31, 2020</p><p>X6-based standard compute. Processor: Intel Xeon E5-2699 v4. Base frequency 2.2 GHz, max turbo frequency 3.6 GHz.</p><div class="uk-overflow-auto"><table class="table vl-table-bordered vl-table-divider-col" summary="This table lists the previous generation VM.Standard.B1 shapes that some customers can use with virtual machines."><caption></caption><colgroup><col/><col/><col/><col style="width:152px"/><col/><col/><col/></colgroup><thead class="thead">
+<tr class="row">
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__43">Shape</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__44">OCPU</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__45">Memory (GB)</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__46">Local Disk (TB)</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__47">Max Network Bandwidth</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__48">Max VNICs Total: Linux</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__49">Max VNICs Total: Windows</th>
+</tr>
+</thead><tbody class="tbody">
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__43" id="previous-generation-shapes__previous-generation-vm__entry__50" scope="row">VM.Standard.B1.1</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__50 previous-generation-shapes__previous-generation-vm__entry__44">
+<span class="notranslate">1</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__50 previous-generation-shapes__previous-generation-vm__entry__45">
+<span class="notranslate">12</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__50 previous-generation-shapes__previous-generation-vm__entry__46">Block storage only</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__50 previous-generation-shapes__previous-generation-vm__entry__47">600 Mbps</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__50 previous-generation-shapes__previous-generation-vm__entry__48">
+<span class="notranslate">2</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__50 previous-generation-shapes__previous-generation-vm__entry__49">
+<span class="notranslate">2</span>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__43" id="previous-generation-shapes__previous-generation-vm__entry__57" scope="row">VM.Standard.B1.2</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__57 previous-generation-shapes__previous-generation-vm__entry__44">
+<span class="notranslate">2</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__57 previous-generation-shapes__previous-generation-vm__entry__45">
+<span class="notranslate">24</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__57 previous-generation-shapes__previous-generation-vm__entry__46">Block storage only</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__57 previous-generation-shapes__previous-generation-vm__entry__47">1.2 Gbps</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__57 previous-generation-shapes__previous-generation-vm__entry__48">
+<span class="notranslate">2</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__57 previous-generation-shapes__previous-generation-vm__entry__49">
+<span class="notranslate">2</span>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__43" id="previous-generation-shapes__previous-generation-vm__entry__64" scope="row">VM.Standard.B1.4</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__64 previous-generation-shapes__previous-generation-vm__entry__44">
+<span class="notranslate">4</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__64 previous-generation-shapes__previous-generation-vm__entry__45">
+<span class="notranslate">48</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__64 previous-generation-shapes__previous-generation-vm__entry__46">Block storage only</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__64 previous-generation-shapes__previous-generation-vm__entry__47"> 2.4 Gbps</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__64 previous-generation-shapes__previous-generation-vm__entry__48">
+<span class="notranslate">4</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__64 previous-generation-shapes__previous-generation-vm__entry__49">
+<span class="notranslate">4</span>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__43" id="previous-generation-shapes__previous-generation-vm__entry__71" scope="row">VM.Standard.B1.8</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__71 previous-generation-shapes__previous-generation-vm__entry__44">
+<span class="notranslate">8</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__71 previous-generation-shapes__previous-generation-vm__entry__45">
+<span class="notranslate">96</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__71 previous-generation-shapes__previous-generation-vm__entry__46">Block storage only</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__71 previous-generation-shapes__previous-generation-vm__entry__47">4.8 Gbps</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__71 previous-generation-shapes__previous-generation-vm__entry__48">
+<span class="notranslate">8</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__71 previous-generation-shapes__previous-generation-vm__entry__49">
+<span class="notranslate">8</span>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__43" id="previous-generation-shapes__previous-generation-vm__entry__78" scope="row">VM.Standard.B1.16</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__78 previous-generation-shapes__previous-generation-vm__entry__44">
+<span class="notranslate">16</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__78 previous-generation-shapes__previous-generation-vm__entry__45">
+<span class="notranslate">192</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__78 previous-generation-shapes__previous-generation-vm__entry__46">Block storage only</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__78 previous-generation-shapes__previous-generation-vm__entry__47"> 9.6 Gbps</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__78 previous-generation-shapes__previous-generation-vm__entry__48">
+<span class="notranslate">16</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__78 previous-generation-shapes__previous-generation-vm__entry__49">
+<span class="notranslate">16</span>
+</td>
+</tr>
+</tbody></table></div></div></div></div>
+<div class="uk-margin-top" uk-accordion=""><div><a class="uk-accordion-title" href="#">VM.Standard2</a><div class="uk-accordion-content"><p>
+<strong>Newer shape recommendation:</strong>
+VM.Standard.E4.Flex, VM.Standard.E5.Flex, VM.Standard.E6.Flex, VM.Standard.A1.Flex, VM.Standard.A2.Flex, or VM.Standard.A4.Flex.</p><p>
+<strong>End of orderability date:</strong> February 28, 2022</p><p>X7-based standard compute. Processor: Intel Xeon Platinum 8167M. Base frequency 2.0 GHz, max turbo frequency 2.4 GHz.</p><div class="uk-overflow-auto"><table class="table vl-table-bordered vl-table-divider-col" summary="This table lists the previous generation VM.Standard2 shapes that some customers can use with virtual machines."><caption></caption><colgroup><col/><col/><col/><col style="width:152px"/><col/><col/><col/></colgroup><thead class="thead">
+<tr class="row">
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__85">Shape</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__86">OCPU</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__87">Memory (GB)</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__88">Local Disk (TB)</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__89">Max Network Bandwidth</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__90">Max VNICs Total: Linux</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__91">Max VNICs Total: Windows</th>
+</tr>
+</thead><tbody class="tbody">
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__85" id="previous-generation-shapes__previous-generation-vm__entry__92" scope="row">VM.Standard2.1</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__92 previous-generation-shapes__previous-generation-vm__entry__86">
+<span class="notranslate">1</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__92 previous-generation-shapes__previous-generation-vm__entry__87">
+<span class="notranslate">15</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__92 previous-generation-shapes__previous-generation-vm__entry__88">Block storage only</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__92 previous-generation-shapes__previous-generation-vm__entry__89">1 Gbps</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__92 previous-generation-shapes__previous-generation-vm__entry__90">
+<span class="notranslate">2</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__92 previous-generation-shapes__previous-generation-vm__entry__91">
+<span class="notranslate">2</span>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__85" id="previous-generation-shapes__previous-generation-vm__entry__99" scope="row">VM.Standard2.2</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__99 previous-generation-shapes__previous-generation-vm__entry__86">
+<span class="notranslate">2</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__99 previous-generation-shapes__previous-generation-vm__entry__87">
+<span class="notranslate">30</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__99 previous-generation-shapes__previous-generation-vm__entry__88">Block storage only</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__99 previous-generation-shapes__previous-generation-vm__entry__89">2 Gbps</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__99 previous-generation-shapes__previous-generation-vm__entry__90">
+<span class="notranslate">2</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__99 previous-generation-shapes__previous-generation-vm__entry__91">
+<span class="notranslate">2</span>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__85" id="previous-generation-shapes__previous-generation-vm__entry__106" scope="row">VM.Standard2.4</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__106 previous-generation-shapes__previous-generation-vm__entry__86">
+<span class="notranslate">4</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__106 previous-generation-shapes__previous-generation-vm__entry__87">
+<span class="notranslate">60</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__106 previous-generation-shapes__previous-generation-vm__entry__88">Block storage only</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__106 previous-generation-shapes__previous-generation-vm__entry__89">4.1 Gbps</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__106 previous-generation-shapes__previous-generation-vm__entry__90">
+<span class="notranslate">4</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__106 previous-generation-shapes__previous-generation-vm__entry__91">
+<span class="notranslate">4</span>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__85" id="previous-generation-shapes__previous-generation-vm__entry__113" scope="row">VM.Standard2.8</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__113 previous-generation-shapes__previous-generation-vm__entry__86">
+<span class="notranslate">8</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__113 previous-generation-shapes__previous-generation-vm__entry__87">
+<span class="notranslate">120</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__113 previous-generation-shapes__previous-generation-vm__entry__88">Block storage only</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__113 previous-generation-shapes__previous-generation-vm__entry__89">8.2 Gbps</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__113 previous-generation-shapes__previous-generation-vm__entry__90">
+<span class="notranslate">8</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__113 previous-generation-shapes__previous-generation-vm__entry__91">
+<span class="notranslate">8</span>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__85" id="previous-generation-shapes__previous-generation-vm__entry__120" scope="row">VM.Standard2.16</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__120 previous-generation-shapes__previous-generation-vm__entry__86">
+<span class="notranslate">16</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__120 previous-generation-shapes__previous-generation-vm__entry__87">
+<span class="notranslate">240</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__120 previous-generation-shapes__previous-generation-vm__entry__88">Block storage only</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__120 previous-generation-shapes__previous-generation-vm__entry__89">16.4 Gbps</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__120 previous-generation-shapes__previous-generation-vm__entry__90">
+<span class="notranslate">16</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__120 previous-generation-shapes__previous-generation-vm__entry__91">
+<span class="notranslate">16</span>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__85" id="previous-generation-shapes__previous-generation-vm__entry__127" scope="row">VM.Standard2.24</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__127 previous-generation-shapes__previous-generation-vm__entry__86">
+<span class="notranslate">24</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__127 previous-generation-shapes__previous-generation-vm__entry__87">
+<span class="notranslate">320</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__127 previous-generation-shapes__previous-generation-vm__entry__88">Block storage only</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__127 previous-generation-shapes__previous-generation-vm__entry__89">24.6 Gbps</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__127 previous-generation-shapes__previous-generation-vm__entry__90">
+<span class="notranslate">24</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__127 previous-generation-shapes__previous-generation-vm__entry__91">
+<span class="notranslate">24</span>
+</td>
+</tr>
+</tbody></table></div></div></div></div>
+<div class="uk-margin-top" uk-accordion=""><div><a class="uk-accordion-title" href="#">VM.Standard.E2</a><div class="uk-accordion-content"><p>
+<strong>Newer shape recommendation:</strong>
+VM.Standard.E4.Flex, VM.Standard.E5.Flex, VM.Standard.E6.Flex, VM.Standard.A1.Flex, VM.Standard.A2.Flex, or VM.Standard.A4.Flex.</p><p>
+<strong>End of orderability date:</strong> February 8, 2021</p><p>E2-based standard compute. Processor: AMD EPYC 7551. Base frequency 2.0 GHz, max boost frequency 3.0 GHz.</p><div class="uk-overflow-auto"><table class="table vl-table-bordered vl-table-divider-col" summary="This table lists the previous generation VM.Standard.E2 shapes that some customers can use with virtual machines."><caption></caption><colgroup><col/><col/><col/><col style="width:152px"/><col/><col/><col/></colgroup><thead class="thead">
+<tr class="row">
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__134">Shape</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__135">OCPU</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__136">Memory (GB)</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__137">Local Disk (TB)</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__138">Max Network Bandwidth</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__139">Max VNICs Total: Linux</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__140">Max VNICs Total: Windows</th>
+</tr>
+</thead><tbody class="tbody">
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__134" id="previous-generation-shapes__previous-generation-vm__entry__141" scope="row">VM.Standard.E2.1</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__141 previous-generation-shapes__previous-generation-vm__entry__135">
+<span class="notranslate">1</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__141 previous-generation-shapes__previous-generation-vm__entry__136">
+<span class="notranslate">8</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__141 previous-generation-shapes__previous-generation-vm__entry__137">Block storage only</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__141 previous-generation-shapes__previous-generation-vm__entry__138">700 Mbps</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__141 previous-generation-shapes__previous-generation-vm__entry__139">
+<span class="notranslate">2</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__141 previous-generation-shapes__previous-generation-vm__entry__140">
+<span class="notranslate">2</span>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__134" id="previous-generation-shapes__previous-generation-vm__entry__148" scope="row">VM.Standard.E2.2</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__148 previous-generation-shapes__previous-generation-vm__entry__135">
+<span class="notranslate">2</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__148 previous-generation-shapes__previous-generation-vm__entry__136">
+<span class="notranslate">16</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__148 previous-generation-shapes__previous-generation-vm__entry__137">Block storage only</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__148 previous-generation-shapes__previous-generation-vm__entry__138">1.4 Gbps</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__148 previous-generation-shapes__previous-generation-vm__entry__139">
+<span class="notranslate">2</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__148 previous-generation-shapes__previous-generation-vm__entry__140">
+<span class="notranslate">2</span>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__134" id="previous-generation-shapes__previous-generation-vm__entry__155" scope="row">VM.Standard.E2.4</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__155 previous-generation-shapes__previous-generation-vm__entry__135">
+<span class="notranslate">4</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__155 previous-generation-shapes__previous-generation-vm__entry__136">
+<span class="notranslate">32</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__155 previous-generation-shapes__previous-generation-vm__entry__137">Block storage only</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__155 previous-generation-shapes__previous-generation-vm__entry__138">2.8 Gbps</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__155 previous-generation-shapes__previous-generation-vm__entry__139">
+<span class="notranslate">4</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__155 previous-generation-shapes__previous-generation-vm__entry__140">
+<span class="notranslate">4</span>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__134" id="previous-generation-shapes__previous-generation-vm__entry__162" scope="row">VM.Standard.E2.8</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__162 previous-generation-shapes__previous-generation-vm__entry__135">
+<span class="notranslate">8</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__162 previous-generation-shapes__previous-generation-vm__entry__136">
+<span class="notranslate">64</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__162 previous-generation-shapes__previous-generation-vm__entry__137">Block storage only</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__162 previous-generation-shapes__previous-generation-vm__entry__138">5.6 Gbps</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__162 previous-generation-shapes__previous-generation-vm__entry__139">
+<span class="notranslate">4</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__162 previous-generation-shapes__previous-generation-vm__entry__140">
+<span class="notranslate">4</span>
+</td>
+</tr>
+</tbody></table></div></div></div></div>
+<div class="uk-margin-top" uk-accordion=""><div><a class="uk-accordion-title" href="#">VM.Standard.E3</a><div class="uk-accordion-content"><p>
+<strong>Newer shape recommendation:</strong>
+VM.Standard.E4.Flex, VM.Standard.E5.Flex, VM.Standard.E6.Flex, VM.Standard.A1.Flex, VM.Standard.A2.Flex, or VM.Standard.A4.Flex.</p><p>
+<strong>End of orderability date:</strong> March 31, 2022</p><p>E3-based standard compute, with a flexible number of OCPUs. Processor: AMD EPYC 7742. Base frequency 2.25 GHz, max boost frequency 3.4 GHz.</p><div class="uk-overflow-auto"><table class="table vl-table-bordered vl-table-divider-col" summary="This table lists the previous generation VM.Standard.E3.Flex standard shapes that some customers can use with virtual machines."><caption></caption><colgroup><col/><col/><col/><col style="width:152px"/><col/><col/><col/></colgroup><thead class="thead">
+<tr class="row">
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__169">Shape</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__170">OCPU</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__171">Memory (GB)</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__172">Local Disk (TB)</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__173">Max Network Bandwidth</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__174">Max VNICs Total: Linux</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__175">Max VNICs Total: Windows</th>
+</tr>
+</thead><tbody class="tbody">
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__169" id="previous-generation-shapes__previous-generation-vm__entry__176" scope="row">
+<p>VM.Standard.E3.Flex</p>
+<p>See <a class="xref" href="computeshapes.htm#flexible">Flexible Shapes</a> and <a class="xref" href="burstable-instances.htm">Burstable Instances</a>.</p>
+</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__176 previous-generation-shapes__previous-generation-vm__entry__170">
+<span translate="no">1</span> OCPU minimum, <span translate="no">64</span> OCPU maximum
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__176 previous-generation-shapes__previous-generation-vm__entry__171">
+<span translate="no">1 GB</span> minimum, <span translate="no">1024 GB</span> maximum
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__176 previous-generation-shapes__previous-generation-vm__entry__172">Block storage only</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__176 previous-generation-shapes__previous-generation-vm__entry__173">
+1 Gbps per OCPU, maximum 40 Gbps
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__176 previous-generation-shapes__previous-generation-vm__entry__174">
+<div>
+<p>VM with 1 OCPU: 2 VNICs.</p>
+<p>VM with 2 or more OCPUs: 1 VNIC per OCPU.</p>
+<p>Maximum 24 VNICs.</p>
+</div>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__176 previous-generation-shapes__previous-generation-vm__entry__175">
+<div>
+<p>VM with 1 OCPU: 2 VNICs.</p>
+<p>VM with 2 or more OCPUs: 1 VNIC per OCPU.</p>
+<p>Maximum 24 VNICs.</p>
+</div>
+</td>
+</tr>
+</tbody></table></div></div></div></div>
+<div class="uk-margin-top" uk-accordion=""><div><a class="uk-accordion-title" href="#">VM.DenseIO1</a><div class="uk-accordion-content"><p>
+<strong>Newer shape recommendation:</strong>
+VM.DenseIO.E4.Flex or VM.DenseIO.E5.Flex.</p><p>
+<strong>End of orderability date:</strong> December 31, 2020</p><p>X5-based dense I/O compute. Processor: Intel Xeon E5-2699 v3. Base frequency 2.3 GHz, max turbo frequency 3.6 GHz.</p><div class="uk-overflow-auto"><table class="table vl-table-bordered vl-table-divider-col" summary="This table lists the previous generation VM.DenseIO1 shapes that some customers can use with virtual machines."><caption></caption><colgroup><col/><col/><col/><col style="width:152px"/><col/><col/><col/></colgroup><thead class="thead">
+<tr class="row">
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__183">Shape</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__184">OCPU</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__185">Memory (GB)</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__186">Local Disk (TB)</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__187">Max Network Bandwidth</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__188">Max VNICs Total: Linux</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__189">Max VNICs Total: Windows</th>
+</tr>
+</thead><tbody class="tbody">
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__183" id="previous-generation-shapes__previous-generation-vm__entry__190" scope="row">VM.DenseIO1.4</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__190 previous-generation-shapes__previous-generation-vm__entry__184">
+<span class="notranslate">4</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__190 previous-generation-shapes__previous-generation-vm__entry__185">
+<span class="notranslate">60</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__190 previous-generation-shapes__previous-generation-vm__entry__186">3.2 TB NVMe SSD</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__190 previous-generation-shapes__previous-generation-vm__entry__187">1.2 Gbps</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__190 previous-generation-shapes__previous-generation-vm__entry__188">
+<span class="notranslate">4</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__190 previous-generation-shapes__previous-generation-vm__entry__189">
+<span class="notranslate">1</span>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__183" id="previous-generation-shapes__previous-generation-vm__entry__197" scope="row">VM.DenseIO1.8</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__197 previous-generation-shapes__previous-generation-vm__entry__184">
+<span class="notranslate">8</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__197 previous-generation-shapes__previous-generation-vm__entry__185">
+<span class="notranslate">120</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__197 previous-generation-shapes__previous-generation-vm__entry__186">6.4 TB NVMe SSD</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__197 previous-generation-shapes__previous-generation-vm__entry__187">2.4 Gbps</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__197 previous-generation-shapes__previous-generation-vm__entry__188">
+<span class="notranslate">8</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__197 previous-generation-shapes__previous-generation-vm__entry__189">
+<span class="notranslate">1</span>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__183" id="previous-generation-shapes__previous-generation-vm__entry__204" scope="row">VM.DenseIO1.16</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__204 previous-generation-shapes__previous-generation-vm__entry__184">
+<span class="notranslate">16</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__204 previous-generation-shapes__previous-generation-vm__entry__185">
+<span class="notranslate">240</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__204 previous-generation-shapes__previous-generation-vm__entry__186">12.8 TB NVMe SSD</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__204 previous-generation-shapes__previous-generation-vm__entry__187">4.8 Gbps</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__204 previous-generation-shapes__previous-generation-vm__entry__188">
+<span class="notranslate">16</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__204 previous-generation-shapes__previous-generation-vm__entry__189">
+<span class="notranslate">1</span>
+</td>
+</tr>
+</tbody></table></div></div></div></div>
+<div class="uk-margin-top" uk-accordion=""><div><a class="uk-accordion-title" href="#">VM.DenseIO2</a><div class="uk-accordion-content"><p>
+<strong>Newer shape recommendation:</strong>
+VM.DenseIO.E4.Flex or VM.DenseIO.E5.Flex.</p><p>
+<strong>End of orderability date:</strong> April 28, 2022</p><p>X7-based dense I/O compute. Processor: Intel Xeon Platinum 8167M. Base frequency 2.0 GHz, max turbo frequency 2.4 GHz.</p><div class="uk-overflow-auto"><table class="table vl-table-bordered vl-table-divider-col" summary="This table lists the previous generation VM.DenseIO2 shapes that some customers can use with virtual machines."><caption></caption><colgroup><col/><col/><col/><col style="width:152px"/><col/><col/><col/></colgroup><thead class="thead">
+<tr class="row">
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__211">Shape</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__212">OCPU</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__213">Memory (GB)</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__214">Local Disk (TB)</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__215">Max Network Bandwidth</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__216">Max VNICs Total: Linux</th>
+<th class="entry" id="previous-generation-shapes__previous-generation-vm__entry__217">Max VNICs Total: Windows</th>
+</tr>
+</thead><tbody class="tbody">
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__211" id="previous-generation-shapes__previous-generation-vm__entry__218" scope="row">VM.DenseIO2.8</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__218 previous-generation-shapes__previous-generation-vm__entry__212">
+<span class="notranslate">8</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__218 previous-generation-shapes__previous-generation-vm__entry__213">
+<span class="notranslate">120</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__218 previous-generation-shapes__previous-generation-vm__entry__214">6.4 TB NVMe SSD</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__218 previous-generation-shapes__previous-generation-vm__entry__215">8.2 Gbps</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__218 previous-generation-shapes__previous-generation-vm__entry__216">
+<span class="notranslate">8</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__218 previous-generation-shapes__previous-generation-vm__entry__217">
+<span class="notranslate">8</span>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__211" id="previous-generation-shapes__previous-generation-vm__entry__225" scope="row">VM.DenseIO2.16</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__225 previous-generation-shapes__previous-generation-vm__entry__212">
+<span class="notranslate">16</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__225 previous-generation-shapes__previous-generation-vm__entry__213">
+<span class="notranslate">240</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__225 previous-generation-shapes__previous-generation-vm__entry__214">12.8 TB NVMe SSD</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__225 previous-generation-shapes__previous-generation-vm__entry__215">16.4 Gbps</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__225 previous-generation-shapes__previous-generation-vm__entry__216">
+<span class="notranslate">16</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__225 previous-generation-shapes__previous-generation-vm__entry__217">
+<span class="notranslate">16</span>
+</td>
+</tr>
+<tr class="row">
+<th class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__211" id="previous-generation-shapes__previous-generation-vm__entry__232" scope="row">VM.DenseIO2.24</th>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__232 previous-generation-shapes__previous-generation-vm__entry__212">
+<span class="notranslate">24</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__232 previous-generation-shapes__previous-generation-vm__entry__213">
+<span class="notranslate">320</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__232 previous-generation-shapes__previous-generation-vm__entry__214">25.6 TB NVMe SSD</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__232 previous-generation-shapes__previous-generation-vm__entry__215">24.6 Gbps</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__232 previous-generation-shapes__previous-generation-vm__entry__216">
+<span class="notranslate">24</span>
+</td>
+<td class="entry" headers="previous-generation-shapes__previous-generation-vm__entry__232 previous-generation-shapes__previous-generation-vm__entry__217">
+<span class="notranslate">24</span>
+</td>
+</tr>
+</tbody></table></div></div></div></div>
+</section>
+</div>
+</article>
+</article>
+</article>
+<div class="uk-hidden@l">
+<div class="vl-cfs-mount vl-cfs-m" id="vl-cfs-mount-footer"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="vl-floating-toc-container uk-visible@l" vl-floating-toc="">
+<div class="vl-floating-toc-container-inner" vl-floating-toc-inner="">
+<div id="content-toolbar-mount"></div>
+<ul class="uk-nav uk-nav-default vl-floating-toc" uk-scrollspy-nav="closest: li; offset: 50">
+<li class="vl-floating-toc-h1">
+<a href="#Compute_Shapes">
+                                Compute Shapes
+                              </a>
+</li>
+<li class="vl-floating-toc-h2">
+<a href="#Compute_Shapes__pricing">
+                                Compute Shape Pricing
+                              </a>
+</li>
+<li class="vl-floating-toc-h2">
+<a href="#flexible">
+                                Flexible Shapes
+                              </a>
+</li>
+<li class="vl-floating-toc-h3">
+<a href="#images">
+                                Supported Images
+                              </a>
+</li>
+<li class="vl-floating-toc-h3">
+<a href="#regions">
+                                Supported Regions
+                              </a>
+</li>
+<li class="vl-floating-toc-h2">
+<a href="#computeshapes_topic-extended-memory">
+                                Extended Memory VM Instances
+                              </a>
+</li>
+<li class="vl-floating-toc-h2">
+<a href="#baremetalshapes">
+                                Bare Metal Shapes
+                              </a>
+</li>
+<li class="vl-floating-toc-h3">
+<a href="#bm-standard">
+                                Standard Shapes
+                              </a>
+</li>
+<li class="vl-floating-toc-h3">
+<a href="#bm-dense">
+                                Dense I/O Shapes
+                              </a>
+</li>
+<li class="vl-floating-toc-h3">
+<a href="#bm-gpu">
+                                GPU Shapes
+                              </a>
+</li>
+<li class="vl-floating-toc-h3">
+<a href="#bm-hpc-optimized">
+                                HPC and Optimized Shapes
+                              </a>
+</li>
+<li class="vl-floating-toc-h2">
+<a href="#vmshapes">
+                                Virtual Machine (VM) Shapes
+                              </a>
+</li>
+<li class="vl-floating-toc-h3">
+<a href="#vm-standard">
+                                Standard Shapes
+                              </a>
+</li>
+<li class="vl-floating-toc-h3">
+<a href="#vm-dense">
+                                Dense I/O Shapes
+                              </a>
+</li>
+<li class="vl-floating-toc-h3">
+<a href="#vm-gpu">
+                                GPU Shapes
+                              </a>
+</li>
+<li class="vl-floating-toc-h3">
+<a href="#vm-hpc-optimized">
+                                HPC and Optimized Shapes
+                              </a>
+</li>
+<li class="vl-floating-toc-h2">
+<a href="#dedicatedvmhost">
+                                Dedicated Virtual Machine Host Shapes
+                              </a>
+</li>
+<li class="vl-floating-toc-h2">
+<a href="#previous-generation-shapes">
+                                Previous Generation Shapes
+                              </a>
+</li>
+<li class="vl-floating-toc-h3">
+<a href="#previous-generation-shapes__upgrading-from-previous-generation">
+                                Upgrading from a Previous Generation Shape
+                              </a>
+</li>
+<li class="vl-floating-toc-h3">
+<a href="#previous-generation-shapes__previous-generation-bm">
+                                Previous Generation Bare Metal Shapes
+                              </a>
+</li>
+<li class="vl-floating-toc-h3">
+<a href="#previous-generation-shapes__previous-generation-vm">
+                                Previous Generation VM Shapes
+                              </a>
+</li>
+</ul>
+<div class="vl-cfs-mount vl-cfs-l" id="vl-cfs-mount"></div>
+<div class="uk-nav uk-nav-default" id="vl-dts-mount"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer class="vl-footer uk-section uk-section-secondary uk-section-small uk-text-xsmall uk-text-muted" data-trackas="dcoc-footer" vl-footer="">
+<div class="uk-container vl-container-xlarge">
+<ul class="uk-subnav uk-flex-center" uk-margin="">
+<li class="legal"><span>Copyright © 2026, Oracle and/or its affiliates.</span></li>
+<li class="legal"><a href="https://www.oracle.com/corporate/index.html">About Oracle</a></li>
+<li class="legal"><a href="https://www.oracle.com/corporate/contact/index.html">Contact Us</a></li>
+<li class="legal"><a href="/iaas/Content/legalnotices.htm">Legal Notices</a></li>
+<li class="legal"><a href="https://www.oracle.com/legal/privacy/">Terms of Use &amp; Privacy</a></li>
+<li class="legal"><a href="/iaas/Content/General/Reference/docconventions.htm">Document Conventions</a></li>
+<li id="teconsent"></li>
+</ul>
+</div>
+</footer>
+<script src="/iaas/build/front-end.js?eb7e1ef39f45a2c3300df51c2c9b18e04c6a09266e7c409b1b37ea8598ea9f24"></script>
+ 
+ 
+</body>
+</html>

@@ -1,0 +1,34 @@
+{{ define "main" }}
+  <article class="page shell publications-page">
+    <header class="page-header">
+      <p class="eyebrow">Research record</p>
+      <h1>{{ .Title }}</h1>
+      <div class="short-rule" aria-hidden="true"></div>
+      <p class="page-intro">Preprints and published work, listed in reverse chronological order.</p>
+    </header>
+
+    {{ $preprints := where hugo.Data.publications "type" "preprint" }}
+    {{ if $preprints }}
+      <section class="publication-section" aria-labelledby="preprints-heading">
+        <h2 id="preprints-heading" class="section-label">Preprints</h2>
+        <div class="publication-list">
+          {{ range sort $preprints "year" "desc" }}
+            {{ partial "publication.html" (dict "publication" . "compact" false) }}
+          {{ end }}
+        </div>
+      </section>
+    {{ end }}
+
+    {{ $published := where hugo.Data.publications "type" "published" }}
+    {{ if $published }}
+      <section class="publication-section" aria-labelledby="published-heading">
+        <h2 id="published-heading" class="section-label">Published</h2>
+        <div class="publication-list">
+          {{ range sort $published "year" "desc" }}
+            {{ partial "publication.html" (dict "publication" . "compact" false) }}
+          {{ end }}
+        </div>
+      </section>
+    {{ end }}
+  </article>
+{{ end }}

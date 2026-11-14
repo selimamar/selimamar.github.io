@@ -1,0 +1,618 @@
+{
+  "lastUpdated": "2026-09-23T13:10:59.012Z",
+  "items": [
+    {
+      "partNumber": "B109479",
+      "displayName": "Compute - GPU - L40S",
+      "metricName": "GPU Per Hour",
+      "serviceCategory": "Compute - GPU",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 3.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B109485",
+      "displayName": "OCI - Compute - GPU - MI300X",
+      "metricName": "GPU Per Hour",
+      "serviceCategory": "Compute - GPU",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B109529",
+      "displayName": "Compute - Standard - A2 OCPU",
+      "metricName": "OCPU Per Hour",
+      "serviceCategory": "Compute - Virtual Machine",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 0.014
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B109530",
+      "displayName": "Compute - Standard - A2 Memory",
+      "metricName": "Gigabytes Per Hour",
+      "serviceCategory": "Compute - Virtual Machine",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 0.002
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B110519",
+      "displayName": "OCI - Compute - GPU - H200",
+      "metricName": "GPU Per Hour",
+      "serviceCategory": "Compute - GPU",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B110978",
+      "displayName": "OCI - Compute - GPU - B200",
+      "metricName": "GPU Per Hour",
+      "serviceCategory": "Compute - GPU",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B111129",
+      "displayName": "OCI - Compute - Standard - E6 - OCPU",
+      "metricName": "OCPU Per Hour",
+      "serviceCategory": "Compute - Virtual Machine",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 0.03
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B111130",
+      "displayName": "OCI - Compute - Standard - E6 - Memory",
+      "metricName": "Gigabytes Per Hour",
+      "serviceCategory": "Compute - Virtual Machine",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 0.002
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B112141",
+      "displayName": "OCI - Compute - Standard - X12 Ax - OCPU",
+      "metricName": "OCPU Per Hour",
+      "serviceCategory": "Compute - Virtual Machine",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 0.0119
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B112142",
+      "displayName": "OCI - Compute - Standard - X12 Ax - Memory",
+      "metricName": "Gigabyte Per Hour",
+      "serviceCategory": "Compute - Virtual Machine",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 0.0114
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B112145",
+      "displayName": "OCI - Compute - Standard - A4 - OCPU",
+      "metricName": "OCPU Per Hour",
+      "serviceCategory": "Compute - Virtual Machine",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 0.0138
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B112146",
+      "displayName": "OCI - Compute - Standard - A4 - Memory",
+      "metricName": "Gigabyte Per Hour",
+      "serviceCategory": "Compute - Virtual Machine",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 0.0027
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B112530",
+      "displayName": "OCI - Compute - Standard - E6 Ax - OCPU",
+      "metricName": "OCPU Per Hour",
+      "serviceCategory": "Compute - Virtual Machine",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 0.0138
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B112531",
+      "displayName": "OCI - Compute - Standard - E6 Ax - Memory",
+      "metricName": "Gigabytes Per Hour",
+      "serviceCategory": "Compute - Virtual Machine",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 0.0108
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B112532",
+      "displayName": "OCI - Compute - Standard - A4 Ax - OCPU",
+      "metricName": "OCPU Per Hour",
+      "serviceCategory": "Compute - Virtual Machine",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 0.019
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B112533",
+      "displayName": "OCI - Compute - Standard - A4 Ax - Memory",
+      "metricName": "Gigabytes Per Hour",
+      "serviceCategory": "Compute - Virtual Machine",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 0.0084
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B112613",
+      "displayName": "OCI - Compute - GPU - RTX PRO 6000",
+      "metricName": "GPU Per Hour",
+      "serviceCategory": "Compute - GPU",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 4.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B89734",
+      "displayName": "Compute - GPU Standard - V2",
+      "metricName": "GPU Per Hour",
+      "serviceCategory": "Compute - GPU",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 2.95
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B92740",
+      "displayName": "Compute - GPU - E3",
+      "metricName": "GPU Per Hour",
+      "serviceCategory": "Compute - GPU",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 3.05
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B93113",
+      "displayName": "Compute - Standard - E4 - OCPU",
+      "metricName": "OCPU Per Hour",
+      "serviceCategory": "Compute - Virtual Machine",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 0.025
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B93114",
+      "displayName": "Compute - Standard - E4  - Memory",
+      "metricName": "Gigabyte Per Hour",
+      "serviceCategory": "Compute - Virtual Machine",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 0.0015
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B93121",
+      "displayName": "Compute - Dense I/O - E4 - OCPU",
+      "metricName": "OCPU Per Hour",
+      "serviceCategory": "Compute - Virtual Machine",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 0.025
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B93122",
+      "displayName": "Compute - Dense I/O - E4 - Memory",
+      "metricName": "Gigabytes Per Hour",
+      "serviceCategory": "Compute - Virtual Machine",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 0.0015
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B93123",
+      "displayName": "Compute - Dense I/O - E4 - NVMe",
+      "metricName": "NVMe Terabyte Per Hour",
+      "serviceCategory": "Compute - Virtual Machine",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 0.0612
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B93297",
+      "displayName": "Compute - Standard - A1 - OCPU",
+      "description": "In Oracle's ARM compute shapes, OCPUs equate to vCPUs.",
+      "metricName": "OCPU Per Hour",
+      "serviceCategory": "Compute - Virtual Machine",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 0,
+              "rangeMin": 0,
+              "rangeMax": 3000
+            },
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 0.01,
+              "rangeMin": 3000,
+              "rangeMax": 999999999999999
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B93298",
+      "displayName": "Compute - Standard - A1 - Memory",
+      "metricName": "Gigabyte Per Hour",
+      "serviceCategory": "Compute - Virtual Machine",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 0,
+              "rangeMin": 0,
+              "rangeMax": 18000
+            },
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 0.0015,
+              "rangeMin": 18000,
+              "rangeMax": 999999999999999
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B93311",
+      "displayName": "Compute - Optimized - X9 - OCPU",
+      "metricName": "OCPU Per Hour",
+      "serviceCategory": "Compute - Virtual Machine",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 0.054
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B93312",
+      "displayName": "Compute - Optimized - X9 - Memory",
+      "metricName": "Gigabyte Per Hour",
+      "serviceCategory": "Compute - Virtual Machine",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 0.0015
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B94176",
+      "displayName": "Compute - Standard - X9 - OCPU",
+      "metricName": "OCPU Per Hour",
+      "serviceCategory": "Compute - Virtual Machine",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 0.04
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B94177",
+      "displayName": "Compute - Standard - X9 - Memory",
+      "metricName": "Gigabytes Per Hour",
+      "serviceCategory": "Compute - Virtual Machine",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 0.0015
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B95907",
+      "displayName": "Compute - GPU - A100 - v2",
+      "metricName": "GPU Per Hour",
+      "serviceCategory": "Compute - GPU",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B95909",
+      "displayName": "Compute  - GPU - A10",
+      "metricName": "GPU Per Hour",
+      "serviceCategory": "Compute - GPU",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B97384",
+      "displayName": "Compute - Standard - E5 - OCPU",
+      "metricName": "OCPU Per Hour",
+      "serviceCategory": "Compute - Virtual Machine",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 0.03
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B97385",
+      "displayName": "Compute - Standard - E5 - Memory",
+      "metricName": "Gigabytes Per Hour",
+      "serviceCategory": "Compute - Virtual Machine",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 0.002
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "B98415",
+      "displayName": "Oracle Cloud Infrastructure - Compute - GPU - H100",
+      "description": "Oracle Cloud Infrastructure (OCI) Compute provides bare metal and virtual machine instances powered by NVIDIA GPUs for a variety of use cases, including mainstream graphics and videos as well as the most demanding AI training and HPC workloads. OCI excels at both training time and cost because of its ultralow latency and near line-rate network performance.",
+      "metricName": "GPU Per Hour",
+      "serviceCategory": "Compute - GPU",
+      "currencyCodeLocalizations": [
+        {
+          "currencyCode": "USD",
+          "prices": [
+            {
+              "model": "PAY_AS_YOU_GO",
+              "value": 10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

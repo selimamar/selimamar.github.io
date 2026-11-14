@@ -1,0 +1,19 @@
+{{ $p := .publication }}
+<article class="publication">
+  <div class="publication-mark" aria-hidden="true"><span></span></div>
+  <div class="publication-body">
+    <h3>{{ $p.title }}</h3>
+    <p class="publication-authors">{{ delimit $p.authors ", " }}</p>
+    <p class="publication-meta">
+      {{ if eq $p.type "preprint" }}Preprint{{ else }}{{ with $p.journal }}<em>{{ . }}</em>{{ else }}Published{{ end }}{{ end }}{{ with $p.year }}, {{ . }}{{ end }}
+    </p>
+  </div>
+  {{ if or $p.arxiv $p.pdf $p.doi $p.journal_url }}
+    <nav class="publication-links" aria-label="Links for {{ $p.title }}">
+      {{ with $p.arxiv }}<a href="{{ . }}">arXiv <span aria-hidden="true">↗</span></a>{{ end }}
+      {{ with $p.pdf }}<a href="{{ . }}">PDF <span aria-hidden="true">↓</span></a>{{ end }}
+      {{ with $p.doi }}<a href="{{ . }}">DOI <span aria-hidden="true">↗</span></a>{{ end }}
+      {{ with $p.journal_url }}<a href="{{ . }}">Journal <span aria-hidden="true">↗</span></a>{{ end }}
+    </nav>
+  {{ end }}
+</article>
